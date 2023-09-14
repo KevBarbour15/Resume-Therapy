@@ -55,9 +55,8 @@
 /* Developers Styling  (Second on page) */
 
 .developers-section {
-  display: block;
   text-align: center;
-  height: 100vh;
+  height: 30vh;
 }
 
 .developers-section h1 {
@@ -86,7 +85,7 @@
 .stack-section {
   display: inline;
   text-align: center;
-  height: 100vh;
+  height: 50vh;
   padding: 25px;
 }
 

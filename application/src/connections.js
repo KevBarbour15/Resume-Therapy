@@ -14,14 +14,10 @@ import {
 
 const addConnection = async (userid, reviewerid) => {
   try {
-    //Check if connections already exists
     const alreadyExists = query(collection(db, "connections"), where("userid", "==", userid), where("reviewerid", "==", reviewerid));
 
     const existsDoc = await getDocs(alreadyExists);
-    
-    //console.log(userid);
-    //console.log(reviewerid);
-    console.log(existsDoc.docs);
+  
     if(existsDoc.docs.length > 0)
     {
         console.log("Connection already exists!");
@@ -62,19 +58,15 @@ const acceptConnectionRequest = async (userid, reviewerid) => {
     const doc = querySnapshot.docs[0];
     await updateDoc(doc.ref, { status: "accepted" });
     
-    console.log("conversation created!");
-    //A conversation will be automatically made between userid, and reviewerid
+
     createConversations(userid, reviewerid);
 
   } catch (err) {
-    console.error(err);
     alert("An error occurred while accepting connection request");
   }
 };
 
 const denyConnectionRequest = async (userid, reviewerid) => {
-  console.log("userid: " + userid);
-  console.log("reviewerid: " + reviewerid);
   try {
     const connectionsRef = collection(db, "connections");
     const q = query(

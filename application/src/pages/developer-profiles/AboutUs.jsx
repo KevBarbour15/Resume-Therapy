@@ -29,30 +29,6 @@ function AboutUs() {
             <p>Back-End Lead</p>
           </Link>
         </div>
-        <div className="rcorners1">
-          <Link to="KeonA">
-            <h4>Keon Abbasi</h4>
-            <p>Scrum Master</p>
-          </Link>
-        </div>
-        <div className="rcorners1">
-          <Link to="MichaelP">
-            <h4>Michael P</h4>
-            <p>GitHub Master</p>
-          </Link>
-        </div>
-        <div className="rcorners1">
-          <Link to="KevinZ">
-            <h4>Kevin Zeng</h4>
-            <p>Front-End Help</p>
-          </Link>
-        </div>
-        <div className="rcorners1">
-          <Link to="MaelT">
-            <h4>Mael T</h4>
-            <p>Back-End Help</p>
-          </Link>
-        </div>
       </div>
       <div className="stack-section">
         <h1>Our Tech Stack</h1>
