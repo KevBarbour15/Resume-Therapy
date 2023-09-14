@@ -6,10 +6,6 @@ import AboutUs from "./pages/developer-profiles/AboutUs";
 import AtharvaV from "./pages/developer-profiles/AtharvaV";
 import KevinB from "./pages/developer-profiles/KevinB";
 import IvanR from "./pages/developer-profiles/IvanR";
-import KevinZ from "./pages/developer-profiles/KevinZ";
-import KeonA from "./pages/developer-profiles/KeonA";
-import MichaelP from "./pages/developer-profiles/MichaelP";
-import MaelT from "./pages/developer-profiles/MaelT";
 import EmployeeHome from "./pages/employee_pages/EmployeeHome";
 import EmployeeRegister from "./authentication/EmployeeRegister";
 import EmployeeSignIn from "./authentication/EmployeeSignIn";
@@ -51,10 +47,6 @@ function App() {
         <Route path="/AboutUs/AtharvaV" element={<AtharvaV />} />
         <Route path="/AboutUs/KevinB" element={<KevinB />} />
         <Route path="/AboutUs/IvanR" element={<IvanR />} />
-        <Route path="/AboutUs/KevinZ" element={<KevinZ />} />
-        <Route path="/AboutUs/KeonA" element={<KeonA />} />
-        <Route path="/AboutUs/MichaelP" element={<MichaelP />} />
-        <Route path="/AboutUs/MaelT" element={<MaelT />} />
       </Routes>
 
       <Routes>
