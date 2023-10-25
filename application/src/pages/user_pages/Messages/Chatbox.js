@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "react-chat-elements/dist/main.css";
 
-import { ListMessages, addMessage } from "../../../back-end/Message.js";
+import { ListMessages, addMessage } from "../../../Message.js";
 
 import "./messages.css";
 

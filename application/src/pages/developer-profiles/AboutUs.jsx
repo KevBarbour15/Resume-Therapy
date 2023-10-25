@@ -49,8 +49,7 @@ function AboutUs() {
           use the React Native Firebase Storage library for handling file
           storage. On the development side, we use Jest for testing, and tools
           like Prettier and ESLint ensure our code is clean and consistent. Our
-          styles are elevated with Sass and Tailwind CSS. Finally, our platform
-          is hosted on Google Cloud, with Nginx as our web server.
+          styles are elevated with Sass and Tailwind CSS.
         </h2>
       </div>
       <Footer />

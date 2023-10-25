@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "react-chat-elements/dist/main.css";
 import { auth } from "../../../firebase";
 import { onAuthStateChanged } from "firebase/auth";
-import { ListConversations } from "../../../back-end/Message.js";
+import { ListConversations } from "../../../Message.js";
 import "./messages.css";
 import { TextField } from "@mui/material";
 import { ChatMessage } from "./Chatbox";

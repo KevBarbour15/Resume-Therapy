@@ -6,8 +6,6 @@ import {
   getDocs,
   updateDoc,
   where,
-  addDoc,
-  deleteDoc,
 } from "firebase/firestore";
 
 const addBio = async (userid, bio) => {

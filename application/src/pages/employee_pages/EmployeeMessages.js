@@ -6,7 +6,7 @@ import {
   ListConversations,
   ListMessages,
   addMessage,
-} from "../../back-end/Message.js";
+} from "../../Message.js";
 import "../../tests/test.css";
 
 function Messages() {
