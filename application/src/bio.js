@@ -10,7 +10,6 @@ import {
 
 const addBio = async (userid, bio) => {
   try {
-    console.log("SUBMITTED", bio);
     const connectionsRef = collection(db, "users");
     const q = query(connectionsRef, where("uid", "==", userid));
     const querySnapshot = await getDocs(q);
