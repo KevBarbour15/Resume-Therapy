@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth, logInWithEmailAndPasswordEmployee, getErrorText } from "../firebase";
+import { auth, logInWithEmailAndPasswordEmployee } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./Login.css";
 import { Navbar } from "../component/navbar/Navbar";
@@ -11,7 +11,7 @@ const EmployeeSignIn = () => {
   const [user, loading, error] = useAuthState(auth);
   const [errorText, setErrorText] = useState("");
   const navigate = useNavigate();
-  let err = "";
+
   useEffect(() => {
     if (user) navigate("/reviewer-dash/profile");
     if (error) alert(error.message);
@@ -24,16 +24,11 @@ const EmployeeSignIn = () => {
   }
 
   const login = async() => {
-    await logInWithEmailAndPasswordEmployee(email, password);
-    await setError(getErrorText());
+    const errMessage = await logInWithEmailAndPasswordEmployee(email, password);
     console.log(err);
-    
+    setErrorText(errMessage);
   }
-  const setError = async(errorT) => {
-    err = errorT;
-    setErrorText(err);
-  };
-  
+
   return (
     <>
       <Navbar />

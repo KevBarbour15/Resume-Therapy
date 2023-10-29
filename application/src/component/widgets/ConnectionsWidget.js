@@ -17,9 +17,6 @@ const StyledIcon = styled("div")(({ theme }) => ({
   marginBottom: theme.spacing(3),
 }));
 
-// Might need to change card actions
-// ----------------------------------------------------------------------
-
 ConnectionsWidget.propTypes = {
   color: PropTypes.string,
   icon: PropTypes.string,

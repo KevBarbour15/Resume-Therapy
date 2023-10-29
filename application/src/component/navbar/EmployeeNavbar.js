@@ -1,15 +1,14 @@
 import "./NavbarStyles.css";
 import { React, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
-import EmployeeHome from "../../pages/employee_pages/EmployeeHome";
-// import Messages from "../../tests/Messages";
-
+import { auth, logout } from "../../firebase";
 
 export const EmployeeNavbar = () => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const [color, setColor] = useState(false);
+  const navigate = useNavigate();
 
   const changeColor = () => {
     if (window.scrollY >= 100) {
@@ -20,6 +19,7 @@ export const EmployeeNavbar = () => {
   };
 
   const logUserOut = async () => {
+    console.log("Logging out...");
     try {
         await logout(auth);
         navigate("/");

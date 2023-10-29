@@ -1,13 +1,6 @@
-// @mui
 import PropTypes from "prop-types";
-import { alpha, styled } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import { Card, Typography } from "@mui/material";
-// utils
-import { fShortenNumber } from "../../utils/formatNumber";
-// components
-import Iconify from "../../component/iconify";
-
-// ----------------------------------------------------------------------
 
 const StyledIcon = styled("div")(({ theme }) => ({
   margin: "auto",
@@ -20,20 +13,16 @@ const StyledIcon = styled("div")(({ theme }) => ({
   marginBottom: theme.spacing(3),
 }));
 
-// ----------------------------------------------------------------------
-
 ProfileWidget.propTypes = {
   color: PropTypes.string,
   icon: PropTypes.string,
   title: PropTypes.string.isRequired,
   bio: PropTypes.string.isRequired,
-  total: PropTypes.number.isRequired,
   sx: PropTypes.object,
 };
 
 export default function ProfileWidget({
   title,
-  total,
   bio,
   icon,
   color = "primary",

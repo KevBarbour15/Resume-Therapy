@@ -6,7 +6,6 @@ import {
   auth,
   registerWithEmailAndPassword,
   signInWithGoogle,
-  getErrorText,
 } from "../firebase";
 import "./Login.css";
 function Register() {
@@ -20,8 +19,8 @@ function Register() {
 
   let error = "";
   const register = async () => {
-    await registerWithEmailAndPassword(name, email, password);
-    await setError(getErrorText());
+   const errMessage = await registerWithEmailAndPassword(name, email, password);
+    setErrorText(errMessage);
     
     if (error === "") {
       setRegistrationStatus("success");
@@ -29,12 +28,6 @@ function Register() {
       setRegistrationStatus("failure");
     }
   };
-
-  const setError = async(errorT) => {
-    error = errorT;
-    setErrorText(error);
-  };
-  
 
 
   const enter = (event) => {

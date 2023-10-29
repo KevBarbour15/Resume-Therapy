@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { Navbar } from "../component/navbar/Navbar";
-import { auth, registerWithEmailAndPasswordEmployee, getErrorText } from "../firebase";
+import { auth, registerWithEmailAndPasswordEmployee } from "../firebase";
 import "./Login.css";
 
 function EmployeeRegister() {
@@ -18,7 +18,7 @@ function EmployeeRegister() {
   let error = "";
   const register = async () => {
     await registerWithEmailAndPasswordEmployee(name, email, password, false)
-    await setError(getErrorText());
+    await setError();
 
     if (error === "") {
       setRegistrationStatus("success");
@@ -41,7 +41,9 @@ function EmployeeRegister() {
 
 
   useEffect(() => {
+    
     if (registrationStatus === "success") {
+      console.log("success");
       navigate("/reviewer-dash/profile");
     }
   }, [navigate, registrationStatus]);

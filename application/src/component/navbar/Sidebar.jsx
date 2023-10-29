@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./sidebar.scss";
 import { auth, logout } from "../../firebase";
 
@@ -65,17 +65,17 @@ const Sidebar = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      const sidebarItem = sidebarRef.current.querySelector(
-        ".sidebar__menu__item"
-      );
-      if (indicatorRef.current) {
-   
-        indicatorRef.current.style.height = `${sidebarItem.clientHeight}px`;
+      if (sidebarRef.current) {
+        const sidebarItem = sidebarRef.current.querySelector(
+          ".sidebar__menu__item"
+        );
+        if (sidebarItem && indicatorRef.current) {
+          indicatorRef.current.style.height = `${sidebarItem.clientHeight}px`;
+        }
+        setStepHeight(sidebarItem ? sidebarItem.clientHeight : 0);
       }
-      setStepHeight(sidebarItem.clientHeight);
     }, 50);
   }, []);
-
 
   useEffect(() => {
     const curPath = window.location.pathname.split("/")[1];
@@ -88,10 +88,9 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar__logo">
-       <div className="title">Resume Therapy</div> 
+        <div className="title">Resume Therapy</div>
       </div>
       <div ref={sidebarRef} className="sidebar__menu">
-        
         {sidebarNavItems.map((item, index) => (
           <Link
             to={item.to}

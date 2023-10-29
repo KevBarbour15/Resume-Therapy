@@ -1,30 +1,17 @@
-// @mui
-import PropTypes from 'prop-types';
-import { alpha, styled } from '@mui/material/styles';
-import { Card, Typography } from '@mui/material';
-// utils
-import { fShortenNumber } from '../../utils/formatNumber';
-// components
-import Iconify from '../../component/iconify';
+import PropTypes from "prop-types";
+import {  styled } from "@mui/material/styles";
+import { Card, Typography } from "@mui/material";
 
-import Badge from '@mui/material/Badge';
-import Stack from '@mui/material/Stack';
-import MailIcon from '@mui/icons-material/Mail';
-
-// ----------------------------------------------------------------------
-
-const StyledIcon = styled('div')(({ theme }) => ({
-  margin: 'auto',
-  display: 'flex',
-  borderRadius: '50%',
-  alignItems: 'center',
+const StyledIcon = styled("div")(({ theme }) => ({
+  margin: "auto",
+  display: "flex",
+  borderRadius: "50%",
+  alignItems: "center",
   width: theme.spacing(8),
   height: theme.spacing(8),
-  justifyContent: 'center',
+  justifyContent: "center",
   marginBottom: theme.spacing(3),
 }));
-
-// ----------------------------------------------------------------------
 
 CalendarWidget.propTypes = {
   color: PropTypes.string,
@@ -34,37 +21,27 @@ CalendarWidget.propTypes = {
   sx: PropTypes.object,
 };
 
-export default function CalendarWidget({ title, total, icon, color = 'primary', sx, ...other }) {
+export default function CalendarWidget({
+  title,
+  total,
+  icon,
+  color = "primary",
+  sx,
+  ...other
+}) {
   return (
     <Card
       sx={{
         py: 5,
         boxShadow: 0,
-        textAlign: 'center',
+        textAlign: "center",
         color: (theme) => theme.palette[color].darker,
         bgcolor: (theme) => theme.palette[color].lighter,
         ...sx,
       }}
       {...other}
     >
-      {/* <StyledIcon
-        sx={{
-          color: (theme) => theme.palette[color].dark,
-          backgroundImage: (theme) =>
-            `linear-gradient(135deg, ${alpha(theme.palette[color].dark, 0)} 0%, ${alpha(
-              theme.palette[color].dark,
-              0.24
-            )} 100%)`,
-        }}
-      >
-        <Iconify icon={icon} width={24} height={24} />
-      </StyledIcon> */}
-
-
-
-      <Typography variant="h3">
-        Upcoming 
-      </Typography>
+      <Typography variant="h3">Upcoming</Typography>
 
       <Typography variant="subtitle2" sx={{ opacity: 0.72 }}>
         {title}
@@ -72,4 +49,3 @@ export default function CalendarWidget({ title, total, icon, color = 'primary', 
     </Card>
   );
 }
-

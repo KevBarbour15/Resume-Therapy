@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth, logInWithEmailAndPassword, signInWithGoogle, getErrorText } from "../firebase";
+import { auth, logInWithEmailAndPassword, signInWithGoogle } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./Login.css";
 import { Navbar } from "../component/navbar/Navbar";
@@ -21,13 +21,12 @@ const SignIn = () => {
     if (event.key === "Enter") {
       login();
     }
-  }
+  };
 
-  const login = async() => {
-
-    await logInWithEmailAndPassword(email, password);
-    setErrorText(getErrorText());
-  }
+  const login = async () => {
+    const errMessage = await logInWithEmailAndPassword(email, password);
+    setErrorText(errMessage);
+  };
 
   return (
     <>
@@ -51,16 +50,14 @@ const SignIn = () => {
             placeholder="Password"
             onKeyDown={enter}
           />
-          <div className="error__text">
-            {errorText && <p>{errorText}</p>}
-          </div>
-          <button
-            className="login__btn"
-            onClick={login}
-          >
+          <div className="error__text">{errorText && <p>{errorText}</p>}</div>
+          <button className="login__btn" onClick={login}>
             Login
           </button>
-          <button className="login__btn login__google" onClick={signInWithGoogle}>
+          <button
+            className="login__btn login__google"
+            onClick={signInWithGoogle}
+          >
             Login with Google
           </button>
           <div>

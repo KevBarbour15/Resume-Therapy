@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./sidebar.scss";
 import { auth, logout } from "../../firebase";
 
@@ -66,18 +66,18 @@ const EmployeeSidebar = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      const sidebarItem = sidebarRef.current.querySelector(
-        ".sidebar__menu__item"
-      );
-      if (indicatorRef.current) {
-        // Add this check
-        indicatorRef.current.style.height = `${sidebarItem.clientHeight}px`;
+      if (sidebarRef.current) {
+        const sidebarItem = sidebarRef.current.querySelector(
+          ".sidebar__menu__item"
+        );
+        if (sidebarItem && indicatorRef.current) {
+          indicatorRef.current.style.height = `${sidebarItem.clientHeight}px`;
+        }
+        setStepHeight(sidebarItem ? sidebarItem.clientHeight : 0);
       }
-      setStepHeight(sidebarItem.clientHeight);
     }, 50);
   }, []);
 
-  // change active index
   useEffect(() => {
     const curPath = window.location.pathname.split("/")[1];
     const activeItem = sidebarNavItems.findIndex(

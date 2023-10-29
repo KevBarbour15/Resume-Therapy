@@ -26,7 +26,7 @@ const firebaseConfig = {
   storageBucket: "resume-therapy-e7651.appspot.com",
   messagingSenderId: "762447095056",
   appId: "1:762447095056:web:38bb01c077db02f7cc7195",
-  measurementId: "G-77WXMNELHZ"
+  measurementId: "G-77WXMNELHZ",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -35,7 +35,6 @@ const db = getFirestore(app);
 const storage = getStorage(app);
 const googleProvider = new GoogleAuthProvider();
 
-let errorText = "";
 const signInWithGoogle = async () => {
   try {
     const res = await signInWithPopup(auth, googleProvider);
@@ -52,62 +51,64 @@ const signInWithGoogle = async () => {
         bio: null,
       });
     }
+    return null;
   } catch (err) {
     console.error(err);
-    alert(err.message);
+    return err.message;
   }
 };
 
-function setErrorText(text) {
-  errorText = text;
-}
-
 const logInWithEmailAndPassword = async (email, password) => {
-  if (email === "" || password === "") {
-    setErrorText("Please enter a valid email and password");
-    return;
+  if (!email || !password) {
+    return "Please enter a valid email and password";
   }
-  console.log(errorText)
-  let status = await checkUserType(email);
+
+  const status = await checkUserType(email);
+  if (status === null) {
+    return "Error checking user type. Please try again.";
+  }
+
   if (status) {
-    setErrorText("This email is associated with an employee account. Please log in at the employee portal.");
-    return;
+    return "This email is associated with an employee account. Please log in at the employee portal.";
   }
+
   try {
     await signInWithEmailAndPassword(auth, email, password);
+    return null;
   } catch (err) {
-    setErrorText("Invalid username or password");
     console.error(err);
-    console.log("Log in failed");
+    return "Invalid username or password";
   }
 };
 
 const logInWithEmailAndPasswordEmployee = async (email, password) => {
-  if (email === "" || password === "") {
-    setErrorText("Please enter a valid email and password");
-    return;
+  if (!email || !password) {
+    return "Please enter a valid email and password";
   }
-  let status = await checkUserType(email);
+
+  const status = await checkUserType(email);
+  if (status === null) {
+    return "Error checking user type. Please try again.";
+  }
+
   if (!status) {
-    setErrorText(
-      "This email is associated with a non-employee account. Please log in on the homepage."
-    );
-    return;
+    return "This email is associated with a non-employee account. Please log in on the homepage.";
   }
+
   try {
     await signInWithEmailAndPassword(auth, email, password);
+    return null;
   } catch (err) {
     console.error(err);
-    setErrorText("Invalid username or password");
-    console.log("Log in failed");
+    return "Invalid username or password";
   }
 };
 
 const registerWithEmailAndPassword = async (name, email, password) => {
-  if (name === "" || email === "" || password === "") {
-    setErrorText("Fields cannot be empty.");
-    return;
+  if (!name || !email || !password) {
+    return "Fields cannot be empty.";
   }
+
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;
@@ -124,17 +125,18 @@ const registerWithEmailAndPassword = async (name, email, password) => {
       connections: [],
       age: null,
     });
+    return null;
   } catch (err) {
     console.error(err);
-    setErrorText(err.message);
+    return err.message;
   }
 };
 
 const registerWithEmailAndPasswordEmployee = async (name, email, password) => {
-  if (name === "" || email === "" || password === "") {
-    setErrorText("Fields cannot be empty.");
-    return;
+  if (!name || !email || !password) {
+    return "Fields cannot be empty.";
   }
+
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;
@@ -145,9 +147,10 @@ const registerWithEmailAndPasswordEmployee = async (name, email, password) => {
       email,
       employee: true,
     });
+    return null;
   } catch (err) {
     console.error(err);
-    setErrorText(err.message);
+    return err.message;
   }
 };
 
@@ -165,28 +168,21 @@ const checkUserType = async (email) => {
   } catch (err) {
     console.error(err);
     alert(err.message);
+    return null;
   }
 };
 
 const sendPasswordReset = async (email) => {
   try {
     await sendPasswordResetEmail(auth, email);
-    setErrorText("Password reset email sent!");
   } catch (err) {
     console.error(err);
-    setErrorText(err.message);
   }
 };
 
 const logout = () => {
   signOut(auth);
 };
-
-function getErrorText() {
-  let result = errorText;
-  errorText = "";
-  return result;
-}
 
 export {
   auth,
@@ -201,5 +197,4 @@ export {
   sendPasswordReset,
   logout,
   checkUserType,
-  getErrorText
 };

@@ -92,12 +92,12 @@ function EmpProfile() {
 
         Promise.all(promises).catch((err) => {
           console.error(err);
-          alert("An error occurred while fetching resume data");
+          alert("An error occurred while fetching resume data 1");
         });
       })
       .catch((err) => {
         console.error(err);
-        alert("An error occurred while fetching resume data");
+        alert("An error occurred while fetching resume data 2");
       });
 
     return () => {
@@ -130,7 +130,7 @@ function EmpProfile() {
           })
           .catch((err) => {
             console.error(err);
-            alert("An error occurred while fetching resume data");
+            alert("An error occurred while fetching resume data 3");
           });
       })
       .catch((err) => {
@@ -181,7 +181,6 @@ function EmpProfile() {
                 sx={{ boxShadow: 5 }}
                 onClick={() => setResumePopup(true)}
               />{" "}
-              {/*insert number of connections here*/}
             </Grid>
 
             <Grid item xs={12} md={6} lg={6}>
@@ -191,7 +190,6 @@ function EmpProfile() {
                 sx={{ boxShadow: 5 }}
                 onClick={() => navigate("/reviewer-dash/book-appointment")}
               />{" "}
-              {/*insert number of connections here*/}
             </Grid>
 
             <Grid item xs={12} md={3} lg={3}>
@@ -201,7 +199,6 @@ function EmpProfile() {
                 sx={{ boxShadow: 5 }}
                 onClick={() => navigate("/reviewer-dash/messages")}
               />{" "}
-              {/*insert number of connections here*/}
             </Grid>
           </Grid>
         </Container>

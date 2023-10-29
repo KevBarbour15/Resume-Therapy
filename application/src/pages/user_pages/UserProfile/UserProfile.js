@@ -90,12 +90,12 @@ function UserProfile() {
 
         Promise.all(promises).catch((err) => {
           console.error(err);
-          alert("An error occurred while fetching resume data");
+          alert("An error occurred while fetching resume data 1");
         });
       })
       .catch((err) => {
         console.error(err);
-        alert("An error occurred while fetching resume data");
+        alert("An error occurred while fetching resume data 2");
       });
 
     return () => {
@@ -129,7 +129,7 @@ function UserProfile() {
           })
           .catch((err) => {
             console.error(err);
-            alert("An error occurred while fetching resume data");
+            alert("An error occurred while fetching resume data 3");
           });
       })
       .catch((err) => {
@@ -150,7 +150,7 @@ function UserProfile() {
           <h1> </h1>
           <h1> </h1>
           <h1> </h1>
-          <h1 class="h1">Hi, Welcome back!</h1>
+          <h1 class="h1">Hi, welcome back!</h1>
           <h1> </h1>
 
           <Grid container spacing={4}>

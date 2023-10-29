@@ -26,7 +26,7 @@ const EmployeeProfile = () => {
       }
     } catch (err) {
       console.error(err);
-      alert("An error occurred while fetching user data");
+      alert(err);
     }
   };
 
