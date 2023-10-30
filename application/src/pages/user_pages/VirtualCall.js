@@ -99,6 +99,9 @@ const VirtualCall = () => {
 
   const generateToken = async (roomName) => {
     const apiKey = process.env.REACT_APP_DAILY_API_KEY;
+    console.log("Generating token...");
+    console.log("roomName: ", roomName);
+    console.log("apiKey: ", apiKey);
 
     const response = await axios.post(
       "https://api.daily.co/v1/meeting-tokens",
@@ -114,7 +117,10 @@ const VirtualCall = () => {
         },
       }
     );
-
+    console.log(response);
+    console.log(
+      "Token generated " + response.data.token + " for room " + roomName + "."
+    );
     return response.data.token;
   };
 
@@ -122,9 +128,7 @@ const VirtualCall = () => {
     try {
       let meetingUrl = appointment.meetingUrl;
       let meetingToken = appointment.meetingToken;
-      console.log("appointment: ", appointment);
-      console.log("meetingUrl: ", meetingUrl);
-      console.log("meetingToken: ", meetingToken);
+
       if (!meetingUrl || !meetingToken) {
         const meetingRoomsRef = collection(db, "meetingRooms");
         const q = query(meetingRoomsRef, where("inUse", "==", false));
@@ -212,10 +216,6 @@ const VirtualCall = () => {
 
   useEffect(() => {
     if (isCallModalOpen && selectedAppointment && daily) {
-      console.log("Joining call");
-      console.log("meetingUrl: ", selectedAppointment.meetingUrl);
-      console.log("meetingToken: ", selectedAppointment.meetingToken);
-
       if (selectedAppointment.meetingUrl && selectedAppointment.meetingToken) {
         daily.join({
           url: String(selectedAppointment.meetingUrl),
@@ -264,8 +264,8 @@ const VirtualCall = () => {
         <h1></h1>
         <h1></h1>
         <h1></h1>
-        <h1></h1>
         <h1 class="h1">Upcoming Calls</h1>
+        <h1></h1>
         <h1></h1>
 
         <Grid container spacing={4}>

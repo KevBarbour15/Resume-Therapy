@@ -38,12 +38,12 @@
 
 .appointment-card {
   background-color: darkgrey;
-  border: 2px solid #ccc;
+  border: 3px solid black;
   padding: 20px;
-  width: 85%;
+  max-width: 300px;
   margin-bottom: 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 2.5);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,12 +52,14 @@
 .appointment-card p {
   margin: 0;
   margin-bottom: 10px;
+  color: white;
+  font-size: 20px;
 }
 
 .appointment-card button {
   margin-top: 10px;
   padding: 10px 20px;
-  border: 1px solid #ccc;
+  border: 1px solid black;
   background-color: #ff0000;
   color: #fff;
   font-size: 16px;
@@ -103,7 +105,7 @@
 .end-call-button {
   margin-top: 10px;
   padding: 10px 20px;
-  border: 1px solid #ccc;
+  border: 1px solid black;
   background-color: #ff0000;
   color: #fff;
   font-size: 16px;

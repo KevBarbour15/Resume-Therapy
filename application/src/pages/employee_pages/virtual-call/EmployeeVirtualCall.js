@@ -108,7 +108,7 @@ const EmployeeVirtualCall = () => {
         },
       }
     );
-
+    console.log("Token generated: ", response.data.token);
     return response.data.token;
   };
 

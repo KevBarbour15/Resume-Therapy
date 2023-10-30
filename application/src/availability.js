@@ -18,14 +18,13 @@ const addAvailability = async (uid, newSlot) => {
   const employeeScheduleRef = getEmployeeScheduleRef(uid);
   const availability = await fetchAvailability(uid);
 
-  // Check if date is in the past
+
   const dateNow = new Date();
   const dateSlot = new Date(newSlot.date);
   if (dateSlot < dateNow) {
     throw new Error("You can't add a time slot in the past!");
   }
 
-  // Check if there are conflicting appointments
   const conflict = availability.some(
     (slot) =>
       slot.date === newSlot.date &&
@@ -45,14 +44,12 @@ const updateAvailability = async (uid, index, newSlot) => {
   const employeeScheduleRef = getEmployeeScheduleRef(uid);
   const availability = await fetchAvailability(uid);
 
-  // Check if date is in the past
   const dateNow = new Date();
   const dateSlot = new Date(newSlot.date);
   if (dateSlot < dateNow) {
     throw new Error("You can't add a time slot in the past!");
   }
 
-  // Check if there are conflicting appointments
   const conflict = availability.some(
     (slot, idx) =>
       idx !== index &&

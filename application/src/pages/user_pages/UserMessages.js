@@ -136,7 +136,7 @@ function UserMessages() {
             onKeyPress={enter}
             onChange={changeMessage}
             type="text"
-            placeholder="Send message..."
+            placeholder="Send message NOW..."
             value={message}
           />
 

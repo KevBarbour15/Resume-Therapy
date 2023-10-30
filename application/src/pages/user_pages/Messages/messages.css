@@ -64,6 +64,11 @@ li {
   width: 40%;
 }
 
+.sendMessage input{
+  width: 300px;  
+  padding: 10px;
+}
+
 .messages-text {
   right: 70px;
 }
@@ -98,9 +103,4 @@ li {
   opacity: 1;
   transform: translateX(0);
   transform: translateY(0);
-}
-/* End of Messaging Page Styling */
-
-.contain {
-  background-color: aquamarine;
 }

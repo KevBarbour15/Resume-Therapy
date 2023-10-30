@@ -1,9 +1,9 @@
 // import * as React from 'react';
 // import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
 // import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import { Button, CardActionArea, CardActions } from "@mui/material";
 
 // const StyledIcon = styled('div')(({ theme }) => ({
 //     margin: 'auto',
@@ -15,9 +15,9 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 //     justifyContent: 'center',
 //     marginBottom: theme.spacing(3),
 //   }));
-  
-//   // ----------------------------------------------------------------------
-  
+
+//
+
 //   ReviewerWidget.propTypes = {
 //     color: PropTypes.string,
 //     icon: PropTypes.string,
@@ -60,31 +60,25 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 //   );
 // }
 
-
-
 // @mui
-import PropTypes from 'prop-types';
-import { alpha, styled } from '@mui/material/styles';
-import { Card, Typography } from '@mui/material';
+import PropTypes from "prop-types";
+import { alpha, styled } from "@mui/material/styles";
+import { Card, Typography } from "@mui/material";
 // utils
-import { fShortenNumber } from '../../utils/formatNumber';
+import { fShortenNumber } from "../../utils/formatNumber";
 // components
-import Iconify from '../../component/iconify';
+import Iconify from "../../component/iconify";
 
-// ----------------------------------------------------------------------
-
-const StyledIcon = styled('div')(({ theme }) => ({
-  margin: 'auto',
-  display: 'flex',
-  borderRadius: '50%',
-  alignItems: 'center',
+const StyledIcon = styled("div")(({ theme }) => ({
+  margin: "auto",
+  display: "flex",
+  borderRadius: "50%",
+  alignItems: "center",
   width: theme.spacing(8),
   height: theme.spacing(8),
-  justifyContent: 'center',
+  justifyContent: "center",
   marginBottom: theme.spacing(3),
 }));
-
-// ----------------------------------------------------------------------
 
 ReviewerWidget.propTypes = {
   color: PropTypes.string,
@@ -95,19 +89,30 @@ ReviewerWidget.propTypes = {
   sx: PropTypes.object,
 };
 
-export default function ReviewerWidget({ title, total, bio, icon, color = 'primary', button, userid, reviewerid, removeFunc,sx, ...other }) {
-  
+export default function ReviewerWidget({
+  title,
+  total,
+  bio,
+  icon,
+  color = "primary",
+  button,
+  userid,
+  reviewerid,
+  removeFunc,
+  sx,
+  ...other
+}) {
   const handleButton = (user, reviewer) => {
     button(user, reviewer);
     removeFunc(reviewer);
-  }
-  
+  };
+
   return (
     <Card
-      sx={{ 
+      sx={{
         py: 5,
         boxShadow: 0,
-        textAlign: 'left',
+        textAlign: "left",
         color: (theme) => theme.palette[color].darker,
         bgcolor: (theme) => theme.palette[color].lighter,
         ...sx,
@@ -129,13 +134,12 @@ export default function ReviewerWidget({ title, total, bio, icon, color = 'prima
       </StyledIcon> */}
 
       <CardActionArea>
-         {/* <CardMedia
+        {/* <CardMedia
           component="img"
           height="140"
           image="/static/images/cards/contemplative-reptile.jpg"
         /> */}
         <CardContent>
-
           <Typography gutterBottom variant="h5" component="div">
             {title}
           </Typography>
@@ -143,19 +147,19 @@ export default function ReviewerWidget({ title, total, bio, icon, color = 'prima
           <Typography variant="body2" color="text.secondary">
             {bio}
           </Typography>
-
         </CardContent>
 
         <CardActions>
-            <Button variant="outlined" onClick={() => { handleButton(userid, reviewerid)}}>Connect</Button>
+          <Button
+            variant="outlined"
+            onClick={() => {
+              handleButton(userid, reviewerid);
+            }}
+          >
+            Connect
+          </Button>
         </CardActions>
-
       </CardActionArea>
-
-     
-    
-
     </Card>
   );
 }
-

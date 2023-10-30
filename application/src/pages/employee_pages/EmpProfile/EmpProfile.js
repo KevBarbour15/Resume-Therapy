@@ -5,20 +5,15 @@ import { query, collection, getDocs, where } from "firebase/firestore";
 import { auth, db, storage } from "../../../firebase";
 import { ref, uploadBytes, getDownloadURL, listAll } from "firebase/storage";
 import { addBio } from "../../../bio";
-import UserConnections from "../../user_pages/UserConnections";
-
 import EditProfilePopup from "../../../component/popups/EditProfilePopup";
 import UploadResumePopup from "../../../component/popups/UploadResumePopup";
 import TextField from "@mui/material/TextField";
-import Box from "@mui/material/Box";
+import { Grid, Container } from "@mui/material";
 
-import { Grid, Container, Typography } from "@mui/material";
-import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
-import CardHeader from "@mui/material/CardHeader";
+
 import "./profile.css";
 
-import ConnectionsWidget from "../../../component/widgets/ConnectionsWidget";
 import ProfileWidget from "../../../component/widgets/ProfileWidget";
 import MessagesWidget from "../../../component/widgets/MessagesWidget";
 import CalendarWidget from "../../../component/widgets/CalendarWidget";

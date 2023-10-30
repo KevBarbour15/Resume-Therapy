@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "react-chat-elements/dist/main.css";
-
 import { ListMessages, addMessage } from "../../../Message.js";
-
 import "./messages.css";
-
 import { MessageList } from "react-chat-elements";
-
 import { ChatItem } from "react-chat-elements";
-
 import { Button } from "react-chat-elements";
 
 export const ChatMessage = ({
@@ -95,7 +90,7 @@ export const ChatMessage = ({
           onKeyPress={enter}
           onChange={changeMessage}
           type="text"
-          placeholder="Send message..."
+          placeholder="Send message NOW..."
           value={thyMessage}
         />
 

@@ -1,31 +1,27 @@
 // @mui
-import PropTypes from 'prop-types';
-import { alpha, styled } from '@mui/material/styles';
-import { Card, Typography } from '@mui/material';
+import PropTypes from "prop-types";
+import { alpha, styled } from "@mui/material/styles";
+import { Card, Typography } from "@mui/material";
 // utils
-import { fShortenNumber } from '../../utils/formatNumber';
+import { fShortenNumber } from "../../utils/formatNumber";
 // components
-import Iconify from '../../component/iconify';
+import Iconify from "../../component/iconify";
 
-import Badge from '@mui/material/Badge';
-import Stack from '@mui/material/Stack';
-import MailIcon from '@mui/icons-material/Mail';
-import NoteAddIcon from '@mui/icons-material/NoteAdd';
+import Badge from "@mui/material/Badge";
+import Stack from "@mui/material/Stack";
+import MailIcon from "@mui/icons-material/Mail";
+import NoteAddIcon from "@mui/icons-material/NoteAdd";
 
-// ----------------------------------------------------------------------
-
-const StyledIcon = styled('div')(({ theme }) => ({
-  margin: 'auto',
-  display: 'flex',
-  borderRadius: '50%',
-  alignItems: 'center',
+const StyledIcon = styled("div")(({ theme }) => ({
+  margin: "auto",
+  display: "flex",
+  borderRadius: "50%",
+  alignItems: "center",
   width: theme.spacing(8),
   height: theme.spacing(8),
-  justifyContent: 'center',
+  justifyContent: "center",
   marginBottom: theme.spacing(3),
 }));
-
-// ----------------------------------------------------------------------
 
 UploadResumeWidget.propTypes = {
   color: PropTypes.string,
@@ -35,13 +31,20 @@ UploadResumeWidget.propTypes = {
   sx: PropTypes.object,
 };
 
-export default function UploadResumeWidget({ title, total, icon, color = 'primary', sx, ...other }) {
+export default function UploadResumeWidget({
+  title,
+  total,
+  icon,
+  color = "primary",
+  sx,
+  ...other
+}) {
   return (
     <Card
       sx={{
         py: 5,
         boxShadow: 0,
-        textAlign: 'center',
+        textAlign: "center",
         color: (theme) => theme.palette[color].darker,
         bgcolor: (theme) => theme.palette[color].lighter,
         ...sx,
@@ -61,21 +64,13 @@ export default function UploadResumeWidget({ title, total, icon, color = 'primar
         <Iconify icon={icon} width={24} height={24} />
       </StyledIcon> */}
 
-
-
       <Typography variant="h3">
-        <NoteAddIcon/> 
+        <NoteAddIcon />
       </Typography>
 
       <Typography variant="subtitle2" sx={{ opacity: 0.72 }}>
         {title}
       </Typography>
-
-
-
-      
-
     </Card>
   );
 }
-

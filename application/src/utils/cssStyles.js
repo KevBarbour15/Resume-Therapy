@@ -1,7 +1,4 @@
-// @mui
 import { alpha } from "@mui/material/styles";
-
-// ----------------------------------------------------------------------
 
 export function bgBlur(props) {
   const color = props?.color || "#000000";
@@ -35,8 +32,6 @@ export function bgBlur(props) {
   };
 }
 
-// ----------------------------------------------------------------------
-
 export function bgGradient(props) {
   const direction = props?.direction || "to bottom";
   const startColor = props?.startColor;
@@ -60,8 +55,6 @@ export function bgGradient(props) {
   };
 }
 
-// ----------------------------------------------------------------------
-
 export function textGradient(value) {
   return {
     background: `-webkit-linear-gradient(${value})`,
@@ -69,8 +62,6 @@ export function textGradient(value) {
     WebkitTextFillColor: "transparent",
   };
 }
-
-// ----------------------------------------------------------------------
 
 export function filterStyles(value) {
   return {
@@ -80,8 +71,6 @@ export function filterStyles(value) {
   };
 }
 
-// ----------------------------------------------------------------------
-
 export const hideScrollbarY = {
   msOverflowStyle: "none",
   scrollbarWidth: "none",
@@ -90,8 +79,6 @@ export const hideScrollbarY = {
     display: "none",
   },
 };
-
-// ----------------------------------------------------------------------
 
 export const hideScrollbarX = {
   msOverflowStyle: "none",

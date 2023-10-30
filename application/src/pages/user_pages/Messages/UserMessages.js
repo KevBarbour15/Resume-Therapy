@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import "react-chat-elements/dist/main.css";
 import { auth } from "../../../firebase";
 import { onAuthStateChanged } from "firebase/auth";
