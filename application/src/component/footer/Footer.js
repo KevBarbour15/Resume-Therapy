@@ -24,8 +24,8 @@ export const Footer = () => {
         </div>
 
         <div className="right">
-          <h4>About the Company.</h4>
-          <p>This is Team 04. CEO & Founders of Resume Therapy.</p>
+          <p>Creators of Resume Therapy:</p>
+          <p>Kevin Barbour, Atharva Veer & Ivan Ramos</p>
         </div>
       </div>
     </div>

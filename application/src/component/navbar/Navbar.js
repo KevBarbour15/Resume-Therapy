@@ -34,10 +34,6 @@ export const Navbar = () => {
         </li>
 
         <li>
-          <Link to="/AboutUs">About Us</Link>
-        </li>
-
-        <li>
           <Link to="/SignIn">Sign in</Link>
         </li>
       </ul>

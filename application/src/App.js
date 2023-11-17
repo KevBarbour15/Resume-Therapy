@@ -2,10 +2,6 @@ import React from "react";
 import Home from "./pages/home/Home";
 import { Routes, Route } from "react-router-dom";
 import Register from "./authentication/Register";
-import AboutUs from "./pages/developer-profiles/AboutUs";
-import AtharvaV from "./pages/developer-profiles/AtharvaV";
-import KevinB from "./pages/developer-profiles/KevinB";
-import IvanR from "./pages/developer-profiles/IvanR";
 import EmployeeHome from "./pages/employee_pages/EmployeeHome";
 import EmployeeRegister from "./authentication/EmployeeRegister";
 import EmployeeSignIn from "./authentication/EmployeeSignIn";
@@ -43,10 +39,6 @@ function App() {
         <Route path="/EmployeeSignIn" element={<EmployeeSignIn />} />
         <Route path="/PasswordReset" element={<PasswordReset />} />
         <Route path="/EmployeeHome" element={<EmployeeHome />} />
-        <Route path="/AboutUs" element={<AboutUs />} />
-        <Route path="/AboutUs/AtharvaV" element={<AtharvaV />} />
-        <Route path="/AboutUs/KevinB" element={<KevinB />} />
-        <Route path="/AboutUs/IvanR" element={<IvanR />} />
       </Routes>
 
       <Routes>

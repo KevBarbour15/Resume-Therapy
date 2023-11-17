@@ -20,13 +20,13 @@ import {
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCGlOYOvgW93Z9w-5X-EXaOsBW1g6Jkfik",
-  authDomain: "resume-therapy-e7651.firebaseapp.com",
-  projectId: "resume-therapy-e7651",
-  storageBucket: "resume-therapy-e7651.appspot.com",
-  messagingSenderId: "762447095056",
-  appId: "1:762447095056:web:38bb01c077db02f7cc7195",
-  measurementId: "G-77WXMNELHZ",
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 
 const app = initializeApp(firebaseConfig);

@@ -16,32 +16,27 @@ function EmployeeRegister() {
   const navigate = useNavigate();
 
   let error = "";
-  const register = async () => {
-    await registerWithEmailAndPasswordEmployee(name, email, password, false)
-    await setError();
 
-    if (error === "") {
+  const register = async () => {
+    try {
+      console.log("Attempting to register user");
+      await registerWithEmailAndPasswordEmployee(name, email, password, false);
+      console.log("Registration successful");
       setRegistrationStatus("success");
-    } else {
+    } catch (error) {
+      console.error("Registration error:", error);
+      setErrorText(error.message);
       setRegistrationStatus("failure");
     }
-
   };
 
   const enter = (event) => {
     if (event.key === "Enter") {
       register();
     }
-  }
-
-  const setError = async(errorT) => {
-    error = errorT;
-    setErrorText(error);
   };
 
-
   useEffect(() => {
-    
     if (registrationStatus === "success") {
       console.log("success");
       navigate("/reviewer-dash/profile");
@@ -65,7 +60,6 @@ function EmployeeRegister() {
             onChange={(e) => setName(e.target.value)}
             placeholder="Full Name"
             onKeyDown={enter}
-
           />
           <input
             type="text"
@@ -74,7 +68,6 @@ function EmployeeRegister() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="E-mail Address"
             onKeyDown={enter}
-
           />
           <input
             type="password"
@@ -84,13 +77,11 @@ function EmployeeRegister() {
             placeholder="Password"
             onKeyDown={enter}
           />
-          <div className="error__text">
-            {errorText && <p>{errorText}</p>}
-          </div>
+          <div className="error__text">{errorText && <p>{errorText}</p>}</div>
           <button className="register__btn" onClick={register}>
             Register
           </button>
-          
+
           <a>Already have an account?</a>
 
           <div>
