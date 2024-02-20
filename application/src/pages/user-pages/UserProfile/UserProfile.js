@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { query, collection, getDocs, where } from "firebase/firestore";
@@ -64,7 +64,6 @@ function UserProfile() {
     };
 
     if (!loading && !user) {
-      console.log("CALLED");
       navigate("/");
     } else {
       fetchUserName();
@@ -233,7 +232,7 @@ function UserProfile() {
       </UploadResumePopup>
 
       <EditProfilePopup trigger={buttonPopup} setTrigger={setButtonPopup}>
-        <div>
+        
           <TextField
             id="outlined-multiline-static"
             label="Bio"
@@ -247,7 +246,7 @@ function UserProfile() {
           <Button variant="outlined" onClick={() => handleWrapperBioTrigger()}>
             Update Bio
           </Button>
-        </div>
+      
       </EditProfilePopup>
     </div>
   );

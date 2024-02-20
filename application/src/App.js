@@ -1,31 +1,30 @@
-import React from "react";
+import "./index.css";
 import Home from "./pages/home/Home";
 import { Routes, Route } from "react-router-dom";
 import Register from "./authentication/Register";
-import EmployeeHome from "./pages/employee_pages/EmployeeHome";
+import EmployeeHome from "./pages/employee-pages/EmployeeHome";
 import EmployeeRegister from "./authentication/EmployeeRegister";
 import EmployeeSignIn from "./authentication/EmployeeSignIn";
 
 // Users Imports
 import PasswordReset from "./authentication/PasswordReset";
 import SignIn from "./authentication/SignIn";
-import UserMessages from "./pages/user_pages/Messages/UserMessages";
-import MeetReviewers from "./pages/user_pages/MeetReviewers/MeetReviewers";
-import VirtualCall from "./pages/user_pages/VirtualCall";
-import UserProfile from "./pages/user_pages/UserProfile/UserProfile";
-import BookAppointment from "./pages/user_pages/appointments/BookAppointment";
+import UserMessages from "./pages/user-pages/Messages/UserMessages";
+import MeetReviewers from "./pages/user-pages/MeetReviewers/MeetReviewers";
+import VirtualCall from "./pages/user-pages/VirtualCall";
+import UserProfile from "./pages/user-pages/UserProfile/UserProfile";
+import BookAppointment from "./pages/user-pages/Appointments/BookAppointment";
 
 // Employee Imports
-import UserConnections from "./pages/user_pages/connections/UserConnections";
-import EmployeeProfile from "./pages/employee_pages/EmpProfile/EmpProfile";
-import EmployeeAvailability from "./pages/employee_pages/Availability/EmpAvailability";
-import EmployeeConnections from "./pages/employee_pages/EmpConnections/EmpConnections";
-import EmployeePending from "./pages/employee_pages/EmpPending/EmployeePending";
-import EmployeeMessages from "./pages/employee_pages/EmpMessages/EmpMessages";
-import EmployeeVirtualCall from "./pages/employee_pages/virtual-call/EmployeeVirtualCall";
-import "./index.css";
-import DashLayout from "./pages/user_pages/DashLayout";
-import EmployeeDashLayout from "./pages/employee_pages/EmployeeDashLayout";
+import UserConnections from "./pages/user-pages/Connections/UserConnections";
+import EmployeeProfile from "./pages/employee-pages/EmployeeProfile/EmpProfile";
+import EmployeeAvailability from "./pages/employee-pages/Availability/EmpAvailability";
+import EmployeeConnections from "./pages/employee-pages/EmployeeConnections/EmployeeConnections";
+import EmployeePending from "./pages/employee-pages/EmployeePending/EmployeePending";
+import EmployeeMessages from "./pages/employee-pages/EmployeeMessages/EmpMessages";
+import EmployeeVirtualCall from "./pages/employee-pages/EmployeeVirtualCall/EmployeeVirtualCall";
+import DashLayout from "./pages/user-pages/DashLayout";
+import EmployeeDashLayout from "./pages/employee-pages/EmployeeDashLayout";
 
 function App() {
   return (
@@ -42,17 +41,14 @@ function App() {
       </Routes>
 
       <Routes>
-        <Route path="/user-dash" element={<DashLayout />}>
+        <Route path="/UserDash" element={<DashLayout />}>
+          <Route path="/UserDash/MeetReviewers" element={<MeetReviewers />} />
+          <Route path="/UserDash/Messages" element={<UserMessages />} />
+          <Route path="/UserDash/VirtualCall" element={<VirtualCall />} />
+          <Route path="/UserDash/Profile" element={<UserProfile />} />
+          <Route path="/UserDash/Connections" element={<UserConnections />} />
           <Route
-            path="/user-dash/MeetReviewers/meet-reviewers"
-            element={<MeetReviewers />}
-          />
-          <Route path="/user-dash/messages" element={<UserMessages />} />
-          <Route path="/user-dash/virtual-call" element={<VirtualCall />} />
-          <Route path="/user-dash/profile" element={<UserProfile />} />
-          <Route path="/user-dash/connections" element={<UserConnections />} />
-          <Route
-            path="/user-dash/book-appointment"
+            path="/UserDashh/BookAppointment"
             element={<BookAppointment />}
           />
         </Route>

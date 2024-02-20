@@ -63,7 +63,7 @@ const MeetReviewers = () => {
       newFilteredConnectons = reviewers;
     } else {
       newFilteredConnectons = reviewers.filter((item) =>
-        item[0].includes(filterText)
+        item[0].toLowerCase().includes(filterText.toLowerCase())
       );
     }
     setfilteredConnection(newFilteredConnectons);

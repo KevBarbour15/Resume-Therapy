@@ -1,6 +1,6 @@
 import "./NavbarStyles.css";
 import { React, useState } from "react";
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { auth, logout } from "../../firebase";
 
@@ -20,50 +20,50 @@ export const UserDashNavbar = () => {
 
   const logUserOut = async () => {
     try {
-        await logout(auth);
-        navigate("/");
-      } catch (error) {
-        console.error("Error logging out:", error);
-      }
-  }
+      await logout(auth);
+      navigate("/");
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
 
   window.addEventListener("scroll", changeColor);
 
   return (
     <div className={color ? "header header-bg" : "header"}>
-      <Link to="/">
+      <span>
         <h1>Resume Therapy</h1>
-      </Link>
+      </span>
 
       <ul className={click ? "nav-menu active" : "nav-menu"}>
-        
-     
         <li>
-          <Link to="/user-dash/profile">Profile</Link>
+          <Link to="/UserDash/Profile">Profile</Link>
         </li>
 
         <li>
-          <Link to="/user-dash/connections">Connections</Link>
+          <Link to="/UserDash/Connections">Connections</Link>
         </li>
 
         <li>
-          <Link to="/user-dash/MeetReviewers/meet-reviewers">Meet Reviewers</Link>
+          <Link to="/UserDash/MeetReviewers">Meet Reviewers</Link>
         </li>
 
         <li>
-          <Link to="/user-dash/messages">Messages</Link>
+          <Link to="/UserDash/Messages">Messages</Link>
         </li>
 
         <li>
-          <Link to="/user-dash/book-appointment">Book Appointment</Link>
+          <Link to="/UserDash/BookAppointment">Book Appointment</Link>
         </li>
 
         <li>
-          <Link to="/user-dash/virtual-call">Virtual Call</Link>
+          <Link to="/UserDash/VirtualCall">Virtual Call</Link>
         </li>
 
         <li>
-            <Link to = "/" onClick={logUserOut}>Logout</Link>
+          <Link to="/" onClick={logUserOut}>
+            Logout
+          </Link>
         </li>
       </ul>
 
@@ -77,6 +77,5 @@ export const UserDashNavbar = () => {
     </div>
   );
 };
-
 
 export default UserDashNavbar;

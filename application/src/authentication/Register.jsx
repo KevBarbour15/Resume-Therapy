@@ -38,7 +38,7 @@ function Register() {
 
   useEffect(() => {
     if (registrationStatus === "success") {
-      navigate("/user-dash/profile");
+      navigate("/UserDash/Profile");
     }
   }, [registrationStatus]);
 

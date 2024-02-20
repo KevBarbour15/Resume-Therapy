@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import "./sidebar.scss";
+import { Link, useLocation } from "react-router-dom";
+import "./Sidebar.scss";
 import { auth, logout } from "../../firebase";
-
 
 const sidebarNavItems = [
   {
@@ -64,8 +63,6 @@ const EmployeeSidebar = () => {
   const sidebarRef = useRef();
   const indicatorRef = useRef();
   const location = useLocation();
-
-
 
   useEffect(() => {
     setTimeout(() => {

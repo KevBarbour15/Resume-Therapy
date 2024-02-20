@@ -1,17 +1,5 @@
 import PropTypes from "prop-types";
-import { styled } from "@mui/material/styles";
 import { Card, Typography } from "@mui/material";
-
-const StyledIcon = styled("div")(({ theme }) => ({
-  margin: "auto",
-  display: "flex",
-  borderRadius: "50%",
-  alignItems: "center",
-  width: theme.spacing(8),
-  height: theme.spacing(8),
-  justifyContent: "center",
-  marginBottom: theme.spacing(3),
-}));
 
 ProfileWidget.propTypes = {
   color: PropTypes.string,
@@ -34,7 +22,11 @@ export default function ProfileWidget({
       sx={{
         py: 5,
         boxShadow: 0,
+        borderRadius: 0,
+        border: 2,
+        borderColor: "primary.main",
         textAlign: "center",
+
         color: (theme) => theme.palette[color].darker,
         bgcolor: (theme) => theme.palette[color].lighter,
         ...sx,

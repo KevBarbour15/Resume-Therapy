@@ -1,49 +1,48 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import "./sidebar.scss";
+import "./Sidebar.scss";
 import { auth, logout } from "../../firebase";
 
 const sidebarNavItems = [
   {
     display: "Profile",
     icon: <i className="bx bx-home"></i>,
-    to: "/user-dash/profile",
+    to: "/UserDash/Profile",
     section: "",
   },
   {
     display: "Connections",
     icon: <i className="bx bx-star"></i>,
-    to: "/user-dash/connections",
+    to: "/UserDash/Connections",
     section: "upload-resume",
   },
   {
     display: "Meet Resume Therapists",
     icon: <i className="bx bx-calendar"></i>,
-    to: "/user-dash/MeetReviewers/meet-reviewers",
+    to: "/UserDash/MeetReviewers",
     section: "meet-reviewers",
   },
   {
     display: "Messages",
     icon: <i className="bx bx-user"></i>,
-    to: "/user-dash/messages",
+    to: "/UserDash/Messages",
     section: "messages",
   },
   {
     display: "Book Appointment",
     icon: <i className="bx bx-user"></i>,
-    to: "/user-dash/book-appointment",
+    to: "/UserDash/BookAppointment",
     section: "book-appointment",
   },
   {
     display: "Virtual Call",
     icon: <i className="bx bx-receipt"></i>,
-    to: "/user-dash/virtual-call",
+    to: "/UserDash/VirtualCall",
     section: "virtual-call",
   },
   {
     display: "Logout",
     icon: <i className="bx bx-log-out"></i>,
-    to: "",
     section: "logout",
     onClick: async () => {
       try {

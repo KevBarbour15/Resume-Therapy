@@ -8,7 +8,7 @@ import {
   denyConnectionRequest,
 } from "../../connections";
 import { addBio } from "../../bio";
-import "../user_pages/User-Dash.css";
+import "../user-pages/User-Dash.css";
 
 function EmployeeDash() {
   const [user, loading, error] = useAuthState(auth);

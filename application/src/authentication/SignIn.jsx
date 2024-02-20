@@ -13,7 +13,7 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user) navigate("/user-dash/profile");
+    if (user) navigate("/UserDash/Profile");
     if (error) alert(error.message);
   }, [user, loading]);
 

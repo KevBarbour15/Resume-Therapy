@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Navbar } from "../../component/navbar/Navbar";
-import { auth } from "../../firebase";
+import { Navbar } from "../../component/navbar/Navbar.jsx";
+import { auth } from "../../firebase.js";
 import { onAuthStateChanged } from "firebase/auth";
 import {
   ListConversations,
