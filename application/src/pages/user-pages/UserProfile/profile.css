@@ -6,15 +6,20 @@
   background-color: white;
 }
 
-.h1 {
-  color: black;
-}
-
 body {
   background-color: white;
 }
 
 .img {
-  width: 50%;
-  height: 60%;
+  width: 500px;
+  height: auto;
+}
+
+.widget-title {
+  color: black;
+  margin: 15px;
+}
+
+.widget-button{
+  margin-bottom: 10px;
 }

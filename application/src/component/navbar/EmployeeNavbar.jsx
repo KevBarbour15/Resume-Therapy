@@ -40,27 +40,27 @@ export const EmployeeNavbar = () => {
         
      
         <li>
-          <Link to="/reviewer-dash/profile">Profile</Link>
+          <Link to="/ReviewerDash/Profile">Profile</Link>
         </li>
 
         <li>
-          <Link to="/reviewer-dash/availability">Availability</Link>
+          <Link to="/ReviewerDash/Availability">Availability</Link>
         </li>
 
         <li>
-          <Link to="/reviewer-dash/pending-connections">Pending Connections</Link>
+          <Link to="/ReviewerDash/PendingConnections">Pending Connections</Link>
         </li>
 
         <li>
-          <Link to="/reviewer-dash/connections">Connections</Link>
+          <Link to="/ReviewerDash/Connections">Connections</Link>
         </li>
 
         <li>
-          <Link to="/reviewer-dash/messages">Messages</Link>
+          <Link to="/ReviewerDash/Messages">Messages</Link>
         </li>
 
         <li>
-          <Link to="/reviewer-dash/virtual-call">Virtual Call</Link>
+          <Link to="/ReviewerDash/VirtualCall">Virtual Call</Link>
         </li>
 
         <li>

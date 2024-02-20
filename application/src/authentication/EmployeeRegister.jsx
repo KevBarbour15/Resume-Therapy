@@ -38,8 +38,7 @@ function EmployeeRegister() {
 
   useEffect(() => {
     if (registrationStatus === "success") {
-      console.log("success");
-      navigate("/reviewer-dash/profile");
+      navigate("/ReviewerDash/Profile");
     }
   }, [navigate, registrationStatus]);
 

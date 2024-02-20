@@ -13,7 +13,7 @@ const EmployeeSignIn = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user) navigate("/reviewer-dash/profile");
+    if (user) navigate("/ReviewerDash/Profile");
     if (error) alert(error.message);
   }, [user, loading, navigate, error]);
 

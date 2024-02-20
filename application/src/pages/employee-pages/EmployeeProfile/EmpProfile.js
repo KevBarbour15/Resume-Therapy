@@ -183,7 +183,7 @@ function EmpProfile() {
                 title="Calendar"
                 total={714}
                 sx={{ boxShadow: 5 }}
-                onClick={() => navigate("/reviewer-dash/book-appointment")}
+                onClick={() => navigate("/ReviewerDash/BookAppointment")}
               />{" "}
             </Grid>
 
@@ -192,7 +192,7 @@ function EmpProfile() {
                 title="Messages"
                 total={0}
                 sx={{ boxShadow: 5 }}
-                onClick={() => navigate("/reviewer-dash/messages")}
+                onClick={() => navigate("/ReviewerDash/Messages")}
               />{" "}
             </Grid>
           </Grid>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { auth, db } from "../../firebase";
@@ -49,7 +49,7 @@ const MeetReviewers = () => {
 
   return (
     <div>
-      <h2>Meet Resume Therapists</h2>
+      <h1>Meet Resume Therapists</h1>
       <ul>
         {reviewers.map((reviewer) => (
           <li>

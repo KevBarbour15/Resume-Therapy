@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "react-chat-elements/dist/main.css";
-import { auth } from "../../../firebase";
+import { auth } from "../../../firebase.js";
 import { onAuthStateChanged } from "firebase/auth";
 import { ListConversations } from "../../../Message.js";
 import "./messages.css";
 import { TextField } from "@mui/material";
 
-import { ChatMessage } from "./Chatbox";
+import { ChatMessage } from "./Chatbox.jsx";
 
 function UserMessages() {
   const [listConnection, setListConnection] = useState([]);

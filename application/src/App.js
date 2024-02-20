@@ -48,33 +48,33 @@ function App() {
           <Route path="/UserDash/Profile" element={<UserProfile />} />
           <Route path="/UserDash/Connections" element={<UserConnections />} />
           <Route
-            path="/UserDashh/BookAppointment"
+            path="/UserDash/BookAppointment"
             element={<BookAppointment />}
           />
         </Route>
       </Routes>
 
       <Routes>
-        <Route path="/reviewer-dash" element={<EmployeeDashLayout />}>
-          <Route path="/reviewer-dash/profile" element={<EmployeeProfile />} />
+        <Route path="/ReviewerDash" element={<EmployeeDashLayout />}>
+          <Route path="/ReviewerDash/Profile" element={<EmployeeProfile />} />
           <Route
-            path="/reviewer-dash/availability"
+            path="/ReviewerDash/Availability"
             element={<EmployeeAvailability />}
           />
           <Route
-            path="/reviewer-dash/connections"
+            path="/ReviewerDash/Connections"
             element={<EmployeeConnections />}
           />
           <Route
-            path="/reviewer-dash/pending-connections"
+            path="/ReviewerDash/PendingConnections"
             element={<EmployeePending />}
           />
           <Route
-            path="/reviewer-dash/Messages"
+            path="/ReviewerDash/Messages"
             element={<EmployeeMessages />}
           />
           <Route
-            path="/reviewer-dash/virtual-call"
+            path="/ReviewerDash/VirtualCall"
             element={<EmployeeVirtualCall />}
           />
         </Route>

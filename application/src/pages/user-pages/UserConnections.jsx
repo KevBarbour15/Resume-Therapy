@@ -46,7 +46,7 @@ const UserConnections = () => {
 
   return (
     <div>
-      <h2>User Connections</h2>
+      <h1>User Connections</h1>
       <ul>
         {connections.map((connection, index) => (
           <Card>

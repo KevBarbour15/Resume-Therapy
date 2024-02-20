@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import "./Sidebar.scss";
+import "./sidebar.scss";
 import { auth, logout } from "../../firebase";
 
 const sidebarNavItems = [

@@ -149,7 +149,7 @@ function UserProfile() {
           <h1> </h1>
           <h1> </h1>
           <h1> </h1>
-          <h1 class="h1">Hi, welcome back!</h1>
+          <h1 className="h1">Hi, welcome back!</h1>
           <h1> </h1>
 
           <Grid container spacing={4}>
@@ -187,7 +187,7 @@ function UserProfile() {
                 title="Calendar"
                 total={714}
                 sx={{ boxShadow: 5 }}
-                onClick={() => navigate("/user-dash/book-appointment")}
+                onClick={() => navigate("/UserDash/BookAppointment")}
               />{" "}
             </Grid>
 
@@ -196,7 +196,7 @@ function UserProfile() {
                 title="Messages"
                 total={0}
                 sx={{ boxShadow: 5 }}
-                onClick={() => navigate("/user-dash/messages")}
+                onClick={() => navigate("/UserDash/Messages")}
               />{" "}
             </Grid>
           </Grid>
@@ -204,6 +204,7 @@ function UserProfile() {
       </div>
 
       <UploadResumePopup trigger={resumePopup} setTrigger={setResumePopup}>
+        <h1 className="widget-title">Upload Resume</h1>
         <Button variant="contained" component="label">
           {" "}
           Choose File
@@ -232,21 +233,19 @@ function UserProfile() {
       </UploadResumePopup>
 
       <EditProfilePopup trigger={buttonPopup} setTrigger={setButtonPopup}>
-        
-          <TextField
-            id="outlined-multiline-static"
-            label="Bio"
-            multiline
-            rows={5}
-            value={bio}
-            onChange={handleBioChange}
-            placeholder="Write a brief description about yourself..."
-          />
+        <TextField
+          id="outlined-multiline-static"
+          label="Bio"
+          multiline
+          rows={5}
+          value={bio}
+          onChange={handleBioChange}
+          placeholder="Write a brief description about yourself..."
+        />
 
-          <Button variant="outlined" onClick={() => handleWrapperBioTrigger()}>
-            Update Bio
-          </Button>
-      
+        <Button variant="outlined" onClick={() => handleWrapperBioTrigger()}>
+          Update Bio
+        </Button>
       </EditProfilePopup>
     </div>
   );
