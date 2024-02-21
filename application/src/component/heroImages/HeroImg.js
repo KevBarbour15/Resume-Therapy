@@ -28,7 +28,7 @@ export const HeroImg = () => {
   return (
     <div className="hero">
       <div className="mask">
-        <img className="into-img" src={IntroImg} alt="Hero Image" />
+        
       </div>
 
       <div className="content">
