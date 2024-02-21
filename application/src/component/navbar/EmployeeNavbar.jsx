@@ -1,6 +1,6 @@
 import "./NavbarStyles.css";
 import { React, useState } from "react";
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { auth, logout } from "../../firebase";
 
@@ -19,14 +19,13 @@ export const EmployeeNavbar = () => {
   };
 
   const logUserOut = async () => {
-    console.log("Logging out...");
     try {
-        await logout(auth);
-        navigate("/");
-      } catch (error) {
-        console.error("Error logging out:", error);
-      }
-  }
+      await logout(auth);
+      navigate("/");
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
 
   window.addEventListener("scroll", changeColor);
 
@@ -37,10 +36,8 @@ export const EmployeeNavbar = () => {
       </Link>
 
       <ul className={click ? "nav-menu active" : "nav-menu"}>
-        
-     
         <li>
-          <Link to="/ReviewerDash/Profile">Profile</Link>
+          <Link to="/ReviewerDash/Profile">Therapist Profile</Link>
         </li>
 
         <li>
@@ -64,7 +61,9 @@ export const EmployeeNavbar = () => {
         </li>
 
         <li>
-            <Link to = "/" onClick={logUserOut}>Logout</Link>
+          <Link to="/" onClick={logUserOut}>
+            Logout
+          </Link>
         </li>
       </ul>
 
@@ -78,6 +77,5 @@ export const EmployeeNavbar = () => {
     </div>
   );
 };
-
 
 export default EmployeeNavbar;

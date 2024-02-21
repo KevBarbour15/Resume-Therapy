@@ -70,7 +70,7 @@ const EmpConnections = () => {
       newFilteredConnectons = connections;
     } else {
       newFilteredConnectons = connections.filter((item) =>
-        item[0].includes(filterText)
+        item[0].toLowerCase().includes(filterText.toLowerCase())
       );
     }
     setfilteredConnection(newFilteredConnectons);

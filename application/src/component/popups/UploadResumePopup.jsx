@@ -1,7 +1,7 @@
 import React from "react";
 import "./popups.css";
 
-function EditProfilePopup(props) {
+function UploadResumePopup(props) {
   return props.trigger ? (
     <div className="popup">
       <div className="popup-inner">
@@ -16,4 +16,4 @@ function EditProfilePopup(props) {
   );
 }
 
-export default EditProfilePopup;
+export default UploadResumePopup;

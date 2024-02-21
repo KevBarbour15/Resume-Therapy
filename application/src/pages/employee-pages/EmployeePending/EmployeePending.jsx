@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { query, collection, getDocs, where } from "firebase/firestore";
@@ -8,10 +8,9 @@ import {
   denyConnectionRequest,
 } from "../../../connections";
 
-import { Grid, Container, Typography } from "@mui/material";
+import { Grid, Container } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import EmpPendingWidget from "../../../component/widgets/EmpPendingWidget";
-import Button from "@mui/material/Button";
+import CustomButton from "../../../component/custom-mui/CustomButton";
 
 const EmployeePendingConnections = () => {
   const [user] = useAuthState(auth);
@@ -41,7 +40,6 @@ const EmployeePendingConnections = () => {
 
   useEffect(() => {
     if (user) {
-      //console.log("It's been called son")
       fetchPendingConnections();
     }
   }, [user]);
@@ -55,17 +53,14 @@ const EmployeePendingConnections = () => {
         item[0].includes(filterText)
       );
     }
-    //console.log(newFilteredConnectons);
     setfilteredConnection(newFilteredConnectons);
     console.log("TEST");
   }, [filterText, pendingConnections]);
 
   const handleFilterText = (event) => {
     setfilterText(event.target.value);
-    //Change connections list here
   };
 
-  //connection1 is user that we want to delete
   const removeRequest = (reviewee) => {
     const tempFilteredRev = pendingConnections.filter(
       (item) => item[1] != reviewee
@@ -86,10 +81,9 @@ const EmployeePendingConnections = () => {
   return (
     <div>
       <Container maxWidth="xl" className="available">
-        <h1></h1>
-        <h1></h1>
-        <h1 className="h1">Pending Connections...</h1>
-
+        <div className="page-title">
+          <h1>Pending Connections...</h1>
+        </div>
         <TextField
           id="standard-basic"
           label="Search Pending Connection..."
@@ -106,7 +100,7 @@ const EmployeePendingConnections = () => {
                 <h1 class="h1"> User: {connection[0]} </h1>
                 <h3> Status: {connection[3]} </h3>
 
-                <Button
+                <CustomButton
                   variant="outlined"
                   onClick={() =>
                     handleAcceptConnections(connection[1], connection[2])
@@ -114,8 +108,8 @@ const EmployeePendingConnections = () => {
                 >
                   {" "}
                   Accept{" "}
-                </Button>
-                <Button
+                </CustomButton>
+                <CustomButton
                   variant="outlined"
                   onClick={() =>
                     handleDeclineConnections(connection[1], connection[2])
@@ -123,7 +117,7 @@ const EmployeePendingConnections = () => {
                 >
                   {" "}
                   Deny{" "}
-                </Button>
+                </CustomButton>
               </li>
             </Grid>
           ))}

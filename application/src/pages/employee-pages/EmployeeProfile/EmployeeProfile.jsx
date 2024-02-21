@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { query, collection, getDocs, where } from "firebase/firestore";
@@ -144,6 +144,8 @@ function EmpProfile() {
         <Container maxWidth="xl">
           <h1></h1>
           <h1></h1>
+          <h1></h1>
+          <h1></h1>
           <h1 className="h1">Hi, Welcome back!</h1>
 
           <h1> </h1>
@@ -183,7 +185,7 @@ function EmpProfile() {
                 title="Calendar"
                 total={714}
                 sx={{ boxShadow: 5 }}
-                onClick={() => navigate("/ReviewerDash/BookAppointment")}
+                onClick={() => navigate("/ReviewerDash/Availability")}
               />{" "}
             </Grid>
 

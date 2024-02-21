@@ -11,19 +11,19 @@ import PasswordReset from "./authentication/PasswordReset";
 import SignIn from "./authentication/SignIn";
 import UserMessages from "./pages/user-pages/Messages/UserMessages";
 import MeetReviewers from "./pages/user-pages/MeetReviewers/MeetReviewers";
-import VirtualCall from "./pages/user-pages/VirtualCall";
+import VirtualCall from "./pages/user-pages/VirtualCall/VirtualCall";
 import UserProfile from "./pages/user-pages/UserProfile/UserProfile";
 import BookAppointment from "./pages/user-pages/Appointments/BookAppointment";
+import DashLayout from "./pages/user-pages/DashLayout";
 
 // Employee Imports
 import UserConnections from "./pages/user-pages/Connections/UserConnections";
-import EmployeeProfile from "./pages/employee-pages/EmployeeProfile/EmpProfile";
-import EmployeeAvailability from "./pages/employee-pages/Availability/EmpAvailability";
+import EmployeeProfile from "./pages/employee-pages/EmployeeProfile/EmployeeProfile";
+import EmployeeAvailability from "./pages/employee-pages/EmployeeAvailability/EmployeeAvailability";
 import EmployeeConnections from "./pages/employee-pages/EmployeeConnections/EmployeeConnections";
 import EmployeePending from "./pages/employee-pages/EmployeePending/EmployeePending";
-import EmployeeMessages from "./pages/employee-pages/EmployeeMessages/EmpMessages";
+import EmployeeMessages from "./pages/employee-pages/EmployeeMessages/EmployeeMessages";
 import EmployeeVirtualCall from "./pages/employee-pages/EmployeeVirtualCall/EmployeeVirtualCall";
-import DashLayout from "./pages/user-pages/DashLayout";
 import EmployeeDashLayout from "./pages/employee-pages/EmployeeDashLayout";
 
 function App() {
@@ -69,10 +69,7 @@ function App() {
             path="/ReviewerDash/PendingConnections"
             element={<EmployeePending />}
           />
-          <Route
-            path="/ReviewerDash/Messages"
-            element={<EmployeeMessages />}
-          />
+          <Route path="/ReviewerDash/Messages" element={<EmployeeMessages />} />
           <Route
             path="/ReviewerDash/VirtualCall"
             element={<EmployeeVirtualCall />}

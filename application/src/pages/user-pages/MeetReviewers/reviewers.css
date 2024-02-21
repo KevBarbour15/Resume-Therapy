@@ -19,11 +19,16 @@
   height: auto;
   margin: auto;
 }
+
 .navbar {
   display: static;
   height: 500px;
   width: 30%;
   text-align: right;
+}
+
+.header-title{
+
 }
 
 .message-list {

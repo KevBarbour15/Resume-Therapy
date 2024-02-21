@@ -81,9 +81,8 @@ const MeetReviewers = () => {
   return (
     <div>
       <Container maxWidth="xl">
-        <h1> </h1>
-        <h1> </h1>
-        <h1 class="h1">Meet Resume Therapists</h1>
+   
+        <h1 className="header-title">Meet Resume Therapists</h1>
 
         <TextField
           id="standard-basic"

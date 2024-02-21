@@ -6,7 +6,6 @@ import { auth, logout } from "../../firebase";
 const sidebarNavItems = [
   {
     display: "Therapist Profile",
-    display: "Resume Therapist Profile",
     icon: <i className="bx bx-home"></i>,
     to: "/ReviewerDash/Profile",
     section: "",
