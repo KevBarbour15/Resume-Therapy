@@ -2,7 +2,7 @@ import "./NavbarStyles.css";
 import { React, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { auth, logout } from "../../firebase";
+import { auth, logout } from "../../firebase-functionality/firebase";
 
 export const UserDashNavbar = () => {
   const [click, setClick] = useState(false);
@@ -45,7 +45,7 @@ export const UserDashNavbar = () => {
         </li>
 
         <li>
-          <Link to="/UserDash/MeetReviewers">Meet Reviewers</Link>
+          <Link to="/UserDash/MeetReviewers">Meet Resume Therapists</Link>
         </li>
 
         <li>

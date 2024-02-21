@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, db } from "../../../firebase.js";
+import { auth, db } from "../../../firebase-functionality/firebase.js";
 import { query, collection, where, getDocs } from "firebase/firestore";
 import {
   fetchAvailability,
   addAvailability,
   updateAvailability,
   removeAvailability,
-} from "../../../availability.js";
-import { Grid, Container } from "@mui/material";
-import TextField from "@mui/material/TextField";
+} from "../../../firebase-functionality/availability.js";
+
 import "./availability.css";
-import Button from "@mui/material/Button";
+import { Grid, Container, TextField } from "@mui/material";
+import CustomButton from "../../../component/custom-mui/CustomButton.jsx";
 
 function EmpAvailability() {
   const [user] = useAuthState(auth);
@@ -27,7 +27,6 @@ function EmpAvailability() {
     try {
       const q = query(collection(db, "users"), where("uid", "==", user?.uid));
       const doc = await getDocs(q);
-
       if (!doc.empty) {
         const data = doc.docs[0].data();
         setName(data.name);
@@ -55,25 +54,24 @@ function EmpAvailability() {
       start,
       end,
       booked: false,
-      bookedBy: null,
-      bookedByName: null,
     };
 
-    // Check if date is in the past
     const dateNow = new Date();
+    dateNow.setHours(0, 0, 0, 0);
     const dateSlot = new Date(date);
     if (dateSlot < dateNow) {
       alert("You can't add a time slot in the past!");
       return;
     }
 
-    // Check if there are conflicting appointments
+    // Check for conflicting appointments
     const conflict = availability.some(
       (slot) =>
         slot.date === date &&
         ((slot.start <= start && start < slot.end) ||
           (slot.start < end && end <= slot.end))
     );
+
     if (conflict) {
       alert("There's a conflict with another appointment!");
       return;
@@ -86,8 +84,6 @@ function EmpAvailability() {
         newSlot
       );
       setAvailability(updatedAvailability);
-      setEditing(false);
-      setEditingIndex(null);
     } else {
       const updatedAvailability = await addAvailability(user.uid, newSlot);
       setAvailability(updatedAvailability);
@@ -96,14 +92,17 @@ function EmpAvailability() {
     setDate("");
     setStart("");
     setEnd("");
+    setEditing(false);
+    setEditingIndex(null);
   };
 
   const handleEdit = (index) => {
+    const slot = availability[index];
     setEditing(true);
     setEditingIndex(index);
-    setDate(availability[index].date);
-    setStart(availability[index].start);
-    setEnd(availability[index].end);
+    setDate(slot.date);
+    setStart(slot.start);
+    setEnd(slot.end);
   };
 
   const handleRemove = async (index) => {
@@ -112,87 +111,73 @@ function EmpAvailability() {
   };
 
   return (
-    <div>
-      <Container maxWidth="xl" class="available">
-        <h1></h1>
-        <h1></h1>
-        <h1 class="h1">Availability</h1>
-
-        <Grid container spacing={4}>
-          <Grid item xs={12} sm={6} md={6}>
-            <h1></h1>
-
-            <form onSubmit={handleSubmit}>
-              <h3>Pick a Day</h3>
-              <label>
-                <TextField
-                  type="date"
-                  id="standard-helperText"
-                  defaultValue="Default Value"
-                  helperText="Date"
-                  variant="standard"
-                  value={date}
-                  onChange={(e) => setDate(e.target.value)}
-                />
-                <br />
-              </label>
-
-              <h3>Pick a Start Time </h3>
-              <label>
-                <TextField
-                  type="time"
-                  id="standard-helperText"
-                  defaultValue="Default Value"
-                  helperText="Start Time"
-                  variant="standard"
-                  value={start}
-                  onChange={(e) => setStart(e.target.value)}
-                />{" "}
-                <br />
-              </label>
-
-              <h3>Pick a End Time </h3>
-              <label>
-                <TextField
-                  type="time"
-                  id="standard-helperText"
-                  defaultValue="Default Value"
-                  helperText="End Time"
-                  variant="standard"
-                  value={end}
-                  onChange={(e) => setEnd(e.target.value)}
-                />{" "}
-                <br />
-              </label>
-
-              <button type="submit">
-                {editing ? "Update" : "Add"} Time Slot
-              </button>
-            </form>
-          </Grid>
-
-          <Grid item xs={12} sm={6} md={5}>
-            <ul>
-              <h2 class="h1">Current Availability</h2>
-              <h1></h1>
-
-              {availability.map((slot, index) => (
-                <li key={index}>
-                  {slot.date} {slot.start} - {slot.end}
-                  {slot.booked ? (
-                    <p>Slot is booked by {slot.bookedByName}</p>
-                  ) : (
-                    <p>Slot is available</p>
-                  )}
-                  <Button onClick={() => handleEdit(index)}>Edit</Button>
-                  <Button onClick={() => handleRemove(index)}>Remove</Button>
-                </li>
-              ))}
-            </ul>
-          </Grid>
+    <Container maxWidth="xl">
+      <h1>Availability</h1>
+      <Grid container spacing={4}>
+        <Grid item xs={12} sm={6}>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <TextField
+                label="Date"
+                type="date"
+                variant="standard"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
+            </div>
+            <div>
+              <TextField
+                label="Start Time"
+                type="time"
+                variant="standard"
+                value={start}
+                onChange={(e) => setStart(e.target.value)}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
+            </div>
+            <div>
+              <TextField
+                label="End Time"
+                type="time"
+                variant="standard"
+                value={end}
+                onChange={(e) => setEnd(e.target.value)}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
+            </div>
+            <CustomButton type="submit" variant="outlined">
+              {editing ? "Update" : "Add"} Time Slot
+            </CustomButton>
+          </form>
         </Grid>
-      </Container>
-    </div>
+        <Grid item xs={12} sm={6}>
+          <h2>Current Availability</h2>
+          {availability.map((slot, index) => (
+            <li key={index}>
+              {slot.date} {slot.start} - {slot.end}
+              {slot.booked ? (
+                <p>Slot is booked by {slot.bookedByName}</p>
+              ) : (
+                <p>Slot is available</p>
+              )}
+              <CustomButton onClick={() => handleEdit(index)}>
+                Edit
+              </CustomButton>
+              <CustomButton onClick={() => handleRemove(index)}>
+                Remove
+              </CustomButton>
+            </li>
+          ))}
+        </Grid>
+      </Grid>
+    </Container>
   );
 }
 

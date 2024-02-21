@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "react-chat-elements/dist/main.css";
-import { auth } from "../../../firebase";
+import { auth } from "../../../firebase-functionality/firebase";
 
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { ref, getDownloadURL, listAll } from "firebase/storage";
-import { db, storage } from "../../../firebase";
+import { db, storage } from "../../../firebase-functionality/firebase";
 
 import "./connections.css";
 import { Grid, Container } from "@mui/material";
@@ -120,20 +120,17 @@ const UserConnections = () => {
   return (
     <div>
       <Container maxWidth="xl">
-        <h1> </h1>
-        <h1> </h1>
-        <h1> </h1>
-        <h1> </h1>
-        <h1 class="h1">Your Connections</h1>
-
+        <div className="page-title">
+          <h1>Your Connections</h1>
+        </div>
         <TextField
           id="standard-basic"
           label="Search Connection..."
           variant="standard"
           onChange={handleFilterText}
           fullWidth
+          sx={{ marginBottom: 2 }}
         />
-        <h1> </h1>
         <Grid container spacing={4}>
           {filteredConnection.map((connection) => (
             <Grid item xs={12} md={6} lg={4}>

@@ -18,7 +18,6 @@ const addAvailability = async (uid, newSlot) => {
   const employeeScheduleRef = getEmployeeScheduleRef(uid);
   const availability = await fetchAvailability(uid);
 
-
   const dateNow = new Date();
   const dateSlot = new Date(newSlot.date);
   if (dateSlot < dateNow) {

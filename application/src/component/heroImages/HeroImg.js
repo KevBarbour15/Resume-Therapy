@@ -4,7 +4,7 @@ import IntroImg from "../../assets/solid.jpg";
 import Resume from "../../assets/resume.png";
 import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, db, logout } from "../../firebase";
+import { auth, db, logout } from "../../firebase-functionality/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 
 export const HeroImg = () => {

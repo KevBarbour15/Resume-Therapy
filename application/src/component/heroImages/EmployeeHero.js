@@ -3,7 +3,7 @@ import React from "react";
 import IntroImg from "../../assets/solid.jpg";
 import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, db, logout } from "../../firebase";
+import { auth, db, logout } from "../../firebase-functionality/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 
 export const EmployeeHero = () => {

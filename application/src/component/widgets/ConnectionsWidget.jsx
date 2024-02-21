@@ -23,7 +23,12 @@ export default function ConnectionsWidget({
   return (
     <CustomCard {...other}>
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography
+          gutterBottom
+          variant="h5"
+          component="div"
+          sx={{ fontFamily: "Outfit, sans-serif" }}
+        >
           {title}
         </Typography>
 

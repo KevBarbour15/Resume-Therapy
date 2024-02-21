@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth, logInWithEmailAndPasswordEmployee } from "../firebase";
+import {
+  auth,
+  logInWithEmailAndPasswordEmployee,
+} from "../firebase-functionality/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./Login.css";
 import { Navbar } from "../component/navbar/Navbar";
@@ -21,13 +24,13 @@ const EmployeeSignIn = () => {
     if (event.key === "Enter") {
       login();
     }
-  }
+  };
 
-  const login = async() => {
+  const login = async () => {
     const errMessage = await logInWithEmailAndPasswordEmployee(email, password);
     console.log(err);
     setErrorText(errMessage);
-  }
+  };
 
   return (
     <>
@@ -51,9 +54,7 @@ const EmployeeSignIn = () => {
             placeholder="Password"
             onKeyDown={enter}
           />
-          <div className="error__text">
-            {errorText && <p>{errorText}</p>}
-          </div>
+          <div className="error__text">{errorText && <p>{errorText}</p>}</div>
           <button
             className="login__btn"
             onClick={() => logInWithEmailAndPasswordEmployee(email, password)}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, db } from "../../../firebase";
+import { auth, db } from "../../../firebase-functionality/firebase";
 import {
   collection,
   getDocs,
@@ -13,7 +13,7 @@ import {
 import Modal from "react-modal";
 import DailyIframe from "@daily-co/daily-js";
 import axios from "axios";
-import { removeAvailability } from "../../../availability";
+import { removeAvailability } from "../../../firebase-functionality/availability";
 import { Grid, Container } from "@mui/material";
 
 const EmployeeVirtualCall = () => {

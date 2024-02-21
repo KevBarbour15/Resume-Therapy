@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { query, collection, getDocs, where } from "firebase/firestore";
-import { auth, db } from "../../../firebase";
+import { auth, db } from "../../../firebase-functionality/firebase";
 import {
   acceptConnectionRequest,
   denyConnectionRequest,
-} from "../../../connections";
+} from "../../../firebase-functionality/connections";
 
 import { Grid, Container } from "@mui/material";
 import TextField from "@mui/material/TextField";

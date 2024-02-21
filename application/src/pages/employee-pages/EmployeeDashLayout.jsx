@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import EmployeeSidebar from "../../component/navbar/EmployeeSidebar";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../../firebase";
+import { auth } from "../../firebase-functionality/firebase";
 import "./layout-style.css";
 
 import EmployeeNavbar from "../../component/navbar/EmployeeNavbar";
@@ -27,10 +27,10 @@ const EmployeeDashLayout = () => {
 
     handleWindowResize();
 
-    window.addEventListener("resize", handleWindowResize); 
+    window.addEventListener("resize", handleWindowResize);
 
     return () => {
-      window.removeEventListener("resize", handleWindowResize); 
+      window.removeEventListener("resize", handleWindowResize);
     };
   }, [user, loading]);
   return (

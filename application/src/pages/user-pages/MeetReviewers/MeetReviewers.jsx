@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { query, collection, getDocs, where } from "firebase/firestore";
-import { auth, db } from "../../../firebase";
-import { addConnection } from "../../../connections";
+import { auth, db } from "../../../firebase-functionality/firebase";
+import { addConnection } from "../../../firebase-functionality/connections";
 
 import { Grid, Container } from "@mui/material";
 
@@ -81,17 +81,17 @@ const MeetReviewers = () => {
   return (
     <div>
       <Container maxWidth="xl">
-   
-        <h1 className="header-title">Meet Resume Therapists</h1>
-
+        <div className="page-title">
+          <h1>Meet Resume Therapists</h1>
+        </div>
         <TextField
           id="standard-basic"
           label="Search Resume Therapists..."
           variant="standard"
           onChange={handleFilterText}
           fullWidth
+          sx={{ marginBottom: 2 }}
         />
-        <h1> </h1>
         <Grid container spacing={4}>
           {filteredConnection.map((reviewer) => (
             <Grid item xs={12} md={6} lg={4}>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { auth, db } from "../../../firebase";
+import { auth, db } from "../../../firebase-functionality/firebase";
 import {
   collection,
   getDocs,
@@ -10,10 +10,10 @@ import {
 } from "firebase/firestore";
 
 import "./appointments.css";
-import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import { Grid, Container } from "@mui/material";
+import CustomButton from "../../../component/custom-mui/CustomButton";
 
 function BookAppointment() {
   const [employees, setEmployees] = useState([]);
@@ -110,12 +110,10 @@ function BookAppointment() {
 
   return (
     <div>
-      <h1></h1>
-      <h1></h1>
-      <h1></h1>
-      <h1></h1>
       <Container maxWidth="xl">
-        <h1 class="h1">Book Appointments</h1>
+        <div className="page-title">
+          <h1>Book Appointments</h1>
+        </div>
         <TextField
           id="standard-basic"
           label="Search Resume Therapists..."
@@ -127,9 +125,9 @@ function BookAppointment() {
           <Grid item xs={12} sm={6} md={6}>
             <div>
               {employees.map((employee, index) => (
-                <li class="li" key={index}>
-                  <div class="appointments">
-                    <h1 className="h1"> {employee.name}</h1>
+                <li className="reviewer-container" key={index}>
+                  <div className="reviewer">
+                    <h1>{employee.name}</h1>
                     <div class="icon">
                       <CalendarMonthIcon
                         variant="outlined"
@@ -143,23 +141,19 @@ function BookAppointment() {
           </Grid>
 
           <Grid item xs={12} sm={6} md={6}>
-            <h1></h1>
-            <h1></h1>
-
             {selectedEmployee && (
-              <div>
-                <h2>Select a time slot with: </h2>
-                <h3>{selectedEmployee.name}</h3>
+              <div className="availability-container">
+                <h2>Select a time slot with {selectedEmployee.name}: </h2>
                 <ul>
                   {selectedEmployee.availability
                     .filter((slot) => !slot.booked)
                     .map((slot, index) => (
                       <li key={index}>
                         {slot.date} : {slot.start} - {slot.end} :
-                        <Button onClick={() => handleSlotSelection(slot)}>
+                        <CustomButton onClick={() => handleSlotSelection(slot)}>
                           {" "}
                           Select{" "}
-                        </Button>
+                        </CustomButton>
                       </li>
                     ))}
                 </ul>
@@ -173,9 +167,9 @@ function BookAppointment() {
                     <p>Meeting Token: {selectedSlot.meetingToken}</p>
                   </div>
                 )}
-                <Button variant="contained" onClick={bookAppointment}>
+                <CustomButton onClick={bookAppointment}>
                   Book Appointment
-                </Button>
+                </CustomButton>
               </div>
             )}
           </Grid>

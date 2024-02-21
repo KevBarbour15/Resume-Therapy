@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./sidebar.scss";
-import { auth, logout } from "../../firebase";
+import { auth, logout } from "../../firebase-functionality/firebase";
 
 const sidebarNavItems = [
   {

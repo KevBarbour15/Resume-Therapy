@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth, logInWithEmailAndPassword, signInWithGoogle } from "../firebase";
+import {
+  auth,
+  logInWithEmailAndPassword,
+  signInWithGoogle,
+} from "../firebase-functionality/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./Login.css";
 import { Navbar } from "../component/navbar/Navbar";

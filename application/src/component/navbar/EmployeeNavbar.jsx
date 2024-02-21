@@ -2,7 +2,7 @@ import "./NavbarStyles.css";
 import { React, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { auth, logout } from "../../firebase";
+import { auth, logout } from "../../firebase-functionality/firebase";
 
 export const EmployeeNavbar = () => {
   const [click, setClick] = useState(false);

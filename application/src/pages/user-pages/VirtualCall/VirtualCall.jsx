@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, db } from "../../../firebase";
+import { auth, db } from "../../../firebase-functionality/firebase";
 import {
   collection,
   getDocs,

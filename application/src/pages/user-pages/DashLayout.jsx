@@ -4,7 +4,7 @@ import Sidebar from "../../component/navbar/Sidebar";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 
-import { auth } from "../../firebase";
+import { auth } from "./../../firebase-functionality/firebase";
 
 import UserDashNavbar from "../../component/navbar/UserDashNavbar";
 import "./layout-style.css";

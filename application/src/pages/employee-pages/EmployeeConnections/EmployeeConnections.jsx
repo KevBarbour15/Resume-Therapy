@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "react-chat-elements/dist/main.css";
-import { auth } from "../../../firebase";
+import { auth } from "../../../firebase-functionality/firebase";
 import "./connections.css";
 
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { ref, getDownloadURL, listAll } from "firebase/storage";
-import { db, storage } from "../../../firebase";
+import { db, storage } from "../../../firebase-functionality/firebase";
 
 import { Grid, Container } from "@mui/material";
 import TextField from "@mui/material/TextField";

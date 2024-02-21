@@ -6,7 +6,7 @@ import {
   auth,
   registerWithEmailAndPassword,
   signInWithGoogle,
-} from "../firebase";
+} from "../firebase-functionality/firebase";
 import "./Login.css";
 function Register() {
   const [email, setEmail] = useState("");
@@ -19,9 +19,13 @@ function Register() {
 
   let error = "";
   const register = async () => {
-   const errMessage = await registerWithEmailAndPassword(name, email, password);
+    const errMessage = await registerWithEmailAndPassword(
+      name,
+      email,
+      password
+    );
     setErrorText(errMessage);
-    
+
     if (error === "") {
       setRegistrationStatus("success");
     } else {
@@ -29,12 +33,11 @@ function Register() {
     }
   };
 
-
   const enter = (event) => {
     if (event.key === "Enter") {
       register();
     }
-  }
+  };
 
   useEffect(() => {
     if (registrationStatus === "success") {
@@ -91,9 +94,7 @@ function Register() {
             placeholder="Password"
             onKeyDown={enter}
           />
-          <div className="error__text">
-            {errorText && <p>{errorText}</p>}
-          </div>
+          <div className="error__text">{errorText && <p>{errorText}</p>}</div>
           <button className="register__btn" onClick={register}>
             Register
           </button>

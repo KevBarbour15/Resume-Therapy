@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { sendPasswordReset } from "../firebase";
+import { Link } from "react-router-dom";
+import { sendPasswordReset } from "../firebase-functionality/firebase";
 import "./Login.css";
 import { Navbar } from "../component/navbar/Navbar";
 

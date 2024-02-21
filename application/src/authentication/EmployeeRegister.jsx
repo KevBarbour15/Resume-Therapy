@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { Navbar } from "../component/navbar/Navbar";
-import { auth, registerWithEmailAndPasswordEmployee } from "../firebase";
+import {
+  auth,
+  registerWithEmailAndPasswordEmployee,
+} from "../firebase-functionality/firebase";
 import "./Login.css";
 
 function EmployeeRegister() {
