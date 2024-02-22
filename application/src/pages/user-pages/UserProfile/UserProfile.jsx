@@ -146,61 +146,77 @@ function UserProfile() {
 
   return (
     <div>
-      <div>
-        <Container maxWidth="xl">
-          <div className="page-title">
-            <h1>Hi, welcome back!</h1>
-          </div>
+      <Container maxWidth="xl">
+        <div className="page-title">
+          <h1>Hi, welcome back!</h1>
+        </div>
 
-          <Grid container spacing={6} sx={{ marginBottom: 2 }}>
-            <Grid item xs={12} md={6} lg={6}>
-              <ProfileWidget title={name} bio={bio} />
-            </Grid>
-
-            <Grid item xs={12} sm={3} md={3}>
+        <Grid container spacing={6}>
+          <Grid item xs={7} sm={8} md={8} lg={8} xl={6}>
+            <ProfileWidget title={name} bio={bio} />
+          </Grid>
+          <Grid
+            item
+            xs={5}
+            sm={4}
+            md={4}
+            lg={4}
+            xl={4}
+            container
+            sx={{
+              display: "flex",
+              flexDirection: {
+                xs: "row",
+                sm: "column",
+                md: "column",
+                lg: "column",
+                xl: "column",
+              },
+            }}
+          >
+            <Grid item>
               <CustomButton onClick={() => setButtonPopup(true)}>
                 Edit Bio
               </CustomButton>
             </Grid>
-
-            <Grid item xs={12} sm={3} md={3}>
+            <Grid item>
               <CustomButton onClick={() => setResumePopup(true)}>
                 Upload Resume
               </CustomButton>
             </Grid>
           </Grid>
-
-          <Grid container spacing={6}>
-            <Grid item xs={12} md={3} lg={3}>
-              <ViewResumeWidget
-                title="View Resume"
-                onClick={() => setViewResumePopup(true)}
-              />{" "}
-            </Grid>
-
-            <Grid item xs={12} md={3} lg={3}>
-              <ViewBioWidget
-                title="View Bio"
-                onClick={() => setViewBioPopup(true)}
-              />{" "}
-            </Grid>
-
-            <Grid item xs={12} md={3} lg={3}>
-              <CalendarWidget
-                title="Appointments"
-                onClick={() => navigate("/UserDash/BookAppointment")}
-              />{" "}
-            </Grid>
-
-            <Grid item xs={12} md={3} lg={3}>
-              <MessagesWidget
-                title="Messages"
-                onClick={() => navigate("/UserDash/Messages")}
-              />{" "}
-            </Grid>
+        </Grid>
+        <Grid container spacing={6}>
+          <Grid item xs={6} md={4} lg={4}>
+            <ViewResumeWidget
+              title="View Resume"
+              onClick={() => setViewResumePopup(true)}
+            />
           </Grid>
-        </Container>
-      </div>
+
+          <Grid item xs={6} md={4} lg={4}>
+            <ViewBioWidget
+              title="View Bio"
+              onClick={() => setViewBioPopup(true)}
+            />
+          </Grid>
+        </Grid>
+        <Grid container spacing={6}>
+          <Grid item xs={6} md={4} lg={4}>
+            <CalendarWidget
+              title="Appointments"
+              onClick={() => navigate("/UserDash/BookAppointment")}
+            />
+          </Grid>
+
+          <Grid item xs={6} md={4} lg={4}>
+            <MessagesWidget
+              title="Messages"
+              onClick={() => navigate("/UserDash/Messages")}
+            />
+          </Grid>
+        </Grid>
+      </Container>
 
       <UploadResumePopup trigger={resumePopup} setTrigger={setResumePopup}>
         <h1 className="widget-title">Upload Resume</h1>
@@ -238,14 +254,14 @@ function UserProfile() {
       </ViewResumePopup>
 
       <EditBioPopup trigger={buttonPopup} setTrigger={setButtonPopup}>
-      <h1 className="widget-title">Edit Bio</h1>
+        <h1 className="widget-title">Edit Bio</h1>
         <TextField
           multiline
           rows={12}
           value={bio}
           onChange={handleBioChange}
           placeholder="Write a brief description about yourself..."
-          sx={{  marginBottom: 2, width: "300px" }}
+          sx={{ marginBottom: 2, width: "300px" }}
         />
 
         <CustomButton

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Typography } from "@mui/material";
 import CustomCard from "../custom-mui/CustomCard";
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 
 CalendarWidget.propTypes = {
   icon: PropTypes.string,
@@ -9,22 +9,20 @@ CalendarWidget.propTypes = {
   total: PropTypes.number.isRequired,
 };
 
-export default function CalendarWidget({ title, total, icon, ...other }) {
+export default function CalendarWidget({ title, total, sx, icon, ...other }) {
   return (
     <CustomCard {...other}>
-      <Typography
-        variant="h3"
-        sx={{ fontFamily: "Outfit, sans-serif", cursor: "pointer" }}
-      >
+      <Typography gutterBottom sx={{ cursor: "pointer", color: "#fff" }}>
         <CalendarTodayIcon />
       </Typography>
 
       <Typography
-        variant="subtitle2"
         sx={{
           fontFamily: "Outfit, sans-serif",
+          fontWeight: "600",
           cursor: "pointer",
           transition: "all .3s ease-in-out",
+          color: "#fff",
           "&:hover": {
             transform: "scale(1.25)",
           },

@@ -31,7 +31,6 @@ const UserConnections = () => {
       );
       const docs = await getDocs(q);
       const tempConnections = [];
-      const tempReviewerBios = [];
 
       for (const doc of docs.docs) {
         const reviewerUid = doc.data().reviewerid;

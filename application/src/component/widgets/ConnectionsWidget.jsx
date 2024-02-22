@@ -8,12 +8,10 @@ ConnectionsWidget.propTypes = {
   icon: PropTypes.string,
   title: PropTypes.string.isRequired,
   bio: PropTypes.string.isRequired,
-  total: PropTypes.number.isRequired,
 };
 
 export default function ConnectionsWidget({
   title,
-  total = 0,
   bio,
   icon,
   popUpHandle,
@@ -26,15 +24,16 @@ export default function ConnectionsWidget({
         <Typography
           gutterBottom
           variant="h5"
-          component="div"
-          sx={{ fontFamily: "Outfit, sans-serif" }}
+          sx={{
+            fontFamily: "Outfit, sans-serif",
+            fontWeight: "600",
+            color: "#fff",
+          }}
         >
           {title}
         </Typography>
 
-        <Typography variant="body2" sx={{ fontFamily: "Outfit, sans-serif" }}>
-          {bio}
-        </Typography>
+        <Typography sx={{ fontFamily: "Outfit, sans-serif" }}>{bio}</Typography>
       </CardContent>
 
       <CardActions>

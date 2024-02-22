@@ -4,29 +4,24 @@ import NoteAddIcon from "@mui/icons-material/NoteAdd";
 import CustomCard from "../custom-mui/CustomCard";
 
 ViewResumeWidget.propTypes = {
-  icon: PropTypes.string,
   title: PropTypes.string.isRequired,
   total: PropTypes.number.isRequired,
 };
 
-export default function ViewResumeWidget({
-  title,
-  total,
-  icon: IconComponent = NoteAddIcon,
-  ...other
-}) {
+export default function ViewResumeWidget({ title, total, ...other }) {
   return (
     <CustomCard {...other}>
-      <Typography variant="h3" sx={{ cursor: "pointer" }}>
-        <IconComponent />
+      <Typography gutterBottom sx={{ cursor: "pointer", color: "#fff" }}>
+        <NoteAddIcon />
       </Typography>
 
       <Typography
-        variant="subtitle2"
         sx={{
           fontFamily: "Outfit, sans-serif",
+          fontWeight: "600",
           cursor: "pointer",
           transition: "all .3s ease-in-out",
+          color: "#fff",
           "&:hover": {
             transform: "scale(1.25)",
           },

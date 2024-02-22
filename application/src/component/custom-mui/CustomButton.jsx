@@ -15,6 +15,7 @@ const CustomButton = ({ children, sx, onClick, ...props }) => (
       fontSize: ".85rem",
       boxShadow: "10px 10px 5px black",
       transition: "all .3s ease-in-out",
+      marginBottom: "20px",
       "&:hover": {
         color: "#fff",
         border: "1px solid black",

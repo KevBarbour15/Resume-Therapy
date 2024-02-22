@@ -11,7 +11,15 @@ ProfileWidget.propTypes = {
 export default function ProfileWidget({ title, bio, icon, ...other }) {
   return (
     <CustomCard {...other}>
-      <Typography variant="h3" sx={{ fontFamily: "Outfit, sans-serif" }}>
+      <Typography
+        sx={{
+          fontSize: "1.75em",
+          fontFamily: "Outfit, sans-serif",
+          fontWeight: "600",
+          transition: "all .3s ease-in-out",
+          color: "#fff",
+        }}
+      >
         {title}
       </Typography>
       <div></div>
