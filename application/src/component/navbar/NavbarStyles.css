@@ -8,6 +8,7 @@
   height: 85px;
   z-index: 10;
   background-color: #1d332e;
+  border-bottom: 2px solid white;
 }
 
 .nav-menu {

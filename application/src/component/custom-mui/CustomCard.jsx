@@ -1,16 +1,20 @@
 import { Card } from "@mui/material";
 
-const CustomCard = ({ title, bio, children, sx, ...other }) => (
+const CustomCard = ({ title, bio, sx, children, ...other }) => (
   <Card
     sx={{
-      py: 5,
-      boxShadow: 0,
       textAlign: "center",
-      color: "black",
-      bgcolor: "white",
-      border: "2px solid black",
-      borderRadius: "10px",
-      boxSizing: "border-box",
+      textTransform: "uppercase",
+      fontFamily: "Outfit, sans-serif",
+      color: "#222",
+      bgcolor: "rgb(248, 217, 15)",
+      border: "1px solid #fff",
+      borderRadius: "0px",
+      fontWeight: "600",
+      padding: "10px 32px",
+      fontSize: ".85rem",
+      boxShadow: "10px 10px 5px black",
+      transition: "all .3s ease-in-out",
       ...sx,
     }}
     {...other}

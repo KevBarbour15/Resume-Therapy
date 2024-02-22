@@ -10,10 +10,13 @@ import "./profile.css";
 import ProfileWidget from "../../../component/widgets/ProfileWidget";
 import MessagesWidget from "../../../component/widgets/MessagesWidget";
 import CalendarWidget from "../../../component/widgets/CalendarWidget";
-import UploadResumeWidget from "../../../component/widgets/UploadResumeWidget";
+import ViewResumeWidget from "../../../component/widgets/ViewResumeWidget";
+import ViewBioWidget from "../../../component/widgets/ViewBioWidget";
 import CustomButton from "../../../component/custom-mui/CustomButton";
-import EditProfilePopup from "../../../component/popups/EditProfilePopup";
+import EditBioPopup from "../../../component/popups/EditBioPopup";
+import ViewBioPopup from "../../../component/popups/ViewBioPopup";
 import UploadResumePopup from "../../../component/popups/UploadResumePopup";
+import ViewResumePopup from "../../../component/popups/ViewResumePopup";
 
 import { Grid, Container } from "@mui/material";
 import TextField from "@mui/material/TextField";
@@ -21,6 +24,8 @@ import TextField from "@mui/material/TextField";
 function UserProfile() {
   const [buttonPopup, setButtonPopup] = useState(false);
   const [resumePopup, setResumePopup] = useState(false);
+  const [viewResumePopup, setViewResumePopup] = useState(false);
+  const [viewBioPopup, setViewBioPopup] = useState(false);
 
   const [user, loading] = useAuthState(auth);
   const [name, setName] = useState("");
@@ -116,6 +121,7 @@ function UserProfile() {
 
   const handleUploadImage = () => {
     if (!imageUpload) return;
+
     const imageRef = ref(storage, `resumes/users/${user?.uid}/resume`);
     uploadBytes(imageRef, imageUpload)
       .then((snapshot) => {
@@ -146,9 +152,9 @@ function UserProfile() {
             <h1>Hi, welcome back!</h1>
           </div>
 
-          <Grid container spacing={4}>
-            <Grid item xs={12} md={9} lg={9}>
-              <ProfileWidget title={name} bio={bio} />{" "}
+          <Grid container spacing={6} sx={{ marginBottom: 2 }}>
+            <Grid item xs={12} md={6} lg={6}>
+              <ProfileWidget title={name} bio={bio} />
             </Grid>
 
             <Grid item xs={12} sm={3} md={3}>
@@ -156,22 +162,32 @@ function UserProfile() {
                 Edit Bio
               </CustomButton>
             </Grid>
-          </Grid>
 
-          <h1> </h1>
-          <h1> </h1>
+            <Grid item xs={12} sm={3} md={3}>
+              <CustomButton onClick={() => setResumePopup(true)}>
+                Upload Resume
+              </CustomButton>
+            </Grid>
+          </Grid>
 
           <Grid container spacing={6}>
             <Grid item xs={12} md={3} lg={3}>
-              <UploadResumeWidget
-                title="Upload Resume"
-                onClick={() => setResumePopup(true)}
+              <ViewResumeWidget
+                title="View Resume"
+                onClick={() => setViewResumePopup(true)}
               />{" "}
             </Grid>
 
-            <Grid item xs={12} md={6} lg={6}>
+            <Grid item xs={12} md={3} lg={3}>
+              <ViewBioWidget
+                title="View Bio"
+                onClick={() => setViewBioPopup(true)}
+              />{" "}
+            </Grid>
+
+            <Grid item xs={12} md={3} lg={3}>
               <CalendarWidget
-                title="Calendar"
+                title="Appointments"
                 onClick={() => navigate("/UserDash/BookAppointment")}
               />{" "}
             </Grid>
@@ -188,7 +204,7 @@ function UserProfile() {
 
       <UploadResumePopup trigger={resumePopup} setTrigger={setResumePopup}>
         <h1 className="widget-title">Upload Resume</h1>
-        <CustomButton component="label">
+        <CustomButton component="label" sx={{ marginBottom: 2 }}>
           Choose File
           <input
             type="file"
@@ -198,31 +214,38 @@ function UserProfile() {
           />
         </CustomButton>
         <CustomButton
-          variant="contained"
           compononet="label"
           onClick={() => handleUploadImage()}
+          sx={{ marginBottom: 2 }}
         >
           Upload
         </CustomButton>
-
-        <div>
-          {image && (
-            <div className="resume">
-              <img src={image} class="img" alt="Resume preview" />
-            </div>
-          )}
-        </div>
       </UploadResumePopup>
 
-      <EditProfilePopup trigger={buttonPopup} setTrigger={setButtonPopup}>
+      <ViewResumePopup
+        trigger={viewResumePopup}
+        setTrigger={setViewResumePopup}
+      >
+        <div>
+          {image ? (
+            <div className="resume">
+              <img src={image} className="img" alt="Resume preview" />
+            </div>
+          ) : (
+            <div className="no-resume">No resume uploaded.</div>
+          )}
+        </div>
+      </ViewResumePopup>
+
+      <EditBioPopup trigger={buttonPopup} setTrigger={setButtonPopup}>
+      <h1 className="widget-title">Edit Bio</h1>
         <TextField
-          id="outlined-multiline-static"
-          label="Bio"
           multiline
-          rows={5}
+          rows={12}
           value={bio}
           onChange={handleBioChange}
           placeholder="Write a brief description about yourself..."
+          sx={{  marginBottom: 2, width: "300px" }}
         />
 
         <CustomButton
@@ -231,7 +254,14 @@ function UserProfile() {
         >
           Update Bio
         </CustomButton>
-      </EditProfilePopup>
+      </EditBioPopup>
+
+      <ViewBioPopup trigger={viewBioPopup} setTrigger={setViewBioPopup}>
+        <div>
+          <h1 className="widget-title">Bio</h1>
+          <p>{bio}</p>
+        </div>
+      </ViewBioPopup>
     </div>
   );
 }

@@ -1,7 +1,6 @@
-import React from "react";
 import "./popups.css";
 
-function UploadResumePopup(props) {
+function ViewBioPopup(props) {
   return props.trigger ? (
     <div className="popup">
       <div className="popup-inner">
@@ -18,4 +17,4 @@ function UploadResumePopup(props) {
   );
 }
 
-export default UploadResumePopup;
+export default ViewBioPopup;

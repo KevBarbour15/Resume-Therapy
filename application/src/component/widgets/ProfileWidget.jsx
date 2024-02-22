@@ -9,18 +9,12 @@ ProfileWidget.propTypes = {
 };
 
 export default function ProfileWidget({ title, bio, icon, ...other }) {
-  const displayBio = bio.trim().length > 0 ? bio : "* No bio yet *";
-
   return (
     <CustomCard {...other}>
-      <Typography variant="h2" sx={{ fontFamily: "Outfit, sans-serif" }}>
+      <Typography variant="h3" sx={{ fontFamily: "Outfit, sans-serif" }}>
         {title}
       </Typography>
-      <div>
-        <Typography variant="h5" sx={{ fontFamily: "Outfit, sans-serif" }}>
-          {displayBio}
-        </Typography>
-      </div>
+      <div></div>
     </CustomCard>
   );
 }

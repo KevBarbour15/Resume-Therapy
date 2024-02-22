@@ -5,7 +5,7 @@ import { query, collection, getDocs, where } from "firebase/firestore";
 import { auth, db, storage } from "../../../firebase-functionality/firebase";
 import { ref, uploadBytes, getDownloadURL, listAll } from "firebase/storage";
 import { addBio } from "../../../firebase-functionality/bio";
-import EditProfilePopup from "../../../component/popups/EditProfilePopup";
+import EditProfilePopup from "../../../component/popups/EditBioPopup";
 import UploadResumePopup from "../../../component/popups/UploadResumePopup";
 import TextField from "@mui/material/TextField";
 import { Grid, Container } from "@mui/material";
@@ -17,7 +17,7 @@ import "./profile.css";
 import ProfileWidget from "../../../component/widgets/ProfileWidget";
 import MessagesWidget from "../../../component/widgets/MessagesWidget";
 import CalendarWidget from "../../../component/widgets/CalendarWidget";
-import UploadResumeWidget from "../../../component/widgets/UploadResumeWidget";
+import UploadResumeWidget from "../../../component/widgets/ViewResumeWidget";
 
 function EmpProfile() {
   const [buttonPopup, setButtonPopup] = useState(false);
@@ -162,7 +162,7 @@ function EmpProfile() {
 
             <Grid item xs={12} sm={3} md={3}>
               <Button variant="outlined" onClick={() => setButtonPopup(true)}>
-                Edit profile
+                Edit Bio
               </Button>
             </Grid>
           </Grid>

@@ -27,9 +27,7 @@ export const HeroImg = () => {
 
   return (
     <div className="hero">
-      <div className="mask">
-        
-      </div>
+      <div className="mask"></div>
 
       <div className="content">
         <h1>Land Your Dream Job With The Perfect Resume.</h1>
