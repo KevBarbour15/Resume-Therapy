@@ -11,7 +11,17 @@ ViewBioWidget.propTypes = {
 
 export default function ViewBioWidget({ title, total, icon, ...other }) {
   return (
-    <CustomCard {...other}>
+    <CustomCard
+      sx={{
+        "&:hover": {
+          transform: "scale(1.1)",
+          cursor: "pointer",
+          bgcolor: "purple",
+          border: "1px solid #222",
+        },
+      }}
+      {...other}
+    >
       <Typography gutterBottom sx={{ cursor: "pointer", color: "#fff" }}>
         <AccountCircleIcon />
       </Typography>
@@ -20,12 +30,8 @@ export default function ViewBioWidget({ title, total, icon, ...other }) {
         sx={{
           fontFamily: "Outfit, sans-serif",
           fontWeight: "600",
-          cursor: "pointer",
           transition: "all .3s ease-in-out",
           color: "#fff",
-          "&:hover": {
-            transform: "scale(1.25)",
-          },
         }}
       >
         {title}

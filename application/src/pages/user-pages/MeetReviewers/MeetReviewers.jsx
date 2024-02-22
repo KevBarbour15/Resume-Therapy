@@ -94,11 +94,10 @@ const MeetReviewers = () => {
         />
         <Grid container spacing={4}>
           {filteredConnection.map((reviewer) => (
-            <Grid item xs={12} md={6} lg={4}>
+            <Grid item xs={12} md={6} lg={6}>
               <ReviewerWidget
                 title={reviewer[0]}
                 bio={reviewer[2]}
-                sx={{ boxShadow: 5 }}
                 button={addConnection}
                 userid={user.uid}
                 reviewerid={reviewer[1]}

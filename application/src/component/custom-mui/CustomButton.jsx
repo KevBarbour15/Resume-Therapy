@@ -18,7 +18,7 @@ const CustomButton = ({ children, sx, onClick, ...props }) => (
       marginBottom: "20px",
       "&:hover": {
         color: "#fff",
-        border: "1px solid black",
+        border: "1px solid #222",
         bgcolor: "purple",
       },
       ...sx,

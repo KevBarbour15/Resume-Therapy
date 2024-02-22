@@ -10,14 +10,13 @@ import UploadResumePopup from "../../../component/popups/UploadResumePopup";
 import TextField from "@mui/material/TextField";
 import { Grid, Container } from "@mui/material";
 
-import Button from "@mui/material/Button";
-
 import "./profile.css";
 
 import ProfileWidget from "../../../component/widgets/ProfileWidget";
 import MessagesWidget from "../../../component/widgets/MessagesWidget";
 import CalendarWidget from "../../../component/widgets/CalendarWidget";
 import UploadResumeWidget from "../../../component/widgets/ViewResumeWidget";
+import CustomButton from "../../../component/custom-mui/CustomButton";
 
 function EmpProfile() {
   const [buttonPopup, setButtonPopup] = useState(false);
@@ -142,40 +141,26 @@ function EmpProfile() {
     <div>
       <div>
         <Container maxWidth="xl">
-          <h1></h1>
-          <h1></h1>
-          <h1></h1>
-          <h1></h1>
-          <h1 className="h1">Hi, Welcome back!</h1>
+          <div className="page-title">
+            <h1>Hi, welcome back!</h1>
+          </div>
 
-          <h1> </h1>
-
-          <Grid container spacing={4}>
-            <Grid item xs={12} md={9} lg={9}>
-              <ProfileWidget
-                title={name}
-                bio={bio}
-                icon={"ant-design:apple-filled"}
-                sx={{ boxShadow: 15 }}
-              />{" "}
+          <Grid container spacing={6}>
+            <Grid item xs={7} sm={8} md={8} lg={8} xl={6}>
+              <ProfileWidget title={name} bio={bio} />
             </Grid>
 
             <Grid item xs={12} sm={3} md={3}>
-              <Button variant="outlined" onClick={() => setButtonPopup(true)}>
+              <CustomButton onClick={() => setButtonPopup(true)}>
                 Edit Bio
-              </Button>
+              </CustomButton>
             </Grid>
           </Grid>
-
-          <h1> </h1>
-          <h1> </h1>
 
           <Grid container spacing={6}>
             <Grid item xs={12} sm={3} md={3}>
               <UploadResumeWidget
                 title="Upload Resume"
-                total={714}
-                sx={{ boxShadow: 5 }}
                 onClick={() => setResumePopup(true)}
               />{" "}
             </Grid>
@@ -192,8 +177,6 @@ function EmpProfile() {
             <Grid item xs={12} md={3} lg={3}>
               <MessagesWidget
                 title="Messages"
-                total={0}
-                sx={{ boxShadow: 5 }}
                 onClick={() => navigate("/ReviewerDash/Messages")}
               />{" "}
             </Grid>
@@ -202,8 +185,7 @@ function EmpProfile() {
       </div>
 
       <UploadResumePopup trigger={resumePopup} setTrigger={setResumePopup}>
-        <Button variant="contained" component="label">
-          {" "}
+        <CustomButton>
           Choose File
           <input
             type="file"
@@ -211,14 +193,14 @@ function EmpProfile() {
             onChange={handleImageChange}
             hidden
           />
-        </Button>
-        <Button
+        </CustomButton>
+        <CustomButton
           variant="contained"
           compononet="label"
           onClick={() => handleUploadImage()}
         >
           Upload
-        </Button>
+        </CustomButton>
 
         <div>
           {image && (
@@ -241,9 +223,9 @@ function EmpProfile() {
             placeholder="Write a brief description about yourself..."
           />
 
-          <Button variant="outlined" onClick={() => handleWrapperBioTrigger()}>
+          <CustomButton onClick={() => handleWrapperBioTrigger()}>
             Update Bio
-          </Button>
+          </CustomButton>
         </div>
       </EditProfilePopup>
     </div>

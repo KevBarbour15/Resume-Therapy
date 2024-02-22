@@ -67,7 +67,7 @@ const UserConnections = () => {
       newFilteredConnectons = connections;
     } else {
       newFilteredConnectons = connections.filter((item) =>
-        item[0].includes(filterText)
+        item[0].toLowerCase().includes(filterText.toLowerCase())
       );
     }
     setfilteredConnection(newFilteredConnectons);
@@ -130,16 +130,13 @@ const UserConnections = () => {
           fullWidth
           sx={{ marginBottom: 2 }}
         />
-        <Grid container spacing={4}>
+        <Grid container spacing={6}>
           {filteredConnection.map((connection) => (
-            <Grid item xs={12} md={6} lg={4}>
+            <Grid item xs={12} md={6} lg={6} xl={6}>
               <ConnectionsWidget
                 title={connection[0]}
                 bio={connection[1]}
-                sx={{ boxShadow: 5 }}
-                color={
-                  connection[1] == "Status: pending" ? "warning" : "primary"
-                }
+                image={image}
                 popUpHandle={handlePopupWindow}
                 connecto={connection}
               />

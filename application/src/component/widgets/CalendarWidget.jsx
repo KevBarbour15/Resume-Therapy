@@ -9,9 +9,19 @@ CalendarWidget.propTypes = {
   total: PropTypes.number.isRequired,
 };
 
-export default function CalendarWidget({ title, total, sx, icon, ...other }) {
+export default function CalendarWidget({ title, total, icon, ...other }) {
   return (
-    <CustomCard {...other}>
+    <CustomCard
+      {...other}
+      sx={{
+        "&:hover": {
+          transform: "scale(1.1)",
+          cursor: "pointer",
+          bgcolor: "purple",
+          border: "1px solid #222",
+        },
+      }}
+    >
       <Typography gutterBottom sx={{ cursor: "pointer", color: "#fff" }}>
         <CalendarTodayIcon />
       </Typography>
@@ -23,9 +33,6 @@ export default function CalendarWidget({ title, total, sx, icon, ...other }) {
           cursor: "pointer",
           transition: "all .3s ease-in-out",
           color: "#fff",
-          "&:hover": {
-            transform: "scale(1.25)",
-          },
         }}
       >
         {title}

@@ -9,7 +9,17 @@ MessagesWidget.propTypes = {
 
 export default function MessagesWidget({ title, ...other }) {
   return (
-    <CustomCard {...other}>
+    <CustomCard
+      sx={{
+        "&:hover": {
+          transform: "scale(1.1)",
+          cursor: "pointer",
+          bgcolor: "purple",
+          border: "1px solid #222",
+        },
+      }}
+      {...other}
+    >
       <Typography gutterBottom sx={{ cursor: "pointer", color: "#fff" }}>
         <MailIcon />
       </Typography>
@@ -21,9 +31,6 @@ export default function MessagesWidget({ title, ...other }) {
           cursor: "pointer",
           transition: "all .3s ease-in-out",
           color: "#fff",
-          "&:hover": {
-            transform: "scale(1.25)",
-          },
         }}
       >
         {title}
