@@ -16,6 +16,9 @@ import axios from "axios";
 import { removeAvailability } from "../../../firebase-functionality/availability";
 import { Grid, Container } from "@mui/material";
 
+import VideoCallWidget from "../../../component/widgets/VideoCallWidget";
+import CustomButton from "../../../component/custom-mui/CustomButton";
+
 const EmployeeVirtualCall = () => {
   const [user, loading] = useAuthState(auth);
   const [appointments, setAppointments] = useState([]);
@@ -41,55 +44,40 @@ const EmployeeVirtualCall = () => {
     }
   }, []);
 
-  useEffect(() => {
-    if (!user) return;
-
-    const fetchAppointments = async () => {
-      const schedulesRef = collection(db, "schedules");
-      const scheduleSnapshot = await getDocs(schedulesRef);
-
-      if (scheduleSnapshot.empty) {
-        console.log("No schedules found");
-        return;
-      }
+  const fetchAppointments = async () => {
+    try {
+      const q = query(
+        collection(db, "schedules"),
+        where("uid", "==", user.uid)
+      );
+      const schedulesSnapshot = await getDocs(q);
 
       const appointmentsData = [];
 
-      scheduleSnapshot.forEach((scheduleDoc) => {
-        const scheduleData = scheduleDoc.data();
-        const availability = scheduleData.availability;
+      schedulesSnapshot.forEach((doc) => {
+        const scheduleData = doc.data();
 
-        if (availability && availability.length > 0) {
-          const bookedAppointments = availability
-            .map((appointment) => ({
-              ...appointment,
-              scheduleId: scheduleDoc.id,
-            }))
-            .filter((appointment) => appointment.booked);
+        const bookedAppointments = scheduleData.availability
+          .filter((appointment) => appointment.booked === true)
+          .map((appointment) => ({
+            ...appointment,
 
-          if (bookedAppointments.length > 0) {
-            appointmentsData.push(...bookedAppointments);
-          }
-        }
+            scheduleId: doc.id,
+          }));
+        appointmentsData.push(...bookedAppointments);
       });
 
       setAppointments(appointmentsData);
-    };
-
-    fetchAppointments();
-  }, [user]);
+    } catch (error) {
+      console.error("Error fetching appointments:", error);
+    }
+  };
 
   useEffect(() => {
-    if (loading) return;
-    if (!user) return;
+    if (loading || !user) return;
 
-    const fetchUserDataAndAppointments = async () => {
-      await fetchUserData();
-      await fetchAppointments();
-    };
-
-    fetchUserDataAndAppointments();
-  }, [user, loading]);
+    fetchAppointments();
+  }, [user, loading, fetchAppointments]);
 
   const generateToken = async (roomName) => {
     const apiKey = process.env.REACT_APP_DAILY_API_KEY;
@@ -188,7 +176,6 @@ const EmployeeVirtualCall = () => {
       }
 
       if (selectedAppointment && selectedAppointment.meetingId) {
-        // Get the schedule document
         const scheduleRef = doc(
           db,
           "schedules",
@@ -197,7 +184,6 @@ const EmployeeVirtualCall = () => {
         const scheduleSnap = await getDoc(scheduleRef);
         const scheduleData = scheduleSnap.data();
 
-        // Find the index of the appointment
         const appointmentIndex = scheduleData.availability.findIndex(
           (slot) => slot.meetingId === selectedAppointment.meetingId
         );
@@ -274,50 +260,45 @@ const EmployeeVirtualCall = () => {
 
   return (
     <>
-      <Container maxWidth="xl" class="available">
-        <h1></h1>
-        <h1></h1>
-        <h1 class="h1">Upcoming Calls</h1>
-        <h1></h1>
+      <Container maxWidth="xl">
+        <div className="page-title">
+          <h1>Upcoming Calls</h1>
+        </div>
 
         <Grid container spacing={4}>
           {appointments.map((appointment, index) => (
-            <Grid item xs={12} sm={6} md={4} lg={4}>
-              <div key={index} className="appointment-card">
-                <p>Date: {appointment.date}</p>
-                <p>Start Time: {appointment.start}</p>
-                <p>End Time: {appointment.end}</p>
-
-                <button onClick={() => startCall(appointment)}>
-                  Start Video Call
-                </button>
-
-                <button onClick={() => handleRemoveAppointment(index)}>
-                  Delete Appointment
-                </button>
-              </div>
+            <Grid item xs={12} sm={6} md={6} lg={6} xl={4}>
+              <VideoCallWidget
+                key={index}
+                appointment={appointment}
+                startCall={startCall}
+                employee={true}
+                handleRemoveAppointment={handleRemoveAppointment}
+              />
             </Grid>
           ))}
         </Grid>
       </Container>
-      <Modal
-        isOpen={isCallModalOpen}
-        onRequestClose={endCall}
-        contentLabel="Video Call Modal"
-      >
-        <div className="call-container-modal">
-          <div className="video-container">
-            <iframe
-              ref={videoRef}
-              title="Video Call"
-              allow="microphone; camera; autoplay;"
-            />
+      <div className="modal">
+        <Modal
+          isOpen={isCallModalOpen}
+          onRequestClose={endCall}
+          contentLabel="Video Call Modal"
+        >
+          <div className="call-container-modal">
+            <div className="video-container">
+              <iframe
+                ref={videoRef}
+                title="Video Call"
+                allow="microphone; camera; autoplay;"
+              />
+            </div>
+            <CustomButton sx={{ marginTop: 3 }} onClick={endCall}>
+              End Call
+            </CustomButton>
           </div>
-          <button className="end-call-button" onClick={endCall}>
-            End Call
-          </button>
-        </div>
-      </Modal>
+        </Modal>
+      </div>
     </>
   );
 };

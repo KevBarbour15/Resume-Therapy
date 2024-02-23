@@ -138,7 +138,7 @@ const UserConnections = () => {
                 bio={connection[1]}
                 image={image}
                 popUpHandle={handlePopupWindow}
-                connecto={connection}
+                connection={connection}
               />
             </Grid>
           ))}

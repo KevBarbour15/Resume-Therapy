@@ -112,7 +112,9 @@ function EmpAvailability() {
 
   return (
     <Container maxWidth="xl">
-      <h1>Availability</h1>
+      <div className="page-title">
+        <h1>Availability</h1>
+      </div>
       <Grid container spacing={4}>
         <Grid item xs={12} sm={6}>
           <form onSubmit={handleSubmit}>
@@ -157,8 +159,10 @@ function EmpAvailability() {
             </CustomButton>
           </form>
         </Grid>
+        <div className="page-title">
+          <h1>Current Availability</h1>
+        </div>
         <Grid item xs={12} sm={6}>
-          <h2>Current Availability</h2>
           {availability.map((slot, index) => (
             <li key={index}>
               {slot.date} {slot.start} - {slot.end}

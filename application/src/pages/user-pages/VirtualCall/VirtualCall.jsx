@@ -16,6 +16,9 @@ import axios from "axios";
 import "./virtual-call.css";
 import { Grid, Container } from "@mui/material";
 
+import VideoCallWidget from "../../../component/widgets/VideoCallWidget";
+import CustomButton from "../../../component/custom-mui/CustomButton";
+
 const VirtualCall = () => {
   const [user, loading] = useAuthState(auth);
   const [appointments, setAppointments] = useState([]);
@@ -261,34 +264,29 @@ const VirtualCall = () => {
   return (
     <>
       <Container maxWidth="xl">
-        <h1></h1>
-        <h1></h1>
-        <h1></h1>
-        <h1 class="h1">Upcoming Calls</h1>
-        <h1></h1>
-        <h1></h1>
+        <div className="page-title">
+          <h1>Upcoming Calls</h1>
+        </div>
 
         <Grid container spacing={4}>
           {appointments.map((appointment, index) => (
-            <Grid item xs={12} sm={6} md={4} lg={4}>
-              <div key={index} className="appointment-card">
-                <p>Resume Therapist: {appointment.name}</p>
-                <p>Date: {appointment.date}</p>
-                <p>Start Time: {appointment.start}</p>
-                <p>End Time: {appointment.end}</p>
-
-                <button onClick={() => startCall(appointment)}>
-                  Start Video Call
-                </button>
-              </div>
+            <Grid item xs={12} sm={6} md={6} lg={6} xl={4}>
+              <VideoCallWidget
+                key={index}
+                appointment={appointment}
+                startCall={startCall}
+                employee={false}
+              />
             </Grid>
           ))}
         </Grid>
       </Container>
+
       <Modal
         isOpen={isCallModalOpen}
         onRequestClose={endCall}
         contentLabel="Video Call Modal"
+        className={"call-modal"}
       >
         <div className="call-container-modal">
           <div className="video-container">
@@ -298,9 +296,9 @@ const VirtualCall = () => {
               allow="microphone; camera; autoplay;"
             />
           </div>
-          <button className="end-call-button" onClick={endCall}>
+          <CustomButton sx={{ marginTop: 3 }} onClick={endCall}>
             End Call
-          </button>
+          </CustomButton>
         </div>
       </Modal>
     </>

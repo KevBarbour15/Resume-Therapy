@@ -93,7 +93,7 @@ export const ChatMessage = ({
           onKeyPress={enter}
           onChange={changeMessage}
           type="text"
-          placeholder="Send message..."
+          placeholder="Message..."
           value={thyMessage}
         />
 

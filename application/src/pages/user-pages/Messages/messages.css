@@ -34,28 +34,38 @@
 }
 
 .rce-mbox {
-  font-family: Outfit, sans-serif;
-  color: #fff;
+  background-color: purple;
+  color: white;
   border: 1px solid #fff;
   border-radius: 0px;
   box-shadow: 10px 10px 5px black;
   margin: 15px;
+}
+
+.rce-mbox.rce-mbox-right {
   background-color: rgb(248, 217, 15);
+  color: #222;
+  border: 1px solid #fff;
+  border-radius: 0px;
+  box-shadow: 10px 10px 5px black;
+  margin: 15px;
 }
 
 .rce-mbox span {
-  color: #222;
+  color: white;
   font-size: 1.25em;
   font-weight: 600;
   text-decoration: none;
   text-transform: uppercase;
 }
 
-.rce-mbox span:hover {
+.rce-mbox.rce-mbox-right span {
   color: #222;
+  font-size: 1.25em;
+  font-weight: 600;
   text-decoration: none;
+  text-transform: uppercase;
 }
-
 .rce-mbox-right-notch,
 .rce-mbox-left-notch {
   display: none;

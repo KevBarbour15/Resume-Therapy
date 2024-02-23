@@ -7,6 +7,7 @@ import "./messages.css";
 import { TextField } from "@mui/material";
 
 import { ChatMessage } from "./Chatbox.jsx";
+import { Container } from "@mui/material";
 
 function UserMessages() {
   const [listConnection, setListConnection] = useState([]);
@@ -52,39 +53,44 @@ function UserMessages() {
   };
 
   return (
-    <div className="messages">
-      <div className="message-list">
-        <div className="messages-nav">
-          <h2>Messages</h2>
-          <h1></h1>
-          <TextField
-            id="standard-basic"
-            value={filterText}
-            onChange={handleFilterText}
-            label="Search Messages..."
-            variant="standard"
-            fullWidth
-          />
+    <div>
+      <Container maxWidth="xl">
+        <div className="page-title">
+          <h1>Messages</h1>
         </div>
+        <div className="messages">
+          <div className="message-list">
+            <div className="messages-nav">
+              <TextField
+                id="standard-basic"
+                value={filterText}
+                onChange={handleFilterText}
+                label="Search Messages..."
+                variant="standard"
+                fullWidth
+              />
+            </div>
 
-        {filteredConnection.map((connection) => (
-          <li key={connection.ref.id}>
-            <ChatMessage
-              dataSource={[
-                {
-                  avatar:
-                    "https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png",
-                  authUser: authUser,
-                  conversation: connection,
-                },
-              ]}
-              slideBool={activeConversation == connection.ref.id}
-              callback={handleConversationClick}
-              authenticate={authUser}
-            />
-          </li>
-        ))}
-      </div>
+            {filteredConnection.map((connection) => (
+              <li key={connection.ref.id}>
+                <ChatMessage
+                  dataSource={[
+                    {
+                      avatar:
+                        "https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png",
+                      authUser: authUser,
+                      conversation: connection,
+                    },
+                  ]}
+                  slideBool={activeConversation == connection.ref.id}
+                  callback={handleConversationClick}
+                  authenticate={authUser}
+                />
+              </li>
+            ))}
+          </div>
+        </div>
+      </Container>
     </div>
   );
 }

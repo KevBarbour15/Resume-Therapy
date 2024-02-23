@@ -8,6 +8,7 @@ import "./messages.css";
 import { MessageList } from "react-chat-elements";
 import { ChatItem } from "react-chat-elements";
 import { Button } from "react-chat-elements";
+import { Container } from "@mui/material";
 
 export const ChatMessage = ({
   dataSource,
@@ -93,7 +94,7 @@ export const ChatMessage = ({
           onKeyPress={enter}
           onChange={changeMessage}
           type="text"
-          placeholder="Send message NOW..."
+          placeholder="Message..."
           value={thyMessage}
         />
 

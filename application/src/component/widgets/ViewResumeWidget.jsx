@@ -5,10 +5,9 @@ import CustomCard from "../custom-mui/CustomCard";
 
 ViewResumeWidget.propTypes = {
   title: PropTypes.string.isRequired,
-  total: PropTypes.number.isRequired,
 };
 
-export default function ViewResumeWidget({ title, total, ...other }) {
+export default function ViewResumeWidget({ title, ...other }) {
   return (
     <CustomCard
       sx={{

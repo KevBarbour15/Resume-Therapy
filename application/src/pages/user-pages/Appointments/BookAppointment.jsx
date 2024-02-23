@@ -7,6 +7,7 @@ import {
   updateDoc,
   query,
   where,
+  getDoc,
 } from "firebase/firestore";
 
 import "./appointments.css";
@@ -114,6 +115,7 @@ function BookAppointment() {
         <div className="page-title">
           <h1>Book Appointments</h1>
         </div>
+        
         <TextField
           id="standard-basic"
           label="Search Resume Therapists..."
