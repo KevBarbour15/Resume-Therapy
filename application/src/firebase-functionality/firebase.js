@@ -29,6 +29,8 @@ const firebaseConfig = {
   measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 
+console.log(firebaseConfig.apiKey);
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -36,6 +38,7 @@ const storage = getStorage(app);
 const googleProvider = new GoogleAuthProvider();
 
 const signInWithGoogle = async () => {
+  
   try {
     const res = await signInWithPopup(auth, googleProvider);
     const user = res.user;
