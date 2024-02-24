@@ -49,6 +49,7 @@
 
 @media screen and (max-width: 740px) {
   .project-container {
+    margin: 20px 0;
     max-width: 90%;
     margin: auto;
     grid-template-columns: 1fr;
