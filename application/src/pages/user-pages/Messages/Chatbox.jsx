@@ -8,7 +8,6 @@ import "./messages.css";
 import { MessageList } from "react-chat-elements";
 import { ChatItem } from "react-chat-elements";
 import { Button } from "react-chat-elements";
-import { Container } from "@mui/material";
 
 export const ChatMessage = ({
   dataSource,
@@ -17,7 +16,7 @@ export const ChatMessage = ({
   authenticate,
 }) => {
   const [listMessages, setMessages] = useState([]);
-  const [thyMessage, setThyMessage] = useState("");
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const handleMessages = (theMessages) => {
@@ -54,9 +53,8 @@ export const ChatMessage = ({
 
   const enter = (event) => {
     if (event.key === "Enter") {
-      console.log("message sent");
       addMessage(authenticate, dataSource[0].conversation.docRef, thyMessage);
-      setThyMessage("");
+      setMessage("");
     }
   };
 
@@ -83,7 +81,9 @@ export const ChatMessage = ({
         className={`chatbox-fun slidingElement 
                 ${slideBool ? "extended" : ""} `}
       >
-        <Chatbox messages={listMessages} />
+       
+          <Chatbox messages={listMessages} />
+          
       </div>
 
       <div
@@ -95,7 +95,7 @@ export const ChatMessage = ({
           onChange={changeMessage}
           type="text"
           placeholder="Message..."
-          value={thyMessage}
+          value={message}
         />
 
         <Button text={"Send"} onClick={arbritrary} title="Send" />
@@ -131,8 +131,6 @@ const Chatbox = ({ messages }) => {
     <div>
       <MessageList
         lockable={true}
-        toBottomHeight={"100%"}
-        className="message-list-list"
         dataSource={bigData}
       />
     </div>

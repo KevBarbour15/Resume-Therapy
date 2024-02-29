@@ -4,7 +4,6 @@ import { auth } from "../../../firebase-functionality/firebase.js";
 import { onAuthStateChanged } from "firebase/auth";
 import { ListConversations } from "../../../firebase-functionality/messages.js";
 import "./messages.css";
-import { TextField } from "@mui/material";
 
 import { ChatMessage } from "./Chatbox.jsx";
 import { Container } from "@mui/material";
@@ -48,9 +47,6 @@ function UserMessages() {
     setfilteredConnection(newFilteredConnectons);
   }, [filterText]);
 
-  const handleFilterText = (event) => {
-    setfilterText(event.target.value);
-  };
 
   return (
     <div>
@@ -60,17 +56,6 @@ function UserMessages() {
         </div>
         <div className="messages">
           <div className="message-list">
-            <div className="messages-nav">
-              <TextField
-                id="standard-basic"
-                value={filterText}
-                onChange={handleFilterText}
-                label="Search Messages..."
-                variant="standard"
-                fullWidth
-              />
-            </div>
-
             {filteredConnection.map((connection) => (
               <li key={connection.ref.id}>
                 <ChatMessage

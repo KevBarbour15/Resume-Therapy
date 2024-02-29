@@ -1,6 +1,4 @@
 import "./HeroImgStyles.css";
-import React from "react";
-import IntroImg from "../../assets/solid.jpg";
 import Resume from "../../assets/resume.png";
 import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
