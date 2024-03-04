@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { auth, db } from "../../../firebase-functionality/firebase";
@@ -12,7 +12,7 @@ import "./reviewers.css";
 import ReviewerWidget from "../../../component/widgets/ReviewerWidget";
 
 const MeetReviewers = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const [reviewers, setReviewers] = useState([]);
   const [filterText, setfilterText] = useState("");
   const [filteredConnection, setfilteredConnection] = useState([]);

@@ -12,16 +12,14 @@ import ViewResumePopup from "../popups/ViewResumePopup";
 ReviewerWidget.propTypes = {
   title: PropTypes.string.isRequired,
   bio: PropTypes.string.isRequired,
-  total: PropTypes.number.isRequired,
 };
 
 export default function ReviewerWidget({
   title,
-  total,
   bio,
   userid,
   reviewerid,
-  removeFunc,
+  removefunc,
   ...other
 }) {
   const [viewBioPopup, setViewBioPopup] = useState(false);
@@ -68,7 +66,7 @@ export default function ReviewerWidget({
         setTrigger={setViewResumePopup}
       >
         <div>
-          {/* 
+          {/*
           {image ? (
             <div className="resume">
               <img src={image} className="img" alt="Resume preview" />
@@ -76,7 +74,6 @@ export default function ReviewerWidget({
           ) : (
             <div className="no-resume">No resume uploaded.</div>
           )}
-
           */}
         </div>
       </ViewResumePopup>

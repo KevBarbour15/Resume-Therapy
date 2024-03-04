@@ -36,7 +36,7 @@ const DashLayout = () => {
   }, [user, loading]);
 
   return (
-    <div class="dash-layout">
+    <div className="dash-layout">
       {displaySidebar ? <Sidebar /> : <UserDashNavbar />}
       <Outlet />
     </div>
