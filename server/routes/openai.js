@@ -3,6 +3,9 @@ const axios = require("axios");
 const router = express.Router();
 
 router.post("/chat", async (req, res) => {
+
+  console.log("hit the /api/chat endpoint");
+  /*
   try {
     const response = await axios.post(
       "https://api.openai.com/v1/chat/completions",
@@ -21,6 +24,7 @@ router.post("/chat", async (req, res) => {
           "Content-Type": "application/json",
         },
       }
+      
     );
 
     res.json(response.data);
@@ -31,7 +35,9 @@ router.post("/chat", async (req, res) => {
     } else {
       res.status(500).send("An error occurred");
     }
+
   }
+  */
 });
 
 module.exports = router;

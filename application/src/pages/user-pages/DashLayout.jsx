@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Sidebar from "../../component/navbar/Sidebar";
-import { useAuthState } from "react-firebase-hooks/auth";
+import { useUser } from "../../context/useUser";
 import { useNavigate } from "react-router-dom";
-
-import { auth } from "./../../firebase-functionality/firebase";
 
 import UserDashNavbar from "../../component/navbar/UserDashNavbar";
 import "./layout-style.css";
 
 const DashLayout = () => {
   const navigate = useNavigate();
-  const [user, loading, error] = useAuthState(auth);
+  const { user, loading, error } = useUser();
   const [displaySidebar, setDisplaySidebar] = useState(true);
 
   const handleWindowResize = () => {
@@ -23,7 +21,8 @@ const DashLayout = () => {
   };
 
   useEffect(() => {
-    if (loading) return;
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error}</div>;
     if (!user) return navigate("/");
 
     handleWindowResize();

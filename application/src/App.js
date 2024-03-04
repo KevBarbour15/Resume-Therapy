@@ -14,6 +14,7 @@ import MeetReviewers from "./pages/user-pages/MeetReviewers/MeetReviewers";
 import VirtualCall from "./pages/user-pages/VirtualCall/VirtualCall";
 import UserProfile from "./pages/user-pages/UserProfile/UserProfile";
 import BookAppointment from "./pages/user-pages/Appointments/BookAppointment";
+import ChatGPTGuidance from "./pages/user-pages/ChatGPTGuidance/ChatGPTGuidance";
 import DashLayout from "./pages/user-pages/DashLayout";
 
 // Employee Imports
@@ -50,6 +51,10 @@ function App() {
           <Route
             path="/UserDash/BookAppointment"
             element={<BookAppointment />}
+          />
+          <Route
+            path="/UserDash/ChatGPTGuidance"
+            element={<ChatGPTGuidance />}
           />
         </Route>
       </Routes>

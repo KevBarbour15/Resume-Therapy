@@ -76,6 +76,12 @@ export const UserDashNavbar = () => {
         </li>
 
         <li>
+          <Link to="/UserDash/ChatGPTGuidance" onClick={handleCloseMenu}>
+            ChatGPT Guidance
+          </Link>
+        </li>
+
+        <li>
           <Link to="/" onClick={logUserOut}>
             Logout
           </Link>

@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
+import { useUser } from "../../../context/useUser";
 import { useNavigate } from "react-router-dom";
 import { query, collection, getDocs, where } from "firebase/firestore";
-import { auth, db, storage } from "../../../firebase-functionality/firebase";
 import { ref, uploadBytes, getDownloadURL, listAll } from "firebase/storage";
+import {  db, storage } from "../../../firebase-functionality/firebase";
 import { addBio } from "../../../firebase-functionality/bio";
 
 import "./profile.css";
@@ -22,12 +22,11 @@ import { Grid, Container } from "@mui/material";
 import TextField from "@mui/material/TextField";
 
 function UserProfile() {
+  const { user, loading, logout } = useUser();
   const [buttonPopup, setButtonPopup] = useState(false);
   const [resumePopup, setResumePopup] = useState(false);
   const [viewResumePopup, setViewResumePopup] = useState(false);
   const [viewBioPopup, setViewBioPopup] = useState(false);
-
-  const [user, loading] = useAuthState(auth);
   const [name, setName] = useState("");
   const [imageUpload, setImageUpload] = useState(null);
   const [image, setImage] = useState("");
@@ -106,7 +105,6 @@ function UserProfile() {
 
   const handleBioChange = (event) => {
     setBio(event.target.value);
-    console.log(bio);
   };
 
   const handleBioSubmit = async () => {
@@ -131,12 +129,10 @@ function UserProfile() {
           })
           .catch((err) => {
             console.error(err);
-            alert("An error occurred while fetching resume data 3");
           });
       })
       .catch((err) => {
         console.error(err);
-        alert("An error occurred while uploading resume data");
       });
   };
 

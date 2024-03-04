@@ -23,6 +23,7 @@ export default function ReviewerWidget({
 }) {
   const [viewBioPopup, setViewBioPopup] = useState(false);
   const [viewResumePopup, setViewResumePopup] = useState(false);
+  const [image, setImage] = useState(null);
 
   const handleButton = (user, reviewer) => {
     button(user, reviewer);
@@ -65,7 +66,6 @@ export default function ReviewerWidget({
         setTrigger={setViewResumePopup}
       >
         <div>
-          {/*
           {image ? (
             <div className="resume">
               <img src={image} className="img" alt="Resume preview" />
@@ -73,7 +73,6 @@ export default function ReviewerWidget({
           ) : (
             <div className="no-resume">No resume uploaded.</div>
           )}
-          */}
         </div>
       </ViewResumePopup>
     </>

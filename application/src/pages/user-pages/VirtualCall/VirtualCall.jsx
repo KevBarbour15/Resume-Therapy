@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, db } from "../../../firebase-functionality/firebase";
+import { db } from "../../../firebase-functionality/firebase";
+import { useUser } from "../../../context/useUser";
 import {
   collection,
   getDocs,
@@ -20,7 +20,7 @@ import VideoCallWidget from "../../../component/widgets/VideoCallWidget";
 import CustomButton from "../../../component/custom-mui/CustomButton";
 
 const VirtualCall = () => {
-  const [user, loading] = useAuthState(auth);
+  const { user, loading, error } = useUser();
   const [appointments, setAppointments] = useState([]);
   const [selectedAppointment, setSelectedAppointment] = useState(null);
   const [isEmployee, setIsEmployee] = useState(null);
@@ -89,7 +89,8 @@ const VirtualCall = () => {
   };
 
   useEffect(() => {
-    if (loading) return;
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error}</div>;
     if (!user) return;
 
     const fetchUserDataAndAppointments = async () => {
