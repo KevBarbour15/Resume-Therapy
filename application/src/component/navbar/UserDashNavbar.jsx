@@ -7,6 +7,7 @@ import { auth, logout } from "../../firebase-functionality/firebase";
 export const UserDashNavbar = () => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
+  const handleCloseMenu = () => setClick(false);
   const [color, setColor] = useState(false);
   const navigate = useNavigate();
 
@@ -24,6 +25,8 @@ export const UserDashNavbar = () => {
       navigate("/");
     } catch (error) {
       console.error("Error logging out:", error);
+    } finally {
+      handleCloseMenu();
     }
   };
 
@@ -37,27 +40,39 @@ export const UserDashNavbar = () => {
 
       <ul className={click ? "nav-menu active" : "nav-menu"}>
         <li>
-          <Link to="/UserDash/Profile">Profile</Link>
+          <Link to="/UserDash/Profile" onClick={handleCloseMenu}>
+            Profile
+          </Link>
         </li>
 
         <li>
-          <Link to="/UserDash/Connections">Connections</Link>
+          <Link to="/UserDash/Connections" onClick={handleCloseMenu}>
+            Connections
+          </Link>
         </li>
 
         <li>
-          <Link to="/UserDash/MeetReviewers">Meet Resume Therapists</Link>
+          <Link to="/UserDash/MeetReviewers" onClick={handleCloseMenu}>
+            Meet Resume Therapists
+          </Link>
         </li>
 
         <li>
-          <Link to="/UserDash/Messages">Messages</Link>
+          <Link to="/UserDash/Messages" onClick={handleCloseMenu}>
+            Messages
+          </Link>
         </li>
 
         <li>
-          <Link to="/UserDash/BookAppointment">Book Appointment</Link>
+          <Link to="/UserDash/BookAppointment" onClick={handleCloseMenu}>
+            Book Appointment
+          </Link>
         </li>
 
         <li>
-          <Link to="/UserDash/VirtualCall">Virtual Call</Link>
+          <Link to="/UserDash/VirtualCall" onClick={handleCloseMenu}>
+            Virtual Call
+          </Link>
         </li>
 
         <li>

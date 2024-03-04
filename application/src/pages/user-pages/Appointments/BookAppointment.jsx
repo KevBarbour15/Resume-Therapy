@@ -130,7 +130,7 @@ function BookAppointment() {
                 <li className="reviewer-container" key={index}>
                   <div className="reviewer">
                     <h1>{employee.name}</h1>
-                    <div class="icon">
+                    <div className="icon">
                       <CalendarMonthIcon
                         variant="outlined"
                         onClick={() => handleEmployeeSelection(employee)}

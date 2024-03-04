@@ -6,10 +6,9 @@ import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 CalendarWidget.propTypes = {
   icon: PropTypes.string,
   title: PropTypes.string.isRequired,
-  total: PropTypes.number.isRequired,
 };
 
-export default function CalendarWidget({ title, total, icon, ...other }) {
+export default function CalendarWidget({ title, icon, ...other }) {
   return (
     <CustomCard
       {...other}

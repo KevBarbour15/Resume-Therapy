@@ -17,22 +17,21 @@
 
 .nav-menu li {
   padding: 0 1rem;
+  transition: all 0.3s ease-in-out;
 }
 .nav-menu li a {
   font-size: 1.2rem;
   font-weight: 600;
 }
 
-.nav-menu a:hover {
-  tranform: scale(1.25);
+.nav-menu li:hover {
+  transform: scale(1.15);
 }
 
 .hamburger {
   display: none;
   cursor: pointer;
 }
-
-
 
 @media screen and (max-width: 1080px) {
   .header {

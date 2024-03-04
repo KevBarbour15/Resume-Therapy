@@ -102,9 +102,6 @@ const VirtualCall = () => {
 
   const generateToken = async (roomName) => {
     const apiKey = process.env.REACT_APP_DAILY_API_KEY;
-    console.log("Generating token...");
-    console.log("roomName: ", roomName);
-    console.log("apiKey: ", apiKey);
 
     const response = await axios.post(
       "https://api.daily.co/v1/meeting-tokens",
@@ -270,7 +267,7 @@ const VirtualCall = () => {
 
         <Grid container spacing={4}>
           {appointments.map((appointment, index) => (
-            <Grid item xs={12} sm={6} md={6} lg={6} xl={4}>
+            <Grid item xs={12} sm={6} md={6} lg={6} xl={4} key={index}>
               <VideoCallWidget
                 key={index}
                 appointment={appointment}

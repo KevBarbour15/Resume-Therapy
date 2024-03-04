@@ -6,10 +6,9 @@ import CustomCard from "../custom-mui/CustomCard";
 ViewBioWidget.propTypes = {
   icon: PropTypes.string,
   title: PropTypes.string.isRequired,
-  total: PropTypes.number.isRequired,
 };
 
-export default function ViewBioWidget({ title, total, icon, ...other }) {
+export default function ViewBioWidget({ title, icon, ...other }) {
   return (
     <CustomCard
       sx={{

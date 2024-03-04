@@ -73,18 +73,13 @@ const MeetReviewers = () => {
     setfilterText(event.target.value);
   };
 
-  const removeReviewer = (reviewee) => {
-    const tempFilteredRev = reviewers.filter((item) => item[1] != reviewee);
-    setReviewers(tempFilteredRev);
-  };
-
   return (
     <div>
       <Container maxWidth="xl">
         <div className="page-title">
           <h1>Meet Resume Therapists</h1>
         </div>
-        
+
         <TextField
           id="standard-basic"
           label="Search Resume Therapists..."
@@ -95,15 +90,14 @@ const MeetReviewers = () => {
         />
         <Grid container spacing={4}>
           {filteredConnection.map((reviewer) => (
-            <Grid item xs={12} md={6} lg={6}>
+            <Grid item xs={12} md={6} lg={6} key={reviewer[1]}>
               <ReviewerWidget
                 title={reviewer[0]}
                 bio={reviewer[2]}
                 button={addConnection}
                 userid={user.uid}
                 reviewerid={reviewer[1]}
-                removeFunc={removeReviewer}
-              />{" "}
+              />
             </Grid>
           ))}
         </Grid>

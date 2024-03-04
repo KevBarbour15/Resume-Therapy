@@ -4,7 +4,7 @@ import CustomCard from "../custom-mui/CustomCard";
 import CustomButton from "../custom-mui/CustomButton";
 
 VideoCallWidget.propTypes = {
-  appointment: PropTypes.string.isRequired,
+  appointment: PropTypes.object.isRequired,
   startCall: PropTypes.func.isRequired,
   employee: PropTypes.bool.isRequired,
   handleRemoveAppointment: PropTypes.func,
@@ -26,13 +26,28 @@ export default function VideoCallWidget({
           color: "#fff",
         }}
       >
-        <h2>{appointment.name}</h2>
-        <ul>
-          <li> Date: {appointment.date}</li>
-          <li>Start: {appointment.start}</li>
-          <li>End: {appointment.end}</li>
-        </ul>
+        {appointment.name}
       </Typography>
+      <Typography
+        sx={{
+          fontFamily: "Outfit, sans-serif",
+          fontWeight: "600",
+          color: "#fff",
+        }}
+      >
+        {appointment.date}
+      </Typography>
+      <Typography
+        sx={{
+          fontFamily: "Outfit, sans-serif",
+          fontWeight: "600",
+          color: "#fff",
+        }}
+      >
+        {" "}
+        {appointment.start} - {appointment.end}
+      </Typography>
+
       <CardActions>
         <CustomButton onClick={() => startCall(appointment)}>
           Join call

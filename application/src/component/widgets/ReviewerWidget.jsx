@@ -19,7 +19,6 @@ export default function ReviewerWidget({
   bio,
   userid,
   reviewerid,
-  removefunc,
   ...other
 }) {
   const [viewBioPopup, setViewBioPopup] = useState(false);
