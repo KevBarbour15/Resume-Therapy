@@ -26,7 +26,7 @@ const ChatGPTGuidance = () => {
     <div>
       <Container maxWidth="xl">
         <div className="page-title">
-          <h1>ChatGPT Guidance</h1>
+          <h1>AI Feedback Tool</h1>
           <h2>Coming soon...</h2>
         </div>
       </Container>

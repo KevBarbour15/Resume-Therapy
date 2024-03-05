@@ -43,7 +43,7 @@ export const EmployeeHero = () => {
 
         <div className="btn-style">
           <Link to="/EmployeeRegister" className="btn">
-            Become a Therapist
+            Sign Up
           </Link>
           <Link to="#" onClick={handleLogin} className="btn-light">
             Log in

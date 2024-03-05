@@ -41,7 +41,7 @@ const sidebarNavItems = [
     section: "virtual-call",
   },
   {
-    display: "ChatGPT Guidance",
+    display: "AI Feedback Tool",
     icon: <i className="bx bx-log-out"></i>,
     to: "/UserDash/ChatGPTGuidance",
     section: "chat-gpt-feedback",
