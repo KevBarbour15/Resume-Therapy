@@ -54,8 +54,8 @@
 .content .img {
   position: absolute;
   width: auto;
-  height: auto;
-  top: 0px;
+  height: 400px;
+  top: 35px;
   right: -80%;
   box-shadow: 10px 10px 5px black;
 }

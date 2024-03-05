@@ -1,5 +1,5 @@
-import pro1 from "../../assets/work-img.png"
-import pro2 from "../../assets/approve-img.jpeg"
+import pro1 from "../../assets/work.jpeg"
+import pro2 from "../../assets/approve.jpeg"
 import pro3 from "../../assets/recruiting.jpeg"
 
 

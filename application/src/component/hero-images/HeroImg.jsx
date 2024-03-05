@@ -1,5 +1,5 @@
 import "./HeroImgStyles.css";
-import Resume from "../../assets/resume.png";
+import Resume from "../../assets/resume.jpeg";
 import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db, logout } from "../../firebase-functionality/firebase";
