@@ -26,15 +26,27 @@ export const Navbar = () => {
 
       <ul className={click ? "nav-menu active" : "nav-menu"}>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">
+            <a className="nav-link">
+              <span>Home</span>
+            </a>
+          </Link>
         </li>
 
         <li>
-          <Link to="/EmployeeHome">Become A "Therapist"</Link>
+          <Link to="/EmployeeHome">
+            <a className="nav-link">
+              <span>Become A "Therapist"</span>
+            </a>
+          </Link>
         </li>
 
         <li>
-          <Link to="/SignIn">Sign in</Link>
+          <Link to="/SignIn">
+            <a className="nav-link">
+              <span>Sign In</span>
+            </a>
+          </Link>
         </li>
       </ul>
 

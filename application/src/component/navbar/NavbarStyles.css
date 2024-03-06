@@ -15,17 +15,38 @@
   display: flex;
 }
 
-.nav-menu li {
-  padding: 0 1rem;
-  transition: all 0.3s ease-in-out;
-}
-.nav-menu li a {
-  font-size: 1.2rem;
+.nav-link {
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 1.05rem;
   font-weight: 600;
+  transition: all 0.4s;
+  cursor: pointer;
+  margin: 5px;
+  padding: 0 1rem;
 }
 
-.nav-menu li:hover {
-  transform: scale(1.15);
+.nav-link span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.4s;
+}
+.nav-link span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.nav-link:hover span {
+  padding-right: 25px;
+}
+.nav-link:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
 .hamburger {

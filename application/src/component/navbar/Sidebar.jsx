@@ -6,49 +6,41 @@ import { auth, logout } from "../../firebase-functionality/firebase";
 const sidebarNavItems = [
   {
     display: "Profile",
-    icon: <i className="bx bx-home"></i>,
     to: "/UserDash/Profile",
     section: "",
   },
   {
     display: "Connections",
-    icon: <i className="bx bx-star"></i>,
     to: "/UserDash/Connections",
     section: "upload-resume",
   },
   {
-    display: "Meet Resume Therapists",
-    icon: <i className="bx bx-calendar"></i>,
+    display: "Meet Therapists",
     to: "/UserDash/MeetReviewers",
     section: "meet-reviewers",
   },
   {
     display: "Messages",
-    icon: <i className="bx bx-user"></i>,
     to: "/UserDash/Messages",
     section: "messages",
   },
   {
     display: "Book Appointment",
-    icon: <i className="bx bx-user"></i>,
     to: "/UserDash/BookAppointment",
     section: "book-appointment",
   },
   {
     display: "Virtual Call",
-    icon: <i className="bx bx-receipt"></i>,
     to: "/UserDash/VirtualCall",
     section: "virtual-call",
   },
   {
     display: "AI Feedback Tool",
-    icon: <i className="bx bx-log-out"></i>,
     to: "/UserDash/ChatGPTGuidance",
     section: "chat-gpt-feedback",
   },
   {
     display: "Logout",
-    icon: <i className="bx bx-log-out"></i>,
     section: "logout",
     onClick: async () => {
       try {
@@ -107,8 +99,9 @@ const Sidebar = () => {
                 activeIndex === index ? "active" : ""
               }`}
             >
-              <div className="sidebar__menu__item__icon">{item.icon}</div>
-              <div className="sidebar__menu__item__text">{item.display}</div>
+              <a className="nav-link">
+                <span>{item.display}</span>
+              </a>
             </div>
           </Link>
         ))}

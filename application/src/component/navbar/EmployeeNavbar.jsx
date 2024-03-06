@@ -37,32 +37,58 @@ export const EmployeeNavbar = () => {
 
       <ul className={click ? "nav-menu active" : "nav-menu"}>
         <li>
-          <Link to="/ReviewerDash/Profile">Therapist Profile</Link>
+          <Link to="/ReviewerDash/Profile">
+            <a className="nav-link">
+              <span>Profile</span>
+            </a>
+          </Link>
         </li>
 
         <li>
-          <Link to="/ReviewerDash/Availability">Availability</Link>
+          <Link to="/ReviewerDash/Availability">
+            <a className="nav-link">
+              <span>Availability</span>
+            </a>
+          </Link>
         </li>
 
         <li>
-          <Link to="/ReviewerDash/PendingConnections">Pending Connections</Link>
+          <Link to="/ReviewerDash/PendingConnections">
+            <a className="nav-link">
+              <span>Pending Connections</span>
+            </a>
+          </Link>
         </li>
 
         <li>
-          <Link to="/ReviewerDash/Connections">Connections</Link>
+          <Link to="/ReviewerDash/Connections">
+            <a className="nav-link">
+              <span>Connections</span>
+            </a>
+          </Link>
         </li>
 
         <li>
-          <Link to="/ReviewerDash/Messages">Messages</Link>
+          <Link to="/ReviewerDash/Messages">
+            <a className="nav-link">
+              <span>Messages</span>
+            </a>
+          </Link>
         </li>
 
         <li>
-          <Link to="/ReviewerDash/VirtualCall">Virtual Call</Link>
+          <Link to="/ReviewerDash/VirtualCall">
+            <a className="nav-link">
+              <span>Virtual Call</span>
+            </a>
+          </Link>
         </li>
 
         <li>
           <Link to="/" onClick={logUserOut}>
-            Logout
+            <a className="nav-link">
+              <span>Logout</span>
+            </a>
           </Link>
         </li>
       </ul>

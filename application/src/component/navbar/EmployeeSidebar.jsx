@@ -6,43 +6,36 @@ import { auth, logout } from "../../firebase-functionality/firebase";
 const sidebarNavItems = [
   {
     display: "Therapist Profile",
-    icon: <i className="bx bx-home"></i>,
     to: "/ReviewerDash/Profile",
     section: "",
   },
   {
     display: "Availability",
-    icon: <i className="bx bx-home"></i>,
     to: "/ReviewerDash/Availability",
     section: "",
   },
   {
     display: "Pending Connections",
-    icon: <i className="bx bx-home"></i>,
     to: "/ReviewerDash/PendingConnections",
     section: "",
   },
   {
     display: "Connections",
-    icon: <i className="bx bx-home"></i>,
     to: "/ReviewerDash/Connections",
     section: "",
   },
   {
     display: "Messages",
-    icon: <i className="bx bx-home"></i>,
     to: "/ReviewerDash/Messages",
     section: "",
   },
   {
     display: "Virtual Call",
-    icon: <i className="bx bx-home"></i>,
     to: "/ReviewerDash/VirtualCall",
     section: "",
   },
   {
     display: "Logout",
-    icon: <i className="bx bx-log-out"></i>,
     section: "logout",
     onClick: async () => {
       try {
@@ -101,8 +94,9 @@ const EmployeeSidebar = () => {
                 activeIndex === index ? "active" : ""
               }`}
             >
-              <div className="sidebar__menu__item__icon">{item.icon}</div>
-              <div className="sidebar__menu__item__text">{item.display}</div>
+              <a className="nav-link">
+                <span>{item.display}</span>
+              </a>
             </div>
           </Link>
         ))}

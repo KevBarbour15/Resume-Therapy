@@ -54,7 +54,7 @@ export default function VideoCallWidget({
         </CustomButton>
         {employee && (
           <CustomButton onClick={() => handleRemoveAppointment(appointment)}>
-            Delete Appointment
+            Delete
           </CustomButton>
         )}
       </CardActions>

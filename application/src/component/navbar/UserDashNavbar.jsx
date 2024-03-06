@@ -41,49 +41,65 @@ export const UserDashNavbar = () => {
       <ul className={click ? "nav-menu active" : "nav-menu"}>
         <li>
           <Link to="/UserDash/Profile" onClick={handleCloseMenu}>
-            Profile
+            <a className="nav-link">
+              <span>Profile</span>
+            </a>
           </Link>
         </li>
 
         <li>
           <Link to="/UserDash/Connections" onClick={handleCloseMenu}>
-            Connections
+            <a className="nav-link">
+              <span>Connections</span>
+            </a>
           </Link>
         </li>
 
         <li>
           <Link to="/UserDash/MeetReviewers" onClick={handleCloseMenu}>
-            Meet Resume Therapists
+            <a className="nav-link">
+              <span>Meet Resume Therapists</span>
+            </a>
           </Link>
         </li>
 
         <li>
           <Link to="/UserDash/Messages" onClick={handleCloseMenu}>
-            Messages
+            <a className="nav-link">
+              <span>Messages</span>
+            </a>
           </Link>
         </li>
 
         <li>
           <Link to="/UserDash/BookAppointment" onClick={handleCloseMenu}>
-            Book Appointment
+            <a className="nav-link">
+              <span>Book Appointment</span>
+            </a>
           </Link>
         </li>
 
         <li>
           <Link to="/UserDash/VirtualCall" onClick={handleCloseMenu}>
-            Virtual Call
+            <a className="nav-link">
+              <span>Virtual Call</span>
+            </a>
           </Link>
         </li>
 
         <li>
           <Link to="/UserDash/ChatGPTGuidance" onClick={handleCloseMenu}>
-            AI Feedback Tool
+            <a className="nav-link">
+              <span>AI Feedback Tool</span>
+            </a>
           </Link>
         </li>
 
         <li>
           <Link to="/" onClick={logUserOut}>
-            Logout
+            <a className="nav-link">
+              <span>Logout</span>
+            </a>
           </Link>
         </li>
       </ul>
