@@ -17,8 +17,8 @@ function Register() {
   const [errorText, setErrorText] = useState("");
   const navigate = useNavigate();
 
-  let error = "";
   const register = async () => {
+    /*
     const errMessage = await registerWithEmailAndPassword(
       name,
       email,
@@ -31,6 +31,7 @@ function Register() {
     } else {
       setRegistrationStatus("failure");
     }
+    */
   };
 
   const enter = (event) => {

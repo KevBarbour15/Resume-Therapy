@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
-import { Navbar } from "../component/navbar/Navbar";
+import Navbar from "../component/navbar/Navbar";
+
+
 import {
   auth,
   registerWithEmailAndPasswordEmployee,
@@ -15,12 +17,12 @@ function EmployeeRegister() {
   const [user, loading] = useAuthState(auth);
   const [registrationStatus, setRegistrationStatus] = useState(null);
   const [errorText, setErrorText] = useState("");
-
   const navigate = useNavigate();
 
-  let error = "";
+  
 
   const register = async () => {
+    /*
     try {
       console.log("Attempting to register user");
       await registerWithEmailAndPasswordEmployee(name, email, password, false);
@@ -31,6 +33,7 @@ function EmployeeRegister() {
       setErrorText(error.message);
       setRegistrationStatus("failure");
     }
+    */
   };
 
   const enter = (event) => {

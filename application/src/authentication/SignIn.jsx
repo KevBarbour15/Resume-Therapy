@@ -17,7 +17,7 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user) navigate("/UserDash/Profile");
+   // if (user) navigate("/UserDash/Profile");
     if (error) alert(error.message);
   }, [user, loading]);
 
@@ -28,8 +28,10 @@ const SignIn = () => {
   };
 
   const login = async () => {
+    /*
     const errMessage = await logInWithEmailAndPassword(email, password);
     setErrorText(errMessage);
+    */
   };
 
   return (

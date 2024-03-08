@@ -6,6 +6,16 @@ import EmployeeHome from "./pages/employee-pages/EmployeeHome";
 import EmployeeRegister from "./authentication/EmployeeRegister";
 import EmployeeSignIn from "./authentication/EmployeeSignIn";
 
+
+/*
+
+add this back if it doesn't deploy 
+"engines": {
+    "node": "16"
+  },
+
+  */ 
+
 // Users Imports
 import PasswordReset from "./authentication/PasswordReset";
 import SignIn from "./authentication/SignIn";

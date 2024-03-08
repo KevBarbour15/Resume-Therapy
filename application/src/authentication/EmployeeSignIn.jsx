@@ -27,9 +27,10 @@ const EmployeeSignIn = () => {
   };
 
   const login = async () => {
+    /*
     const errMessage = await logInWithEmailAndPasswordEmployee(email, password);
     console.log(err);
-    setErrorText(errMessage);
+    setErrorText(errMessage);*/
   };
 
   return (

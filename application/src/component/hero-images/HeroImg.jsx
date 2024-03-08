@@ -40,6 +40,12 @@ export const HeroImg = () => {
           professional milestone, Resume Therapy is your ally for success. Start
           your journey with us today, and make your dream job a reality!
         </p>
+        <p>
+          Resume Therapy is currently down as we make some major changes but it
+          will be back up soon, and better than ever. We're working on adding
+          ChatGPT functionality to get feedback and tips in even more ways than
+          ever.
+        </p>
 
         <img className="img" src={Resume} />
 
