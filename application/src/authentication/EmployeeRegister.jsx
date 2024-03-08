@@ -55,6 +55,12 @@ function EmployeeRegister() {
     <>
       <Navbar />
       <div className="register">
+      <p>
+          Resume Therapy is currently down as we make some major changes but it
+          will be back up soon, and better than ever. We're working on adding
+          ChatGPT functionality to get feedback and tips in even more ways than
+          ever.
+        </p>
         <div className="register__container">
           <h1>Register as Therapist</h1>
 

@@ -24,8 +24,7 @@ export const EmployeeHero = () => {
 
   return (
     <div className="hero">
-      <div className="mask">
-      </div>
+      <div className="mask"></div>
       <div className="content">
         <h1>Become a Resume Therapist</h1>
         <p>

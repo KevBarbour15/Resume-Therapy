@@ -17,7 +17,7 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-   // if (user) navigate("/UserDash/Profile");
+    // if (user) navigate("/UserDash/Profile");
     if (error) alert(error.message);
   }, [user, loading]);
 
@@ -38,6 +38,12 @@ const SignIn = () => {
     <>
       <Navbar />
       <div className="login">
+        <p>
+          Resume Therapy is currently down as we make some major changes but it
+          will be back up soon, and better than ever. We're working on adding
+          ChatGPT functionality to get feedback and tips in even more ways than
+          ever.
+        </p>
         <div className="login__container">
           <h1> Login</h1>
           <input

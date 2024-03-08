@@ -2,9 +2,15 @@
   height: 100vh;
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #1d332e;
+}
+
+p {
+  width: 25%;
+  margin-bottom: 25px;
 }
 
 h1 {
@@ -54,6 +60,7 @@ h1 {
   height: 100vh;
   width: 100vw;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #1d332e; /* OUR IMPORTANT MAIN COLOR*/
@@ -88,4 +95,10 @@ h1 {
 }
 .register div {
   margin-top: 7px;
+}
+
+@media  (max-width: 768px) {
+  p {
+    width: 75%;
+  }
 }
