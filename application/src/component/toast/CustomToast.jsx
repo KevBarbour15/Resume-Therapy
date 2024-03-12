@@ -6,7 +6,7 @@ const CustomToast = ({ closeToast }) => (
       Registration and Login functionality is down while we revamp Resume
       Therapy. We will be back soon!
     </p>
-    <button onClick={closeToast}>Close</button>
+    <button className="btn" onClick={closeToast}>Close</button>
   </div>
 );
 

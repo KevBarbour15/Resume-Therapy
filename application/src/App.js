@@ -6,11 +6,8 @@ import EmployeeHome from "./pages/employee-pages/EmployeeHome";
 import EmployeeRegister from "./authentication/EmployeeRegister";
 import EmployeeSignIn from "./authentication/EmployeeSignIn";
 
-/*
-"engines": {
-    "node": "16"
-  },
-*/
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Users Imports
 import PasswordReset from "./authentication/PasswordReset";
@@ -36,6 +33,7 @@ import EmployeeDashLayout from "./pages/employee-pages/EmployeeDashLayout";
 function App() {
   return (
     <div>
+      <ToastContainer className="customToast" />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/SignIn" element={<SignIn />} />
