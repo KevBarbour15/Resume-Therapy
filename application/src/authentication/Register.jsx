@@ -8,7 +8,10 @@ import {
   signInWithGoogle,
 } from "../firebase-functionality/firebase";
 import "./Login.css";
-function Register() {
+import { toast } from "react-toastify";
+import CustomToast from "../component/toast/CustomToast";
+
+const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -64,6 +67,28 @@ function Register() {
   useEffect(() => {
     if (loading) return;
   }, [user, loading]);
+
+  useEffect(() => {
+    toast(<CustomToast />, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      style: {
+        borderRadius: "0px",
+        border: "2px solid purple",
+        color: "white",
+        backgroundColor: "black",
+        boxShadow: "10px 10px 5px black",
+        width: "300px",
+        height: "auto",
+      },
+    });
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -123,5 +148,5 @@ function Register() {
       </div>
     </>
   );
-}
+};
 export default Register;

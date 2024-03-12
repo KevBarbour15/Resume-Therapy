@@ -3,14 +3,15 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../component/navbar/Navbar";
 
-
 import {
   auth,
   registerWithEmailAndPasswordEmployee,
 } from "../firebase-functionality/firebase";
 import "./Login.css";
+import { toast } from "react-toastify";
+import CustomToast from "../component/toast/CustomToast";
 
-function EmployeeRegister() {
+const EmployeeRegister = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -18,8 +19,6 @@ function EmployeeRegister() {
   const [registrationStatus, setRegistrationStatus] = useState(null);
   const [errorText, setErrorText] = useState("");
   const navigate = useNavigate();
-
-  
 
   const register = async () => {
     /*
@@ -51,16 +50,33 @@ function EmployeeRegister() {
   useEffect(() => {
     if (loading) return;
   }, [user, loading]);
+
+  useEffect(() => {
+    toast(<CustomToast />, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      style: {
+        borderRadius: "0px",
+        border: "2px solid purple",
+        color: "white",
+        backgroundColor: "black",
+        boxShadow: "10px 10px 5px black",
+        width: "300px",
+        height: "auto",
+      },
+    });
+  }, []);
+
   return (
     <>
       <Navbar />
       <div className="register">
-      <p>
-          Resume Therapy is currently down as we make some major changes but it
-          will be back up soon, and better than ever. We're working on adding
-          ChatGPT functionality to get feedback and tips in even more ways than
-          ever.
-        </p>
+      
         <div className="register__container">
           <h1>Register as Therapist</h1>
 
@@ -102,6 +118,6 @@ function EmployeeRegister() {
       </div>
     </>
   );
-}
+};
 
 export default EmployeeRegister;

@@ -3,10 +3,13 @@ import styles from "./custom-toast.module.scss";
 const CustomToast = ({ closeToast }) => (
   <div className={styles.toastContainer}>
     <p>
-      Registration and Login functionality is down while we revamp Resume
-      Therapy. We will be back soon!
+      Resume Therapy is currently down as we make some major changes but it will
+      be back up soon, and better than ever. We're working on adding ChatGPT
+      functionality to get feedback and tips in even more ways than ever.
     </p>
-    <button className="btn" onClick={closeToast}>Close</button>
+    <button className="btn" onClick={closeToast}>
+      Close
+    </button>
   </div>
 );
 

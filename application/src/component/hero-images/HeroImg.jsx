@@ -1,11 +1,11 @@
 import "./HeroImgStyles.css";
-import {useEffect} from "react";
+import { useEffect } from "react";
 import Resume from "../../assets/resume.jpeg";
 import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db, logout } from "../../firebase-functionality/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import CustomToast from "../toast/CustomToast";
 import gsap from "gsap";
 
@@ -27,7 +27,6 @@ export const HeroImg = () => {
     window.location.href = "/SignIn";
   };
 
-
   useEffect(() => {
     toast(<CustomToast />, {
       position: "top-right",
@@ -39,11 +38,12 @@ export const HeroImg = () => {
       progress: undefined,
       style: {
         borderRadius: "0px",
+        border: "2px solid purple",
         color: "white",
         backgroundColor: "black",
         boxShadow: "10px 10px 5px black",
         width: "300px",
-        height: "200px",
+        height: "auto",
       },
     });
   }, []);
