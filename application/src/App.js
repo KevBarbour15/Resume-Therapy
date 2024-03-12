@@ -6,6 +6,11 @@ import EmployeeHome from "./pages/employee-pages/EmployeeHome";
 import EmployeeRegister from "./authentication/EmployeeRegister";
 import EmployeeSignIn from "./authentication/EmployeeSignIn";
 
+/*
+"engines": {
+    "node": "16"
+  },
+*/
 
 // Users Imports
 import PasswordReset from "./authentication/PasswordReset";
@@ -33,7 +38,6 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Home />} />
-
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/EmployeeRegister" element={<EmployeeRegister />} />

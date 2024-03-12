@@ -24,6 +24,7 @@
 
 .location p {
   line-height: 30px;
+  width: 100%;
 }
 
 .right {
@@ -34,9 +35,11 @@
   padding: 1rem;
 }
 
-.social {
-  margin-top: 1rem;
+.right p {
+  width: 100%;
 }
+
+
 
 h4 {
   font-size: 1.2rem;
@@ -45,6 +48,7 @@ h4 {
 
 p {
   font-size: 1.2rem;
+  width: 100%;
 }
 
 @media screen and (max-width: 640px) {

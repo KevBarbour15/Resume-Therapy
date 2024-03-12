@@ -15,7 +15,6 @@ export const Footer = () => {
       <div className="footer-container">
         <div className="left">
           <div className="location">
-            <FaHome size={20} style={{ color: "#fff", marginRight: "2rem" }} />
             <div>
               <p>San Francisco State University </p>
               <p>San Francisco, California</p>
