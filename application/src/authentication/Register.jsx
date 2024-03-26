@@ -7,7 +7,7 @@ import {
   registerWithEmailAndPassword,
   signInWithGoogle,
 } from "../firebase-functionality/firebase";
-import "./Login.css";
+import "./login.css";
 import { toast } from "react-toastify";
 import CustomToast from "../component/toast/CustomToast";
 

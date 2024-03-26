@@ -1,4 +1,4 @@
-import "./WorkCardStyles.css";
+import "./work.css";
 
 export const WorkCard = (props) => {
   return (

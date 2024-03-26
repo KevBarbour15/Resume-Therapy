@@ -1,4 +1,4 @@
-import "./HeroImgStyles.css";
+import "./hero.scss";
 import { useEffect } from "react";
 import Resume from "../../assets/resume.jpeg";
 import { Link } from "react-router-dom";

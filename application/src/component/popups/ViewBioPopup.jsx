@@ -1,4 +1,4 @@
-import "./popups.css";
+import "./popups.scss";
 
 function ViewBioPopup(props) {
   return props.trigger ? (

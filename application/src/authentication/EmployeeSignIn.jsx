@@ -5,7 +5,7 @@ import {
   logInWithEmailAndPasswordEmployee,
 } from "../firebase-functionality/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import "./Login.css";
+import "./login.css";
 import { Navbar } from "../component/navbar/Navbar";
 import { toast } from "react-toastify";
 import CustomToast from "../component/toast/CustomToast";

@@ -1,4 +1,4 @@
-import "./WorkCardStyles.css";
+import "./work.css";
 import { WorkCardData } from "./WorkCardData";
 import { WorkCard } from "./WorkCard";
 

@@ -1,4 +1,4 @@
-import "./popups.css";
+import "./popups.scss";
 
 function ViewResumePopup(props) {
   return props.trigger ? (

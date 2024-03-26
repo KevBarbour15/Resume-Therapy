@@ -1,5 +1,5 @@
 import React from "react";
-import "./popups.css";
+import "./popups.scss";
 
 function EditBioPopup(props) {
   return props.trigger ? (

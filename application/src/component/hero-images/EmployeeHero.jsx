@@ -1,4 +1,4 @@
-import "./HeroImgStyles.css";
+import "./hero.scss";
 import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db, logout } from "../../firebase-functionality/firebase";

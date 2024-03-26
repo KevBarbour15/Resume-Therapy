@@ -1,7 +1,7 @@
-import styles from "./custom-toast.module.scss";
+import "./custom-toast.scss";
 
 const CustomToast = ({ closeToast }) => (
-  <div className={styles.toastContainer}>
+  <div className="toastContainer">
     <p>
       Resume Therapy is currently down as we make some major changes but it will
       be back up soon, and better than ever. We're working on adding ChatGPT

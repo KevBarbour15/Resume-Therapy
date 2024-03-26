@@ -7,7 +7,7 @@ import {
   auth,
   registerWithEmailAndPasswordEmployee,
 } from "../firebase-functionality/firebase";
-import "./Login.css";
+import "./login.css";
 import { toast } from "react-toastify";
 import CustomToast from "../component/toast/CustomToast";
 
@@ -76,7 +76,6 @@ const EmployeeRegister = () => {
     <>
       <Navbar />
       <div className="register">
-      
         <div className="register__container">
           <h1>Register as Therapist</h1>
 

@@ -1,4 +1,4 @@
-import "./index.css";
+import "./index.scss";
 import Home from "./pages/home/Home";
 import { Routes, Route } from "react-router-dom";
 import Register from "./authentication/Register";
