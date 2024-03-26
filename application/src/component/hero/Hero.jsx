@@ -12,6 +12,24 @@ import gsap from "gsap";
 export const HeroImg = () => {
   const [user, loading] = useAuthState(auth);
 
+  useEffect(() => {
+    gsap.from(".left-content", {
+      opacity: 0,
+      delay: 0.15,
+      duration: 1,
+      y: "-25vw",
+      ease: "back.inOut",
+    });
+
+    gsap.from(".right-content", {
+      opacity: 0,
+      delay: 0.15,
+      duration: 1,
+      x: "25vw",
+      ease: "back.inOut",
+    });
+  }, []);
+
   const handleLogin = async () => {
     if (user) {
       const q = query(collection(db, "users"), where("uid", "==", user.uid));
@@ -50,31 +68,32 @@ export const HeroImg = () => {
 
   return (
     <div className="hero">
-      <div className="mask"></div>
-
       <div className="content">
-        <h1>Land Your Dream Job With The Perfect Resume.</h1>
-        <p>
-          Welcome to Resume Therapy, your companion on the journey to secure
-          your dream job. Our platform simplifies the process of building an
-          impactful resume, guiding you from template selection to skillfully
-          articulating your professional journey. Leverage insights from
-          industry experts to create a polished, professional resume that
-          effectively highlights your unique abilities and experiences. Whether
-          you're embarking on your career journey or preparing for the next
-          professional milestone, Resume Therapy is your ally for success. Start
-          your journey with us today, and make your dream job a reality!
-        </p>
-
-        <img className="img" src={Resume} />
-
-        <div className="btn-style">
-          <Link to="/Register" className="btn">
-            Sign up
-          </Link>
-          <Link to="#" onClick={handleLogin} className="btn-light">
-            Log in
-          </Link>
+        <div className="left-content">
+          <h1>Land Your Dream Job With The Perfect Resume.</h1>
+          <p>
+            Welcome to Resume Therapy, your companion on the journey to secure
+            your dream job. Our platform simplifies the process of building an
+            impactful resume, guiding you from template selection to skillfully
+            articulating your professional journey. Leverage insights from
+            industry experts to create a polished, professional resume that
+            effectively highlights your unique abilities and experiences.
+            Whether you're embarking on your career journey or preparing for the
+            next professional milestone, Resume Therapy is your ally for
+            success. Start your journey with us today, and make your dream job a
+            reality!
+          </p>
+          <div className="btn-style">
+            <Link to="/Register" className="btn">
+              Sign up
+            </Link>
+            <Link to="#" onClick={handleLogin} className="btn-light">
+              Log in
+            </Link>
+          </div>
+        </div>
+        <div className="right-content">
+          <img src={Resume} alt="" />
         </div>
       </div>
     </div>

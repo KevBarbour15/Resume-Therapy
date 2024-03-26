@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar } from "../../component/navbar/Navbar";
-import { HeroImg } from "../../component/hero-images/HeroImg";
+import { HeroImg } from "../../component/hero/Hero";
 import { Footer } from "../../component/footer/Footer";
 import { Work } from "../../component/work/Work";
 

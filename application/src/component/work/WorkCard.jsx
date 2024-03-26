@@ -1,4 +1,4 @@
-import "./work.css";
+import "./work.scss";
 
 export const WorkCard = (props) => {
   return (
