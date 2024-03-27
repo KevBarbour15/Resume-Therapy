@@ -7,7 +7,7 @@ import {
   auth,
   registerWithEmailAndPasswordEmployee,
 } from "../firebase-functionality/firebase";
-import "./login.css";
+import "./login.scss";
 import { toast } from "react-toastify";
 import CustomToast from "../component/toast/CustomToast";
 
