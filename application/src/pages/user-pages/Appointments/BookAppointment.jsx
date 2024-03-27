@@ -14,7 +14,7 @@ import "./appointments.css";
 import TextField from "@mui/material/TextField";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import { Grid, Container } from "@mui/material";
-import CustomButton from "../../../component/custom-mui/CustomButton";
+import CustomButton from "../../../components/custom-mui/CustomButton";
 
 function BookAppointment() {
   const [employees, setEmployees] = useState([]);
@@ -115,7 +115,7 @@ function BookAppointment() {
         <div className="page-title">
           <h1>Book Appointments</h1>
         </div>
-        
+
         <TextField
           id="standard-basic"
           label="Search Resume Therapists..."
@@ -180,6 +180,5 @@ function BookAppointment() {
     </div>
   );
 }
-
 
 export default BookAppointment;

@@ -16,8 +16,8 @@ import axios from "axios";
 import "./virtual-call.css";
 import { Grid, Container } from "@mui/material";
 
-import VideoCallWidget from "../../../component/widgets/VideoCallWidget";
-import CustomButton from "../../../component/custom-mui/CustomButton";
+import VideoCallWidget from "../../../components/widgets/VideoCallWidget";
+import CustomButton from "../../../components/custom-mui/CustomButton";
 
 const VirtualCall = () => {
   const { user, loading, error } = useUser();

@@ -10,7 +10,7 @@ import {
 
 import { Grid, Container } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import CustomButton from "../../../component/custom-mui/CustomButton";
+import CustomButton from "../../../components/custom-mui/CustomButton";
 
 const EmployeePendingConnections = () => {
   const [user] = useAuthState(auth);

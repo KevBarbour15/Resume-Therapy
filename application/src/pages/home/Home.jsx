@@ -1,8 +1,8 @@
 import React from "react";
-import { Navbar } from "../../component/navbar/Navbar";
-import { HeroImg } from "../../component/hero/Hero";
-import { Footer } from "../../component/footer/Footer";
-import { Work } from "../../component/work/Work";
+import { Navbar } from "../../components/navbar/Navbar";
+import { HeroImg } from "../../components/hero/Hero";
+import { Footer } from "../../components/footer/Footer";
+import { Work } from "../../components/work/Work";
 
 function Home() {
   return (

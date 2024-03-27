@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useUser } from "../../../context/useUser";
 import axios from "axios";
 import { Grid, Container } from "@mui/material";
-import CustomButton from "../../../component/custom-mui/CustomButton";
+import CustomButton from "../../../components/custom-mui/CustomButton";
 
 const ChatGPTGuidance = () => {
   const { user, loading, error } = useUser();

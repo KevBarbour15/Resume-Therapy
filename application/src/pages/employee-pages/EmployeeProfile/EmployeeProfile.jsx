@@ -5,18 +5,18 @@ import { query, collection, getDocs, where } from "firebase/firestore";
 import { auth, db, storage } from "../../../firebase-functionality/firebase";
 import { ref, uploadBytes, getDownloadURL, listAll } from "firebase/storage";
 import { addBio } from "../../../firebase-functionality/bio";
-import EditProfilePopup from "../../../component/popups/EditBioPopup";
-import UploadResumePopup from "../../../component/popups/UploadResumePopup";
+import EditProfilePopup from "../../../components/popups/EditBioPopup";
+import UploadResumePopup from "../../../components/popups/UploadResumePopup";
 import TextField from "@mui/material/TextField";
 import { Grid, Container } from "@mui/material";
 
 import "./profile.css";
 
-import ProfileWidget from "../../../component/widgets/ProfileWidget";
-import MessagesWidget from "../../../component/widgets/MessagesWidget";
-import CalendarWidget from "../../../component/widgets/CalendarWidget";
-import UploadResumeWidget from "../../../component/widgets/ViewResumeWidget";
-import CustomButton from "../../../component/custom-mui/CustomButton";
+import ProfileWidget from "../../../components/widgets/ProfileWidget";
+import MessagesWidget from "../../../components/widgets/MessagesWidget";
+import CalendarWidget from "../../../components/widgets/CalendarWidget";
+import UploadResumeWidget from "../../../components/widgets/ViewResumeWidget";
+import CustomButton from "../../../components/custom-mui/CustomButton";
 
 function EmpProfile() {
   const [buttonPopup, setButtonPopup] = useState(false);

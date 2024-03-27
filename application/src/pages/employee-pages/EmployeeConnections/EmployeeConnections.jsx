@@ -10,8 +10,8 @@ import { db, storage } from "../../../firebase-functionality/firebase";
 
 import { Grid, Container } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import ConnectionsWidget from "../../../component/widgets/ConnectionsWidget";
-import ViewConnectionPopup from "../../../component/popups/ViewConnectionPopup";
+import ConnectionsWidget from "../../../components/widgets/ConnectionsWidget";
+import ViewConnectionPopup from "../../../components/popups/ViewConnectionPopup";
 
 const EmpConnections = () => {
   const [user, loading, error] = useAuthState(auth);

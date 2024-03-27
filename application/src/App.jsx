@@ -30,6 +30,11 @@ import EmployeeMessages from "./pages/employee-pages/EmployeeMessages/EmployeeMe
 import EmployeeVirtualCall from "./pages/employee-pages/EmployeeVirtualCall/EmployeeVirtualCall";
 import EmployeeDashLayout from "./pages/employee-pages/EmployeeDashLayout";
 
+//GSAP Plugins
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 function App() {
   return (
     <div>

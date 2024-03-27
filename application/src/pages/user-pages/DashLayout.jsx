@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import Sidebar from "../../component/navbar/Sidebar";
+import Sidebar from "../../components/navbar/Sidebar";
 import { useUser } from "../../context/useUser";
 import { useNavigate } from "react-router-dom";
 
-import UserDashNavbar from "../../component/navbar/UserDashNavbar";
+import UserDashNavbar from "../../components/navbar/UserDashNavbar";
 import "./layout-style.css";
 
 const DashLayout = () => {

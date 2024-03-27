@@ -1,15 +1,30 @@
 import "./work.scss";
-import { useEffect } from "react";
+import { useRef } from "react";
 import { WorkCardData } from "./WorkCardData";
 import { WorkCard } from "./WorkCard";
+
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export const Work = () => {
- 
+  const workRef = useRef(null);
+
+  useGSAP(() => {
+    gsap.to(workRef.current, {
+      scrollTrigger: {
+        trigger: workRef.current,
+        start: "top bottom",
+        end: "top 30%",
+        scrub: true,
+      },
+      opacity: 1,
+    });
+  });
+
   return (
     <div className="work-container">
       <div className="project-heading">
-        <div className="project-container">
+        <div ref={workRef} className="project-container">
           {WorkCardData.map((val, ind) => {
             return (
               <WorkCard

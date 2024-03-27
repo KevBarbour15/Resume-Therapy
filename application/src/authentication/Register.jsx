@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
-import { Navbar } from "../component/navbar/Navbar";
+import { Navbar } from "../components/navbar/Navbar";
 import {
   auth,
   registerWithEmailAndPassword,
@@ -9,7 +9,7 @@ import {
 } from "../firebase-functionality/firebase";
 import "./login.scss";
 import { toast } from "react-toastify";
-import CustomToast from "../component/toast/CustomToast";
+import CustomToast from "../components/toast/CustomToast";
 
 const Register = () => {
   const [email, setEmail] = useState("");

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { sendPasswordReset } from "../firebase-functionality/firebase";
 import "./login.scss";
-import { Navbar } from "../component/navbar/Navbar";
+import { Navbar } from "../components/navbar/Navbar";
 
 const PasswordReset = () => {
   const [email, setEmail] = useState("");

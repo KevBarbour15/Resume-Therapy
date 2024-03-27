@@ -11,7 +11,7 @@ import {
 
 import "./availability.css";
 import { Grid, Container, TextField } from "@mui/material";
-import CustomButton from "../../../component/custom-mui/CustomButton.jsx";
+import CustomButton from "../../../components/custom-mui/CustomButton.jsx";
 
 function EmpAvailability() {
   const [user] = useAuthState(auth);

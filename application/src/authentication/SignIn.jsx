@@ -7,9 +7,9 @@ import {
 } from "../firebase-functionality/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./login.scss";
-import { Navbar } from "../component/navbar/Navbar";
+import { Navbar } from "../components/navbar/Navbar";
 import { toast } from "react-toastify";
-import CustomToast from "../component/toast/CustomToast";
+import CustomToast from "../components/toast/CustomToast";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");

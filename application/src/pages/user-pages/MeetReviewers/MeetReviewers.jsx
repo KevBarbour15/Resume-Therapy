@@ -9,7 +9,7 @@ import { Grid, Container } from "@mui/material";
 import TextField from "@mui/material/TextField";
 
 import "./reviewers.css";
-import ReviewerWidget from "../../../component/widgets/ReviewerWidget";
+import ReviewerWidget from "../../../components/widgets/ReviewerWidget";
 
 const MeetReviewers = () => {
   const [user, loading] = useAuthState(auth);
