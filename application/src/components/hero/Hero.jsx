@@ -5,14 +5,19 @@ import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db, logout } from "../../firebase-functionality/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
+
+// Toast notifications
 import { toast } from "react-toastify";
 import CustomToast from "../toast/CustomToast";
+
+// GSAP animations 
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export const HeroImg = () => {
   const [user, loading] = useAuthState(auth);
 
-  useEffect(() => {
+  useGSAP(() => {
     gsap.from(".left-content", {
       opacity: 0,
       delay: 0.15,
@@ -28,7 +33,7 @@ export const HeroImg = () => {
       x: "25vw",
       ease: "back.inOut",
     });
-  }, []);
+  });
 
   const handleLogin = async () => {
     if (user) {

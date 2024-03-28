@@ -8,8 +8,14 @@ import {
   signInWithGoogle,
 } from "../firebase-functionality/firebase";
 import "./login.scss";
+
+// Toast notifications
 import { toast } from "react-toastify";
 import CustomToast from "../components/toast/CustomToast";
+
+// GSAP animations
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -19,6 +25,16 @@ const Register = () => {
   const [registrationStatus, setRegistrationStatus] = useState(null);
   const [errorText, setErrorText] = useState("");
   const navigate = useNavigate();
+
+  useGSAP(() => {
+    gsap.from(".register__container", {
+      opacity: 0,
+      delay: 0.15,
+      duration: 0.5,
+      y: "-25vw",
+      ease: "back.inOut",
+    });
+  });
 
   const register = async () => {
     /*
@@ -68,7 +84,7 @@ const Register = () => {
     if (loading) return;
   }, [user, loading]);
 
-  useEffect(() => {
+  const showAlert = () => {
     toast(<CustomToast />, {
       position: "top-right",
       autoClose: 5000,
@@ -87,18 +103,12 @@ const Register = () => {
         height: "auto",
       },
     });
-  }, []);
+  };
 
   return (
     <>
       <Navbar />
       <div className="register">
-        <p>
-          Resume Therapy is currently down as we make some major changes but it
-          will be back up soon, and better than ever. We're working on adding
-          ChatGPT functionality to get feedback and tips in even more ways than
-          ever.
-        </p>
         <div className="register__container">
           <h1>Register </h1>
 
@@ -127,12 +137,20 @@ const Register = () => {
             onKeyDown={enter}
           />
           <div className="error__text">{errorText && <p>{errorText}</p>}</div>
-          <button className="register__btn" onClick={register}>
+          <button
+            className="register__btn" //onClick={register}
+            onClick={() => {
+              showAlert;
+            }}
+          >
             Register
           </button>
           <button
             className="register__btn register__google"
-            onClick={signInWithGoogle}
+            //onClick={signInWithGoogle}
+            onClick={() => {
+              showAlert;
+            }}
           >
             Register with Google
           </button>

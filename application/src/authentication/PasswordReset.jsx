@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { sendPasswordReset } from "../firebase-functionality/firebase";
 import "./login.scss";

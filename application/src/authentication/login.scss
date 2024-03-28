@@ -25,12 +25,15 @@ h1 {
   padding: 30px;
   border-style: solid;
   border-color: aliceblue;
+  width: 350px;
 }
+
 .login__textBox {
   padding: 10px;
   font-size: 20px;
   margin-bottom: 10px;
 }
+
 .login__btn {
   cursor: pointer;
   padding: 10px;
@@ -40,6 +43,7 @@ h1 {
   color: white;
   background-color: black;
 }
+
 .login__google {
   background-color: #4285f4;
 }
@@ -72,6 +76,7 @@ h1 {
   padding: 30px;
   border-style: solid;
   border-color: aliceblue;
+  width: 350px;
 }
 
 .register__textBox {
@@ -79,6 +84,7 @@ h1 {
   font-size: 20px;
   margin-bottom: 10px;
 }
+
 .register__btn {
   padding: 10px;
   font-size: 18px;
@@ -88,9 +94,11 @@ h1 {
   background-color: black;
   cursor: pointer;
 }
+
 .register__google {
   background-color: #4285f4;
 }
+
 .register div {
   margin-top: 7px;
 }

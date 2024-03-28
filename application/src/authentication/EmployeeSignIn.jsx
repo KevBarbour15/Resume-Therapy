@@ -7,8 +7,14 @@ import {
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./login.scss";
 import { Navbar } from "../components/navbar/Navbar";
+
+// Toast notifications
 import { toast } from "react-toastify";
 import CustomToast from "../components/toast/CustomToast";
+
+// GSAP animations
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const EmployeeSignIn = () => {
   const [email, setEmail] = useState("");
@@ -16,6 +22,16 @@ const EmployeeSignIn = () => {
   const [user, loading, error] = useAuthState(auth);
   const [errorText, setErrorText] = useState("");
   const navigate = useNavigate();
+
+  useGSAP(() => {
+    gsap.from(".login__container", {
+      opacity: 0,
+      delay: 0.15,
+      duration: 0.5,
+      y: "-25vw",
+      ease: "back.inOut",
+    });
+  });
 
   useEffect(() => {
     if (user) navigate("/ReviewerDash/Profile");
@@ -35,7 +51,7 @@ const EmployeeSignIn = () => {
     setErrorText(errMessage);*/
   };
 
-  useEffect(() => {
+  const showAlert = () => {
     toast(<CustomToast />, {
       position: "top-right",
       autoClose: 5000,
@@ -54,12 +70,11 @@ const EmployeeSignIn = () => {
         height: "auto",
       },
     });
-  }, []);
+  };
 
   return (
     <>
       <Navbar />
-
       <div className="login">
         <div className="login__container">
           <h1>Therapist Login</h1>
@@ -82,7 +97,10 @@ const EmployeeSignIn = () => {
           <div className="error__text">{errorText && <p>{errorText}</p>}</div>
           <button
             className="login__btn"
-            onClick={() => logInWithEmailAndPasswordEmployee(email, password)}
+            //onClick={() => logInWithEmailAndPasswordEmployee(email, password)}
+            onClick={() => {
+              showAlert;
+            }}
           >
             Login
           </button>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   auth,
@@ -11,12 +11,25 @@ import { Navbar } from "../components/navbar/Navbar";
 import { toast } from "react-toastify";
 import CustomToast from "../components/toast/CustomToast";
 
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, loading, error] = useAuthState(auth);
   const [errorText, setErrorText] = useState("");
   const navigate = useNavigate();
+
+  useGSAP(() => {
+    gsap.from(".login__container", {
+      opacity: 0,
+      delay: 0.15,
+      duration: 0.5,
+      y: "-25vw",
+      ease: "back.inOut",
+    });
+  });
 
   useEffect(() => {
     // if (user) navigate("/UserDash/Profile");
@@ -36,7 +49,7 @@ const SignIn = () => {
     */
   };
 
-  useEffect(() => {
+  const showAlert = () => {
     toast(<CustomToast />, {
       position: "top-right",
       autoClose: 5000,
@@ -55,7 +68,7 @@ const SignIn = () => {
         height: "auto",
       },
     });
-  }, []);
+  };
 
   return (
     <>
@@ -80,12 +93,20 @@ const SignIn = () => {
             onKeyDown={enter}
           />
           <div className="error__text">{errorText && <p>{errorText}</p>}</div>
-          <button className="login__btn" onClick={login}>
+          <button
+            className="login__btn" //onClick={login}
+            onClick={() => {
+              showAlert;
+            }}
+          >
             Login
           </button>
           <button
             className="login__btn login__google"
-            onClick={signInWithGoogle}
+            //onClick={signInWithGoogle}
+            onClick={() => {
+              showAlert;
+            }}
           >
             Login with Google
           </button>

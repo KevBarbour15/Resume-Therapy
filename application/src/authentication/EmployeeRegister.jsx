@@ -8,8 +8,14 @@ import {
   registerWithEmailAndPasswordEmployee,
 } from "../firebase-functionality/firebase";
 import "./login.scss";
+
+// Toast notifications
 import { toast } from "react-toastify";
 import CustomToast from "../components/toast/CustomToast";
+
+// GSAP animations
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const EmployeeRegister = () => {
   const [email, setEmail] = useState("");
@@ -19,6 +25,16 @@ const EmployeeRegister = () => {
   const [registrationStatus, setRegistrationStatus] = useState(null);
   const [errorText, setErrorText] = useState("");
   const navigate = useNavigate();
+
+  useGSAP(() => {
+    gsap.from(".register__container", {
+      opacity: 0,
+      delay: 0.15,
+      duration: 0.5,
+      y: "-25vw",
+      ease: "back.inOut",
+    });
+  });
 
   const register = async () => {
     /*
@@ -51,7 +67,7 @@ const EmployeeRegister = () => {
     if (loading) return;
   }, [user, loading]);
 
-  useEffect(() => {
+  const showAlert = () => {
     toast(<CustomToast />, {
       position: "top-right",
       autoClose: 5000,
@@ -70,7 +86,7 @@ const EmployeeRegister = () => {
         height: "auto",
       },
     });
-  }, []);
+  };
 
   return (
     <>
@@ -104,7 +120,12 @@ const EmployeeRegister = () => {
             onKeyDown={enter}
           />
           <div className="error__text">{errorText && <p>{errorText}</p>}</div>
-          <button className="register__btn" onClick={register}>
+          <button
+            className="register__btn" //onClick={register}
+            onClick={() => {
+              showAlert;
+            }}
+          >
             Register
           </button>
 

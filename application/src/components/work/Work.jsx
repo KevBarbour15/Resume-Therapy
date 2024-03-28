@@ -13,10 +13,11 @@ export const Work = () => {
     gsap.to(workRef.current, {
       scrollTrigger: {
         trigger: workRef.current,
-        start: "top bottom",
-        end: "top 30%",
-        scrub: true,
+        start: "top 75%",
+        end: "top 35%",
+        scrub: 0,
       },
+      delay: 0.75,
       opacity: 1,
     });
   });
