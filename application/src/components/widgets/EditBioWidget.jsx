@@ -1,14 +1,14 @@
 import PropTypes from "prop-types";
 import { Typography } from "@mui/material";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import CustomCard from "../custom-mui/CustomCard";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 
-CalendarWidget.propTypes = {
+EditBioWidget.propTypes = {
   icon: PropTypes.string,
   title: PropTypes.string.isRequired,
 };
 
-export default function CalendarWidget({ title }) {
+export default function EditBioWidget({ title }) {
   return (
     <CustomCard
       sx={{
@@ -21,7 +21,7 @@ export default function CalendarWidget({ title }) {
       }}
     >
       <Typography gutterBottom sx={{ cursor: "pointer", color: "#fff" }}>
-        <CalendarTodayIcon />
+        <AccountCircleIcon />
       </Typography>
 
       <Typography
@@ -29,7 +29,6 @@ export default function CalendarWidget({ title }) {
           width: "100%",
           fontFamily: "Outfit, sans-serif",
           fontWeight: "600",
-          cursor: "pointer",
           transition: "all .3s ease-in-out",
           color: "#fff",
         }}

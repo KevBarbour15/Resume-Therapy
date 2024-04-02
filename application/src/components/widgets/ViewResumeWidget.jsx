@@ -26,6 +26,7 @@ export default function ViewResumeWidget({ title, ...other }) {
 
       <Typography
         sx={{
+          width: "100%",
           fontFamily: "Outfit, sans-serif",
           fontWeight: "600",
           transition: "all .3s ease-in-out",

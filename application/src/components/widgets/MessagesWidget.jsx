@@ -7,7 +7,7 @@ MessagesWidget.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default function MessagesWidget({ title, ...other }) {
+export default function MessagesWidget({ title }) {
   return (
     <CustomCard
       sx={{
@@ -18,7 +18,6 @@ export default function MessagesWidget({ title, ...other }) {
           border: "1px solid #222",
         },
       }}
-      {...other}
     >
       <Typography gutterBottom sx={{ cursor: "pointer", color: "#fff" }}>
         <MailIcon />
@@ -26,6 +25,7 @@ export default function MessagesWidget({ title, ...other }) {
 
       <Typography
         sx={{
+          width: "100%",
           fontFamily: "Outfit, sans-serif",
           fontWeight: "600",
           cursor: "pointer",

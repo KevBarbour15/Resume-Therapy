@@ -25,6 +25,7 @@ export default function ConnectionsWidget({
           gutterBottom
           variant="h5"
           sx={{
+            width: "100%",
             fontFamily: "Outfit, sans-serif",
             fontWeight: "600",
             color: "#fff",
@@ -33,7 +34,15 @@ export default function ConnectionsWidget({
           {title}
         </Typography>
 
-        <Typography sx={{ fontFamily: "Outfit, sans-serif" }}>{bio}</Typography>
+        <Typography
+          sx={{
+            width: "100%",
+            fontSize: "16px",
+            fontFamily: "Outfit, sans-serif",
+          }}
+        >
+          {bio}
+        </Typography>
       </CardContent>
 
       <CardActions>

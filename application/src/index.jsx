@@ -1,15 +1,15 @@
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import "./index.scss";
 import App from "./App";
 import { UserProvider } from "./context/useUser";
 import { BrowserRouter } from "react-router-dom";
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
   <UserProvider>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </UserProvider>,
-
-  document.getElementById("root")
+  </UserProvider>
 );

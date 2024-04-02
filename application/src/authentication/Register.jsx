@@ -7,6 +7,8 @@ import {
   registerWithEmailAndPassword,
   signInWithGoogle,
 } from "../firebase-functionality/firebase";
+
+
 import "./login.scss";
 
 // Toast notifications

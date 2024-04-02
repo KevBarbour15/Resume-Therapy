@@ -1,25 +1,28 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
-  auth,
   logInWithEmailAndPasswordEmployee,
 } from "../firebase-functionality/firebase";
-import { useAuthState } from "react-firebase-hooks/auth";
-import "./login.scss";
-import { Navbar } from "../components/navbar/Navbar";
 
-// Toast notifications
+// context
+import { useUser } from "./../context/useUser";
+
+// styles
+import "./login.scss";
+
+// components
+import { Navbar } from "../components/navbar/Navbar";
 import { toast } from "react-toastify";
 import CustomToast from "../components/toast/CustomToast";
 
-// GSAP animations
+// animations
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 const EmployeeSignIn = () => {
+  const { user, loading, error } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, loading, error] = useAuthState(auth);
   const [errorText, setErrorText] = useState("");
   const navigate = useNavigate();
 

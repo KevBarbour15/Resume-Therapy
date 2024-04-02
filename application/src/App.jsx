@@ -33,7 +33,10 @@ import EmployeeDashLayout from "./pages/employee-pages/EmployeeDashLayout";
 //GSAP Plugins
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+import TextPlugin from "gsap/TextPlugin";
+
+gsap.registerPlugin(ScrollTrigger, TextPlugin);
+
 
 function App() {
   return (

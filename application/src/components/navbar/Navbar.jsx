@@ -36,7 +36,7 @@ export const Navbar = () => {
         <li>
           <Link to="/EmployeeHome">
             <a className="nav-link">
-              <span>Become A "Therapist"</span>
+              <span>Become A Therapist</span>
             </a>
           </Link>
         </li>

@@ -99,8 +99,8 @@ const Sidebar = () => {
                 activeIndex === index ? "active" : ""
               }`}
             >
-              <a className="nav-link">
-                <span>{item.display}</span>
+              <a>
+                <span className="nav-link">{item.display}</span>
               </a>
             </div>
           </Link>

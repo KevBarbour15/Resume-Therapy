@@ -10,7 +10,7 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { toast } from "react-toastify";
 import CustomToast from "../toast/CustomToast";
 
-// GSAP animations 
+// GSAP animations
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -24,6 +24,11 @@ export const HeroImg = () => {
       duration: 1,
       y: "-25vw",
       ease: "back.inOut",
+    });
+
+    gsap.to("hero-title", {
+      duration: 4,
+      text: " is so much fun you should try it some time!",
     });
 
     gsap.from(".right-content", {
@@ -75,7 +80,10 @@ export const HeroImg = () => {
     <div className="hero">
       <div className="content">
         <div className="left-content">
-          <h1>Land Your Dream Job With The Perfect Resume.</h1>
+          <h1 className="hero-title">
+            Land Your Dream Job With The Perfect Resume.
+          </h1>
+
           <p>
             Welcome to Resume Therapy, your companion on the journey to secure
             your dream job. Our platform simplifies the process of building an

@@ -51,6 +51,9 @@ export default function ReviewerWidget({
         <CardActions>
           <CustomButton>Bio</CustomButton>
           <CustomButton>Resume</CustomButton>
+        </CardActions>
+        <CardActions>
+          {" "}
           <CustomButton
             onClick={() => {
               handleButton(userid, reviewerid);

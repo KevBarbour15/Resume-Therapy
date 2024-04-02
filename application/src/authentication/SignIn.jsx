@@ -1,23 +1,29 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
-  auth,
   logInWithEmailAndPassword,
   signInWithGoogle,
 } from "../firebase-functionality/firebase";
-import { useAuthState } from "react-firebase-hooks/auth";
+
+//context
+import { useUser } from "./../context/useUser";
+
+//styles
 import "./login.scss";
+
+// components
 import { Navbar } from "../components/navbar/Navbar";
 import { toast } from "react-toastify";
 import CustomToast from "../components/toast/CustomToast";
 
+// animations
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 const SignIn = () => {
+  const { user, loading, error } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, loading, error] = useAuthState(auth);
   const [errorText, setErrorText] = useState("");
   const navigate = useNavigate();
 
@@ -32,7 +38,7 @@ const SignIn = () => {
   });
 
   useEffect(() => {
-    // if (user) navigate("/UserDash/Profile");
+    //if (user) navigate("/UserDash/Profile");
     if (error) alert(error.message);
   }, [user, loading]);
 
@@ -43,10 +49,8 @@ const SignIn = () => {
   };
 
   const login = async () => {
-    /*
-    const errMessage = await logInWithEmailAndPassword(email, password);
+    //const errMessage = await logInWithEmailAndPassword(email, password);
     setErrorText(errMessage);
-    */
   };
 
   const showAlert = () => {
@@ -94,7 +98,9 @@ const SignIn = () => {
           />
           <div className="error__text">{errorText && <p>{errorText}</p>}</div>
           <button
-            className="login__btn" //onClick={login}
+            className="login__btn"
+            //onClick={login}
+
             onClick={() => {
               showAlert;
             }}

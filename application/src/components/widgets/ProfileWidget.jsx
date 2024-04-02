@@ -3,16 +3,15 @@ import { Typography } from "@mui/material";
 import CustomCard from "../custom-mui/CustomCard";
 
 ProfileWidget.propTypes = {
-  icon: PropTypes.string,
   title: PropTypes.string.isRequired,
-  bio: PropTypes.string.isRequired,
 };
 
-export default function ProfileWidget({ title, bio, icon, ...other }) {
+export default function ProfileWidget({ title }) {
   return (
-    <CustomCard {...other}>
+    <CustomCard>
       <Typography
         sx={{
+          width: "100%",
           fontSize: "1.75em",
           fontFamily: "Outfit, sans-serif",
           fontWeight: "600",

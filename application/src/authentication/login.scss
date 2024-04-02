@@ -24,9 +24,20 @@ h1 {
   background-color: #1d332e;
   padding: 30px;
   border-style: solid;
-  border-color: aliceblue;
+  border-color: white;
   width: 350px;
+  box-shadow: 10px 10px 5px black;
 }
+
+.login__container input {
+  transition: 0.3s all ease-in-out;
+}
+
+.login__container input:focus {
+  box-shadow: 10px 10px 5px black;
+  outline: none;
+}
+
 
 .login__textBox {
   padding: 10px;
@@ -42,10 +53,19 @@ h1 {
   border: none;
   color: white;
   background-color: black;
+  transition: 0.3s all ease-in-out;
+  box-sizing: border-box;
+  border: 2px solid transparent;
 }
 
 .login__google {
+  border: 2px solid transparent;
   background-color: #4285f4;
+}
+
+.login__btn:hover,
+.login__google:hover {
+  border: 2px solid white;
 }
 
 .login div {
@@ -56,6 +76,7 @@ h1 {
   color: white;
   font-size: 14px;
   margin-top: 5px;
+  width: 100%;
 }
 
 .register {
@@ -65,7 +86,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #1d332e; 
+  background-color: #1d332e;
 }
 
 .register__container {
@@ -75,8 +96,9 @@ h1 {
   background-color: #1d332e;
   padding: 30px;
   border-style: solid;
-  border-color: aliceblue;
+  border-color: white;
   width: 350px;
+  box-shadow: 10px 10px 5px black;
 }
 
 .register__textBox {
@@ -93,17 +115,26 @@ h1 {
   color: white;
   background-color: black;
   cursor: pointer;
+  border: 2px solid transparent;
+  transition: 0.3s all ease-in-out;
 }
 
 .register__google {
   background-color: #4285f4;
+  border: 2px solid transparent;
+  transition: 0.3s all ease-in-out;
+}
+
+.register__btn:hover,
+.register__google:hover {
+  border: 2px solid white;
 }
 
 .register div {
   margin-top: 7px;
 }
 
-@media  (max-width: 768px) {
+@media (max-width: 768px) {
   p {
     width: 75%;
   }

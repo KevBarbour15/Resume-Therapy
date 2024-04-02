@@ -6,7 +6,12 @@ import { ref, uploadBytes, getDownloadURL, listAll } from "firebase/storage";
 import { db, storage } from "../../../firebase-functionality/firebase";
 import { addBio } from "../../../firebase-functionality/bio";
 
+// styles
 import "./profile.css";
+import { Grid, Container } from "@mui/material";
+import TextField from "@mui/material/TextField";
+
+// components
 import ProfileWidget from "../../../components/widgets/ProfileWidget";
 import MessagesWidget from "../../../components/widgets/MessagesWidget";
 import CalendarWidget from "../../../components/widgets/CalendarWidget";
@@ -17,9 +22,8 @@ import EditBioPopup from "../../../components/popups/EditBioPopup";
 import ViewBioPopup from "../../../components/popups/ViewBioPopup";
 import UploadResumePopup from "../../../components/popups/UploadResumePopup";
 import ViewResumePopup from "../../../components/popups/ViewResumePopup";
-
-import { Grid, Container } from "@mui/material";
-import TextField from "@mui/material/TextField";
+import UploadResumeWidget from "../../../components/widgets/UploadResumeWidget";
+import EditBioWidget from "../../../components/widgets/EditBioWidget";
 
 function UserProfile() {
   const { user, loading, logout } = useUser();
@@ -148,42 +152,12 @@ function UserProfile() {
         </div>
 
         <Grid container spacing={6}>
-          <Grid item xs={7} sm={8} md={8} lg={8} xl={6}>
-            <ProfileWidget title={name} bio={bio} />
-          </Grid>
-          <Grid
-            item
-            xs={5}
-            sm={4}
-            md={4}
-            lg={4}
-            xl={4}
-            container
-            sx={{
-              display: "flex",
-              flexDirection: {
-                xs: "row",
-                sm: "column",
-                md: "column",
-                lg: "column",
-                xl: "column",
-              },
-            }}
-          >
-            <Grid item>
-              <CustomButton onClick={() => setButtonPopup(true)}>
-                Edit Bio
-              </CustomButton>
-            </Grid>
-            <Grid item>
-              <CustomButton onClick={() => setResumePopup(true)}>
-                Upload Resume
-              </CustomButton>
-            </Grid>
+          <Grid item xs={12} sm={8} md={8} lg={8} xl={8}>
+            <ProfileWidget title={name}/>
           </Grid>
         </Grid>
         <Grid container spacing={6}>
-          <Grid item xs={6} md={4} lg={4}>
+          <Grid item xs={6} md={4} lg={4}> 
             <ViewResumeWidget
               title="View Resume"
               onClick={() => setViewResumePopup(true)}
@@ -191,8 +165,23 @@ function UserProfile() {
           </Grid>
 
           <Grid item xs={6} md={4} lg={4}>
+            <ViewResumeWidget
+              title="Upload Resume"
+              onClick={() => setResumePopup(true)}
+            />
+          </Grid>
+        </Grid>
+
+        <Grid container spacing={6}>
+          <Grid item xs={6} md={4} lg={4}>
             <ViewBioWidget
               title="View Bio"
+              onClick={() => setViewBioPopup(true)}
+            />
+          </Grid>
+          <Grid item xs={6} md={4} lg={4}>
+            <EditBioWidget
+              title="Edit Bio"
               onClick={() => setViewBioPopup(true)}
             />
           </Grid>
@@ -200,7 +189,7 @@ function UserProfile() {
         <Grid container spacing={6}>
           <Grid item xs={6} md={4} lg={4}>
             <CalendarWidget
-              title="Appointments"
+              title="Calendar"
               onClick={() => navigate("/UserDash/BookAppointment")}
             />
           </Grid>
