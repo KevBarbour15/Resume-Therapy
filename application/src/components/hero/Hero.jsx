@@ -10,54 +10,74 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { toast } from "react-toastify";
 import CustomToast from "../toast/CustomToast";
 
-// GSAP animations
+// animation imports
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/all";
 
 export const HeroImg = () => {
   const [user, loading] = useAuthState(auth);
 
+  useEffect(() => {
+    if (user) logout();
+  }, [user]);
+
   useGSAP(() => {
     gsap.from(".left-content", {
       opacity: 0,
-      delay: 0.15,
-      duration: 1,
-      y: "-25vw",
+      delay: 0.35,
+      duration: 0.75,
       ease: "back.inOut",
     });
 
-    gsap.to("hero-title", {
-      duration: 4,
-      text: " is so much fun you should try it some time!",
+    let tl = gsap.timeline();
+
+    tl.from(
+      ".right-content img",
+      {
+        opacity: 0,
+        duration: 0.65,
+        rotationY: 90,
+        borderRadius: "50%",
+      },
+      0
+    ).to(
+      ".right-content img",
+      {
+        border: "2px solid white",
+        boxShadow: "10px 10px 5px black",
+        duration: 0.25,
+        rotationY: 0,
+        borderRadius: "0%",
+      },
+      0.75
+    );
+
+    const titleST = new SplitText(".hero-title", {
+      type: "words",
+      position: "absolute",
     });
 
-    gsap.from(".right-content", {
-      opacity: 0,
-      delay: 0.15,
-      duration: 1,
-      x: "25vw",
-      ease: "back.inOut",
+    let titleTl = gsap.timeline({
+      ease: "power2",
+      duration: 2,
+      delay: 0.35,
     });
+
+    titleTl.from(
+      titleST.words,
+      {
+        opacity: 0,
+        y: -120,
+        stagger: 0.05,
+      },
+      0
+    );
   });
-
-  const handleLogin = async () => {
-    if (user) {
-      const q = query(collection(db, "users"), where("uid", "==", user.uid));
-
-      const doc = await getDocs(q);
-      const data = doc.docs[0]?.data();
-      if (data && data.employee) {
-        await logout(); // Log the user out if they are an employee
-      }
-    }
-
-    // Redirect to the login page
-    window.location.href = "/SignIn";
-  };
 
   useEffect(() => {
     toast(<CustomToast />, {
-      position: "top-right",
+      position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -100,7 +120,7 @@ export const HeroImg = () => {
             <Link to="/Register" className="btn">
               Sign up
             </Link>
-            <Link to="#" onClick={handleLogin} className="btn-light">
+            <Link to="/SignIn" className="btn-light">
               Log in
             </Link>
           </div>

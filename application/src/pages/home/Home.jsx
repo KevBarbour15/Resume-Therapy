@@ -4,6 +4,8 @@ import { HeroImg } from "../../components/hero/Hero";
 import { Footer } from "../../components/footer/Footer";
 import { Work } from "../../components/work/Work";
 
+
+
 function Home() {
   return (
     <div>

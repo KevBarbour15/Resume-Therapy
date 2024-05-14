@@ -28,19 +28,34 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   useGSAP(() => {
-    gsap.from(".login__container", {
+    let tl = gsap.timeline();
+    tl.from(".login-container", {
       opacity: 0,
-      delay: 0.15,
-      duration: 0.5,
-      y: "-25vw",
-      ease: "back.inOut",
-    });
+      duration: 0.65,
+      rotationY: 90,
+    }).to(
+      ".login-container",
+      {
+        border: "2px solid white",
+        boxShadow: "10px 10px 5px black",
+        duration: 0.25,
+        rotationY: 0,
+      },
+      0.75
+    );
   });
 
   useEffect(() => {
-    //if (user) navigate("/UserDash/Profile");
+    if (user) {
+      navigate("/UserDash/Profile");
+    } else if (!user && !loading) {
+      navigate("/SignIn");
+    }
+  }, [user, loading, navigate]);
+
+  useEffect(() => {
     if (error) alert(error.message);
-  }, [user, loading]);
+  }, [error]);
 
   const enter = (event) => {
     if (event.key === "Enter") {
@@ -49,13 +64,13 @@ const SignIn = () => {
   };
 
   const login = async () => {
-    //const errMessage = await logInWithEmailAndPassword(email, password);
+    const errMessage = await logInWithEmailAndPassword(email, password);
     setErrorText(errMessage);
   };
 
   const showAlert = () => {
     toast(<CustomToast />, {
-      position: "top-right",
+      position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -78,11 +93,11 @@ const SignIn = () => {
     <>
       <Navbar />
       <div className="login">
-        <div className="login__container">
+        <div className="login-container">
           <h1> Login</h1>
           <input
             type="email"
-            className="login__textBox"
+            className="login-textbox"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="E-mail Address"
@@ -90,37 +105,21 @@ const SignIn = () => {
           />
           <input
             type="password"
-            className="login__textBox"
+            className="login-textbox"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
             onKeyDown={enter}
           />
-          <div className="error__text">{errorText && <p>{errorText}</p>}</div>
-          <button
-            className="login__btn"
-            //onClick={login}
-
-            onClick={() => {
-              showAlert;
-            }}
-          >
+          <div className="error-text">{errorText && <p>{errorText}</p>}</div>
+          <button className="login__btn" onClick={showAlert}>
             Login
-          </button>
-          <button
-            className="login__btn login__google"
-            //onClick={signInWithGoogle}
-            onClick={() => {
-              showAlert;
-            }}
-          >
-            Login with Google
           </button>
           <div>
             <Link to="/PasswordReset">Forgot Password?</Link>
           </div>
           <div>
-            Don't have an account? <Link to="/Register">Register</Link> now.
+            Don't have an account? <Link to="/Register"> Register</Link> now.
           </div>
         </div>
       </div>

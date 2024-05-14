@@ -6,8 +6,8 @@ import EmployeeHome from "./pages/employee-pages/EmployeeHome";
 import EmployeeRegister from "./authentication/EmployeeRegister";
 import EmployeeSignIn from "./authentication/EmployeeSignIn";
 
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Users Imports
 import PasswordReset from "./authentication/PasswordReset";
@@ -34,14 +34,14 @@ import EmployeeDashLayout from "./pages/employee-pages/EmployeeDashLayout";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import TextPlugin from "gsap/TextPlugin";
+import SplitText from "gsap/SplitText";
 
-gsap.registerPlugin(ScrollTrigger, TextPlugin);
-
+gsap.registerPlugin(ScrollTrigger, TextPlugin, SplitText);
 
 function App() {
   return (
     <div>
-      <ToastContainer className="customToast" />
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/SignIn" element={<SignIn />} />

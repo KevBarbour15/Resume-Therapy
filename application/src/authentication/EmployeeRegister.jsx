@@ -20,6 +20,7 @@ import { useGSAP } from "@gsap/react";
 const EmployeeRegister = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [name, setName] = useState("");
   const [user, loading] = useAuthState(auth);
   const [registrationStatus, setRegistrationStatus] = useState(null);
@@ -27,16 +28,28 @@ const EmployeeRegister = () => {
   const navigate = useNavigate();
 
   useGSAP(() => {
-    gsap.from(".register__container", {
+    let tl = gsap.timeline();
+    tl.from(".register-container", {
       opacity: 0,
-      delay: 0.15,
-      duration: 0.5,
-      y: "-25vw",
-      ease: "back.inOut",
-    });
+      duration: 0.65,
+      rotationY: 90,
+    }).to(
+      ".register-container",
+      {
+        border: "2px solid white",
+        boxShadow: "10px 10px 5px black",
+        duration: 0.25,
+        rotationX: 0
+      },
+      0.75
+    );
   });
 
   const register = async () => {
+    if (password !== confirmPassword) {
+      setErrorText("Passwords do not match");
+      return;
+    }
     /*
     try {
       console.log("Attempting to register user");
@@ -69,7 +82,7 @@ const EmployeeRegister = () => {
 
   const showAlert = () => {
     toast(<CustomToast />, {
-      position: "top-right",
+      position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -92,7 +105,7 @@ const EmployeeRegister = () => {
     <>
       <Navbar />
       <div className="register">
-        <div className="register__container">
+        <div className="register-container">
           <h1>Register as Therapist</h1>
 
           <input
@@ -119,7 +132,15 @@ const EmployeeRegister = () => {
             placeholder="Password"
             onKeyDown={enter}
           />
-          <div className="error__text">{errorText && <p>{errorText}</p>}</div>
+           <input
+            type="password"
+            className="register__textBox"
+            value={password}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            placeholder="Confirm Password"
+            onKeyDown={enter}
+          />
+          <div className="error-text">{errorText && <p>{errorText}</p>}</div>
           <button
             className="register__btn" //onClick={register}
             onClick={() => {
@@ -129,10 +150,9 @@ const EmployeeRegister = () => {
             Register
           </button>
 
-          <a>Already have an account?</a>
-
+          
           <div>
-            <Link to="/EmployeeSignIn">Login now.</Link>
+            Already have an account? <Link to="/EmployeeSignIn"> Log in </Link> now.
           </div>
         </div>
       </div>

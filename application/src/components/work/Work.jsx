@@ -10,15 +10,19 @@ export const Work = () => {
   const workRef = useRef(null);
 
   useGSAP(() => {
-    gsap.to(workRef.current, {
+    gsap.set(".card", { rotateY: 90})
+    gsap.to(".card", {
       scrollTrigger: {
-        trigger: workRef.current,
-        start: "top 75%",
-        end: "top 35%",
+        trigger: ".card",
+        start: "top 70%",
+        end: "top 15%",
         scrub: 0,
       },
+      rotateY: 0,
       delay: 0.75,
       opacity: 1,
+      boxShadow: "10px 10px 5px black",
+      border: "2px solid white"
     });
   });
 
@@ -28,13 +32,15 @@ export const Work = () => {
         <div ref={workRef} className="project-container">
           {WorkCardData.map((val, ind) => {
             return (
-              <WorkCard
-                key={ind}
-                imgsrc={val.imgsrc}
-                title={val.title}
-                text={val.text}
-                view={val.view}
-              />
+              <div className="card">
+                <WorkCard
+                  key={ind}
+                  imgsrc={val.imgsrc}
+                  title={val.title}
+                  text={val.text}
+                  view={val.view}
+                />
+              </div>
             );
           })}
         </div>

@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  logInWithEmailAndPasswordEmployee,
-} from "../firebase-functionality/firebase";
+import { logInWithEmailAndPasswordEmployee } from "../firebase-functionality/firebase";
 
 // context
 import { useUser } from "./../context/useUser";
@@ -27,18 +25,26 @@ const EmployeeSignIn = () => {
   const navigate = useNavigate();
 
   useGSAP(() => {
-    gsap.from(".login__container", {
+    let tl = gsap.timeline();
+    tl.from(".login-container", {
       opacity: 0,
-      delay: 0.15,
-      duration: 0.5,
-      y: "-25vw",
-      ease: "back.inOut",
-    });
+      duration: 0.65,
+      rotationY: 90,
+    }).to(
+      ".login-container",
+      {
+        border: "2px solid white",
+        boxShadow: "10px 10px 5px black",
+        duration: 0.25,
+        rotationY: 0
+      },
+      0.75
+    );
   });
 
   useEffect(() => {
-    if (user) navigate("/ReviewerDash/Profile");
-    if (error) alert(error.message);
+    //if (user) navigate("/ReviewerDash/Profile");
+    //if (error) alert(error.message);
   }, [user, loading, navigate, error]);
 
   const enter = (event) => {
@@ -56,7 +62,7 @@ const EmployeeSignIn = () => {
 
   const showAlert = () => {
     toast(<CustomToast />, {
-      position: "top-right",
+      position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -79,11 +85,11 @@ const EmployeeSignIn = () => {
     <>
       <Navbar />
       <div className="login">
-        <div className="login__container">
+        <div className="login-container">
           <h1>Therapist Login</h1>
           <input
             type="email"
-            className="login__textBox"
+            className="login-textbox"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="E-mail Address"
@@ -91,13 +97,13 @@ const EmployeeSignIn = () => {
           />
           <input
             type="password"
-            className="login__textBox"
+            className="login-textbox"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
             onKeyDown={enter}
           />
-          <div className="error__text">{errorText && <p>{errorText}</p>}</div>
+          <div className="error-text">{errorText && <p>{errorText}</p>}</div>
           <button
             className="login__btn"
             //onClick={() => logInWithEmailAndPasswordEmployee(email, password)}
@@ -111,7 +117,7 @@ const EmployeeSignIn = () => {
             <Link to="/PasswordReset">Forgot Password?</Link>
           </div>
           <div>
-            Don't have an account? <Link to="/EmployeeRegister">Register</Link>{" "}
+            Don't have an account? <Link to="/EmployeeRegister"> Register </Link>
             now.
           </div>
         </div>

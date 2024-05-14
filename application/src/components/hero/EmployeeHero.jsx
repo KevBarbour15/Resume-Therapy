@@ -5,28 +5,67 @@ import Therapist from "../../assets/therapist.jpeg";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db, logout } from "../../firebase-functionality/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
+
+// animation imports
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/all";
 
 export const EmployeeHero = () => {
   const [user, loading] = useAuthState(auth);
 
-  useEffect(() => {
+  useGSAP(() => {
     gsap.from(".left-content", {
       opacity: 0,
-      delay: 0.15,
-      duration: 1,
-      y: "-25vw",
+      delay: 0.35,
+      duration: 0.75,
       ease: "back.inOut",
     });
 
-    gsap.from(".right-content", {
-      opacity: 0,
-      delay: 0.15,
-      duration: 1,
-      x: "25vw",
-      ease: "back.inOut",
+    let tl = gsap.timeline();
+
+    tl.from(
+      ".right-content img",
+      {
+        opacity: 0,
+        duration: 0.65,
+        rotationY: 90,
+        borderRadius: "50%",
+      },
+      0
+    ).to(
+      ".right-content img",
+      {
+        border: "2px solid white",
+        boxShadow: "10px 10px 5px black",
+        duration: 0.25,
+        rotationY: 0,
+        borderRadius: "0%",
+      },
+      0.75
+    );
+
+    const titleST = new SplitText(".hero-title", {
+      type: "words",
+      position: "absolute",
     });
-  }, []);
+
+    let titleTl = gsap.timeline({
+      ease: "power2",
+      duration: 2,
+      delay: 0.5,
+    });
+
+    titleTl.from(
+      titleST.words,
+      {
+        opacity: 0,
+        y: -120,
+        stagger: 0.05,
+      },
+      0
+    );
+  });
 
   const handleLogin = async () => {
     if (user) {
@@ -38,16 +77,13 @@ export const EmployeeHero = () => {
         await logout(); // Log the user out if they are NOT an employee
       }
     }
-
-    // Redirect to the Employee Sign In page
-    window.location.href = "/EmployeeSignIn";
   };
 
   return (
     <div className="hero">
       <div className="content">
         <div className="left-content">
-          <h1>Become a Resume Therapist</h1>
+          <h1 className="hero-title">Become a Resume Therapist</h1>
           <p>
             Embark on a rewarding journey as a Resume Therapist, empowering
             individuals worldwide to create and polish their ideal resumes. From
@@ -66,7 +102,7 @@ export const EmployeeHero = () => {
             <Link to="/EmployeeRegister" className="btn">
               Sign Up
             </Link>
-            <Link to="#" onClick={handleLogin} className="btn-light">
+            <Link to="/EmployeeSignIn" className="btn-light">
               Log in
             </Link>
           </div>

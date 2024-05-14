@@ -25,14 +25,19 @@ import ViewResumePopup from "../../../components/popups/ViewResumePopup";
 import UploadResumeWidget from "../../../components/widgets/UploadResumeWidget";
 import EditBioWidget from "../../../components/widgets/EditBioWidget";
 
+// animation imports
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
 function UserProfile() {
   const { user, loading, logout } = useUser();
   const [buttonPopup, setButtonPopup] = useState(false);
   const [resumePopup, setResumePopup] = useState(false);
   const [viewResumePopup, setViewResumePopup] = useState(false);
+  const [resumeFile, setResumeFile] = useState(null);
+  const [resumePreview, setResumePreview] = useState("");
   const [viewBioPopup, setViewBioPopup] = useState(false);
   const [name, setName] = useState("");
-  const [imageUpload, setImageUpload] = useState(null);
   const [image, setImage] = useState("");
   const [status, setStatus] = useState("");
   const [bio, setBio] = useState("");
@@ -107,6 +112,30 @@ function UserProfile() {
     };
   }, [imageListRef, user]);
 
+  useEffect(() => {
+    if (resumeFile) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setResumePreview(reader.result);
+      };
+      reader.readAsDataURL(resumeFile);
+    } else {
+      setResumePreview(null);
+    }
+  }, [resumeFile]);
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (
+      (file && file.type.substr(0, 5) === "image") ||
+      file.type === "application/pdf"
+    ) {
+      setResumeFile(file);
+    } else {
+      setResumeFile(null);
+    }
+  };
+
   const handleBioChange = (event) => {
     setBio(event.target.value);
   };
@@ -122,13 +151,15 @@ function UserProfile() {
   };
 
   const handleUploadImage = () => {
-    if (!imageUpload) return;
+    console.log("imageUpload: ", resumeFile);
+    if (!resumeFile) return;
 
     const imageRef = ref(storage, `resumes/users/${user?.uid}/resume`);
-    uploadBytes(imageRef, imageUpload)
+    uploadBytes(imageRef, resumeFile)
       .then((snapshot) => {
         getDownloadURL(ref(storage, snapshot.ref.fullPath))
           .then((url) => {
+            console.log("url: ", url);
             setImage(url);
           })
           .catch((err) => {
@@ -140,9 +171,23 @@ function UserProfile() {
       });
   };
 
-  const handleImageChange = (event) => {
-    setImageUpload(event.target.files[0]);
-  };
+  useGSAP(() => {
+    gsap.from(".page-title", {
+      opacity: 0,
+      delay: 0.05,
+      duration: 0.75,
+      y: -50,
+      ease: "back.inOut",
+    });
+
+    gsap.from(".grid-item", {
+      opacity: 0,
+      delay: 0.45,
+      stagger: 0.05,
+      rotationX: -90,
+      ease: "back.inOut",
+    });
+  });
 
   return (
     <div>
@@ -152,20 +197,20 @@ function UserProfile() {
         </div>
 
         <Grid container spacing={6}>
-          <Grid item xs={12} sm={8} md={8} lg={8} xl={8}>
-            <ProfileWidget title={name}/>
+          <Grid className="grid-item" item xs={12} sm={8} md={8} lg={8} xl={8}>
+            <ProfileWidget title={name} />
           </Grid>
         </Grid>
         <Grid container spacing={6}>
-          <Grid item xs={6} md={4} lg={4}> 
+          <Grid className="grid-item" item xs={6} md={4} lg={4}>
             <ViewResumeWidget
               title="View Resume"
               onClick={() => setViewResumePopup(true)}
             />
           </Grid>
 
-          <Grid item xs={6} md={4} lg={4}>
-            <ViewResumeWidget
+          <Grid className="grid-item" item xs={6} md={4} lg={4}>
+            <UploadResumeWidget
               title="Upload Resume"
               onClick={() => setResumePopup(true)}
             />
@@ -173,28 +218,28 @@ function UserProfile() {
         </Grid>
 
         <Grid container spacing={6}>
-          <Grid item xs={6} md={4} lg={4}>
+          <Grid className="grid-item" item xs={6} md={4} lg={4}>
             <ViewBioWidget
               title="View Bio"
               onClick={() => setViewBioPopup(true)}
             />
           </Grid>
-          <Grid item xs={6} md={4} lg={4}>
+          <Grid className="grid-item" item xs={6} md={4} lg={4}>
             <EditBioWidget
               title="Edit Bio"
-              onClick={() => setViewBioPopup(true)}
+              onClick={() => setEditBioPopup(true)}
             />
           </Grid>
         </Grid>
         <Grid container spacing={6}>
-          <Grid item xs={6} md={4} lg={4}>
+          <Grid className="grid-item" item xs={6} md={4} lg={4}>
             <CalendarWidget
               title="Calendar"
               onClick={() => navigate("/UserDash/BookAppointment")}
             />
           </Grid>
 
-          <Grid item xs={6} md={4} lg={4}>
+          <Grid className="grid-item" item xs={6} md={4} lg={4}>
             <MessagesWidget
               title="Messages"
               onClick={() => navigate("/UserDash/Messages")}
@@ -210,10 +255,29 @@ function UserProfile() {
           <input
             type="file"
             accept="image/*, application/pdf"
-            onChange={handleImageChange}
+            onChange={handleFileChange}
             hidden
           />
         </CustomButton>
+        {resumePreview && (
+          <div>
+            <h2>Preview:</h2>
+            {resumeFile.type.substr(0, 5) === "image" ? (
+              <img
+                src={resumePreview}
+                alt="Resume Preview"
+                style={{ maxWidth: "100%", height: "auto" }}
+              />
+            ) : (
+              <embed
+                src={resumePreview}
+                type="application/pdf"
+                width="100%"
+                height="600px"
+              />
+            )}
+          </div>
+        )}
         <CustomButton
           compononet="label"
           onClick={() => handleUploadImage()}

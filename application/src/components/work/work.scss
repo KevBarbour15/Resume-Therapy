@@ -15,24 +15,33 @@
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 40px;
   padding-bottom: 5rem;
+}
+
+.card {
   opacity: 0;
 }
 
-.project-card {
+.work-card {
   background: #1a1919;
+  height: 100%;
   padding: 1.2rem 1rem;
+  border: 2px solid transparent;
 }
 
-.project-card img {
+.work-card img {
   width: 100%;
+  border-radius: 50%;
+  border: 2px solid #fff;
 }
 
-.project-title {
+.work-title {
   color: #fff;
+  text-shadow: 3px 3px 3px purple;
   padding: 1rem 0;
+
 }
 
-.pro-details p {
+.work-details p {
   padding-bottom: 1rem;
   font-size: 1.1rem;
   text-align: justify;
