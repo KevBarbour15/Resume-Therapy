@@ -26,7 +26,7 @@ export const HeroImg = () => {
     gsap.from(".left-content", {
       opacity: 0,
       delay: 0.35,
-      duration: 0.75,
+      duration: 0.5,
       ease: "back.inOut",
     });
 
@@ -36,9 +36,9 @@ export const HeroImg = () => {
       ".right-content img",
       {
         opacity: 0,
-        duration: 0.65,
-        rotationY: 90,
-        borderRadius: "50%",
+        delay: 0.35,
+        duration: 0.15,
+        y: -50,
       },
       0
     ).to(
@@ -48,7 +48,6 @@ export const HeroImg = () => {
         boxShadow: "10px 10px 5px black",
         duration: 0.25,
         rotationY: 0,
-        borderRadius: "0%",
       },
       0.75
     );
@@ -75,6 +74,7 @@ export const HeroImg = () => {
     );
   });
 
+  /*
   useEffect(() => {
     toast(<CustomToast />, {
       position: "top-center",
@@ -95,7 +95,8 @@ export const HeroImg = () => {
       },
     });
   }, []);
-
+  */
+  
   return (
     <div className="hero">
       <div className="content">

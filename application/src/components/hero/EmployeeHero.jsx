@@ -18,7 +18,7 @@ export const EmployeeHero = () => {
     gsap.from(".left-content", {
       opacity: 0,
       delay: 0.35,
-      duration: 0.75,
+      duration: 0.5,
       ease: "back.inOut",
     });
 
@@ -28,9 +28,9 @@ export const EmployeeHero = () => {
       ".right-content img",
       {
         opacity: 0,
-        duration: 0.65,
-        rotationY: 90,
-        borderRadius: "50%",
+        delay: 0.35,
+        duration: 0.15,
+        y: -50,
       },
       0
     ).to(
@@ -40,7 +40,6 @@ export const EmployeeHero = () => {
         boxShadow: "10px 10px 5px black",
         duration: 0.25,
         rotationY: 0,
-        borderRadius: "0%",
       },
       0.75
     );
@@ -53,7 +52,7 @@ export const EmployeeHero = () => {
     let titleTl = gsap.timeline({
       ease: "power2",
       duration: 2,
-      delay: 0.5,
+      delay: 0.35,
     });
 
     titleTl.from(
