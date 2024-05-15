@@ -36,7 +36,7 @@ const EmployeeSignIn = () => {
         border: "2px solid white",
         boxShadow: "10px 10px 5px black",
         duration: 0.25,
-        rotationY: 0
+        rotationY: 0,
       },
       0.75
     );
@@ -105,19 +105,20 @@ const EmployeeSignIn = () => {
           />
           <div className="error-text">{errorText && <p>{errorText}</p>}</div>
           <button
-            className="login__btn"
+            className="button"
             //onClick={() => logInWithEmailAndPasswordEmployee(email, password)}
             onClick={() => {
               showAlert;
             }}
           >
-            Login
+            <div className="button-text">Login</div>
           </button>
-          <div>
+          <div className="forgot-text">
             <Link to="/PasswordReset">Forgot Password?</Link>
           </div>
-          <div>
-            Don't have an account? <Link to="/EmployeeRegister"> Register </Link>
+          <div className="login-text">
+            Don't have an account?
+            <Link to="/EmployeeRegister"> Register </Link>
             now.
           </div>
         </div>

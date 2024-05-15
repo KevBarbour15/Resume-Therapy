@@ -11,11 +11,12 @@ export default function UploadResumeWidget({ title, ...other }) {
   return (
     <CustomCard
       sx={{
+        height: "175px",
         "&:hover": {
           transform: "scale(1.1)",
           cursor: "pointer",
           bgcolor: "purple",
-          border: "1px solid #222",
+          border: "2px solid #222",
         },
       }}
       {...other}

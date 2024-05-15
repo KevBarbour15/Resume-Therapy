@@ -8,7 +8,7 @@ const CustomButton = ({ children, sx, onClick, ...props }) => (
       fontFamily: "Outfit, sans-serif",
       color: "#222",
       bgcolor: "rgb(248, 217, 15)",
-      border: "1px solid #fff",
+      border: "2px solid #fff",
       borderRadius: "0px",
       fontWeight: "600",
       padding: "10px 32px",
@@ -18,7 +18,7 @@ const CustomButton = ({ children, sx, onClick, ...props }) => (
       marginBottom: "20px",
       "&:hover": {
         color: "#fff",
-        border: "1px solid #222",
+        border: "2px solid #222",
         bgcolor: "purple",
       },
       ...sx,

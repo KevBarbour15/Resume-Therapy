@@ -5,7 +5,6 @@ import { Navbar } from "../components/navbar/Navbar";
 import {
   auth,
   registerWithEmailAndPassword,
-  signInWithGoogle,
 } from "../firebase-functionality/firebase";
 
 import "./login.scss";
@@ -40,7 +39,7 @@ const Register = () => {
         border: "2px solid white",
         boxShadow: "10px 10px 5px black",
         duration: 0.25,
-        rotationY: 0
+        rotationY: 0,
       },
       0.75
     );
@@ -126,7 +125,7 @@ const Register = () => {
 
           <input
             type="text"
-            className="register__textBox"
+            className="register-textbox"
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Full Name"
@@ -134,7 +133,7 @@ const Register = () => {
           />
           <input
             type="text"
-            className="register__textBox"
+            className="register-textbox"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="E-mail Address"
@@ -142,7 +141,7 @@ const Register = () => {
           />
           <input
             type="password"
-            className="register__textBox"
+            className="register-textbox"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
@@ -150,7 +149,7 @@ const Register = () => {
           />
           <input
             type="password"
-            className="register__textBox"
+            className="register-textbox"
             value={password}
             onChange={(e) => setConfirmPassword(e.target.value)}
             placeholder="Confirm Password"
@@ -158,15 +157,15 @@ const Register = () => {
           />
           <div className="error-text">{errorText && <p>{errorText}</p>}</div>
           <button
-            className="register__btn" //onClick={register}
+            className="button" //onClick={register}
             onClick={() => {
               showAlert;
             }}
           >
-            Register
+            <div className="button-text">Register</div>
           </button>
 
-          <div>
+          <div className="register-text">
             Already have an account?<Link to="/SignIn"> Log in</Link> now.
           </div>
         </div>

@@ -17,7 +17,7 @@
 
 .nav-link {
   border: none;
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: center;
   font-size: 1.05rem;
   font-weight: 600;
@@ -34,12 +34,13 @@
   transition: 0.4s;
 }
 .nav-link span:after {
-  content: '\00bb';
+  content: "\00bb";
   position: absolute;
   opacity: 0;
   top: 0;
   right: -20px;
   transition: 0.5s;
+  color: rgb(248, 217, 15);
 }
 .nav-link:hover span {
   padding-right: 25px;

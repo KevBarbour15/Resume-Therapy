@@ -10,7 +10,7 @@ const CustomCard = ({ title, bio, sx, children, ...other }) => (
       textAlign: "center",
       textTransform: "uppercase",
       bgcolor: "#1d332e",
-      border: "1px solid #fff",
+      border: "2px solid #fff",
       borderRadius: "0px",
       padding: "10px 32px",
       boxShadow: "10px 10px 5px black",

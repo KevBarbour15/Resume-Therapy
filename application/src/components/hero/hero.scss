@@ -41,13 +41,17 @@
   padding: 0.1rem 0 1.5rem;
   width: 100%;
 }
+.button-style {
+  display: flex;
+  flex-direction: row;
+}
 
-.content .btn {
+.content .button {
   margin: 1rem 0.2rem;
   box-shadow: 10px 10px 5px black;
 }
 
-.content .btn-light {
+.content .button-light {
   margin: 1rem 0.2rem;
   box-shadow: 10px 10px 5px black;
 }
@@ -57,6 +61,7 @@
   width: 90%;
   height: auto;
   border: 2px solid transparent;
+  border-radius: 50%;
 }
 
 /* -------------------------------- */
@@ -84,7 +89,7 @@
     padding: 0.1rem 0 1.5rem;
   }
 
-  .content .btn {
+  .content .button {
     margin: 1rem 0.2rem;
     box-shadow: 10px 10px 5px black;
   }
@@ -118,7 +123,7 @@
     font-weight: 400;
     padding: 0.1rem 0 1.5rem;
   }
-  .content .btn {
+  .content .button {
     margin: 1rem 0.2rem;
     box-shadow: 10px 10px 5px black;
   }
@@ -135,7 +140,7 @@
 /* -------------------------------- */
 /* Small Screens */
 /* -------------------------------- */
-@media screen and (min-width: 721px) and (max-width: 1080px) {
+@media screen and (min-width: 722px) and (max-width: 1080px) {
   .hero {
     height: 100%;
     width: 100%;
@@ -152,7 +157,7 @@
     font-weight: 400;
     padding: 0.1rem 0 1.5rem;
   }
-  .content .btn {
+  .content .button {
     margin: 1rem 0.2rem;
     box-shadow: 10px 10px 5px black;
   }
@@ -171,7 +176,7 @@
 /* Desktop Screens */
 /* -------------------------------- */
 
-@media screen and (min-width: 1081px) and (max-width: 1200px) {
+@media screen and (min-width: 1082px) and (max-width: 1200px) {
   .hero {
     height: 100%;
     width: 100%;
@@ -193,7 +198,7 @@
     font-weight: 400;
     padding: 0.1rem 0 1.5rem;
   }
-  .content .btn {
+  .content .button {
     margin: 1rem 0.2rem;
     box-shadow: 10px 10px 5px black;
   }

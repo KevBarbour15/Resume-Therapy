@@ -5,6 +5,8 @@
   height: 100vh;
   width: 280px;
   background-color: #1d332e;
+  box-shadow: 10px 10px 5px black;
+  border-right: 2px solid white;
 
   &__logo {
     display: grid;
@@ -42,12 +44,12 @@
 /* -------------------------------- */
 /* Small Screens */
 /* -------------------------------- */
-@media screen and (min-width: 721px) and (max-width: 1080px) {
+@media screen and (min-width: 722px) and (max-width: 1080px) {
 }
 
 /* -------------------------------- */
 /* Desktop Screens */
 /* -------------------------------- */
 
-@media screen and (min-width: 1081px) and (max-width: 1200px) {
+@media screen and (min-width: 1082px) and (max-width: 1200px) {
 }

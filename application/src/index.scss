@@ -20,68 +20,102 @@ a {
   color: #fff;
   text-decoration: none;
 }
+
 ul {
   list-style-type: none;
 }
 
-.btn {
+@keyframes marquee {
+  0% {
+    transform: translateX(150px);
+  }
+  100% {
+    transform: translateX(-150px);
+  }
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 10px 32px;
   font-size: 1rem;
   text-transform: uppercase;
   background: rgb(248, 217, 15);
-  color: #222;
-  border: 1px solid #fff;
+  color: black;
+  border: 2px solid #fff;
   font-weight: 600;
   cursor: pointer;
+  width: auto;
+  width: 150px;
+  overflow: hidden;
+  transition: 0.2s all ease-in-out;
 }
 
-.btn-light {
+.button-light {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 10px 32px;
   font-size: 1rem;
   text-transform: uppercase;
   background: transparent;
   color: #fff;
-  border: 1px solid #fff;
+  border: 2px solid #fff;
   font-weight: 600;
   cursor: pointer;
+  width: 150px;
+  overflow: hidden;
+  transition: 0.2s all ease-in-out;
 }
 
-.btn:hover {
+.button-text {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.button:hover .button-text {
+  animation: marquee 0.75s linear infinite;
+}
+
+.button-light:hover {
   color: #fff;
   transition: 0.3s;
   background: rgba(255, 255, 255, 0.2);
 }
 
-.btn-light:hover {
-  color: #fff;
-  transition: 0.3s;
-  background: rgba(255, 255, 255, 0.2);
+.button-light:hover .button-text {
+  animation: marquee 0.75s linear infinite;
 }
 
 /* -------------------------------- */
 /* Mobile Devices */
 /* -------------------------------- */
 @media screen and (min-width: 0px) and (max-width: 480px) {
-  .btn {
+  .button {
     position: relative;
     padding: 10px 32px;
     font-size: 1rem;
     text-transform: uppercase;
     background: rgb(248, 217, 15);
-    color: #222;
-    border: 1px solid #fff;
+    color: black;
+    border: 2px solid #fff;
     font-weight: 600;
     cursor: pointer;
   }
 
-  .btn-light {
+  .button-light {
     position: relative;
     padding: 10px 32px;
     font-size: 1rem;
     text-transform: uppercase;
     background: transparent;
     color: #fff;
-    border: 1px solid #fff;
+    border: 2px solid #fff;
     font-weight: 600;
     cursor: pointer;
   }

@@ -15,34 +15,36 @@ export const EmployeeHero = () => {
   const [user, loading] = useAuthState(auth);
 
   useGSAP(() => {
-    gsap.from(".left-content", {
-      opacity: 0,
-      delay: 0.35,
-      duration: 0.5,
-      ease: "back.inOut",
-    });
-
     let tl = gsap.timeline();
-
     tl.from(
-      ".right-content img",
+      ".left-content",
       {
         opacity: 0,
         delay: 0.35,
-        duration: 0.15,
-        y: -50,
+        duration: 0.5,
+        ease: "power4.in",
       },
       0
-    ).to(
-      ".right-content img",
-      {
-        border: "2px solid white",
-        boxShadow: "10px 10px 5px black",
-        duration: 0.25,
-        rotationY: 0,
-      },
-      0.75
-    );
+    )
+      .from(
+        ".right-content",
+        {
+          opacity: 0,
+          duration: 0.65,
+          rotationY: 90,
+        },
+        0
+      )
+      .to(
+        ".right-content img",
+        {
+          border: "2px solid white",
+          boxShadow: "10px 10px 5px black",
+          duration: 0.25,
+          rotationY: 0,
+        },
+        0.75
+      );
 
     const titleST = new SplitText(".hero-title", {
       type: "words",
@@ -97,12 +99,12 @@ export const EmployeeHero = () => {
             at a time.
           </p>
 
-          <div className="btn-style">
-            <Link to="/EmployeeRegister" className="btn">
-              Sign Up
+          <div className="button-style">
+            <Link to="/EmployeeRegister" className="button">
+            <div className="button-text">Sign up</div>
             </Link>
-            <Link to="/EmployeeSignIn" className="btn-light">
-              Log in
+            <Link to="/EmployeeSignIn" className="button-light">
+            <div className="button-text">Sign in</div>
             </Link>
           </div>
         </div>

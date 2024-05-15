@@ -18,13 +18,13 @@
   width: 500px;
   background: #efefef;
   overflow: auto;
-  border: 1px solid black;
+  border: 2px solid black;
 }
 
 .rce-mbox {
   background-color: purple;
   color: white;
-  border: 1px solid #fff;
+  border: 2px solid #fff;
   border-radius: 0px;
   box-shadow: 10px 10px 5px black;
   margin: 15px;
@@ -33,7 +33,7 @@
 .rce-mbox.rce-mbox-right {
   background-color: rgb(248, 217, 15);
   color: #222;
-  border: 1px solid #fff;
+  border: 2px solid #fff;
   border-radius: 0px;
   box-shadow: 10px 10px 5px black;
   margin: 15px;

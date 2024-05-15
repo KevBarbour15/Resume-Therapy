@@ -10,8 +10,8 @@ function ViewConnectionPopup(props) {
   return props.trigger ? (
     <div className="popup">
       <div className="popup-inner">
-        <div className="close-btn-wrapper">
-          <button className="close-btn" onClick={() => handlePopup()}>
+        <div className="close-button-wrapper">
+          <button className="close-button" onClick={() => handlePopup()}>
             X
           </button>
         </div>

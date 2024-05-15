@@ -3,6 +3,9 @@ import { Link, useLocation } from "react-router-dom";
 import "./sidebar.scss";
 import { auth, logout } from "../../firebase-functionality/firebase";
 
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
 const sidebarNavItems = [
   {
     display: "Profile",
@@ -59,6 +62,18 @@ const Sidebar = () => {
   const sidebarRef = useRef();
   const indicatorRef = useRef();
   const location = useLocation();
+
+  useGSAP(() => {
+    let tl = gsap.timeline();
+    tl.set(".sidebar", {
+      x: "-300px",   
+    }, 0)
+    .to(".sidebar", {
+      opacity: 1,
+      x: 0,
+      duration: 0.75,
+    }, 0.5);
+  });
 
   useEffect(() => {
     setTimeout(() => {

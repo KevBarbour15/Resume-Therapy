@@ -1,11 +1,14 @@
+import "./layout-style.css";
+
 import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import Sidebar from "../../components/navbar/Sidebar";
 import { useUser } from "../../context/useUser";
 import { useNavigate } from "react-router-dom";
 
+// navigation components
+import Sidebar from "../../components/sidebar/Sidebar";
 import UserDashNavbar from "../../components/navbar/UserDashNavbar";
-import "./layout-style.css";
+
 
 const DashLayout = () => {
   const navigate = useNavigate();

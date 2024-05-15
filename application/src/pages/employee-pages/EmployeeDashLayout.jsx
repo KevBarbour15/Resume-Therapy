@@ -1,11 +1,13 @@
+import "./layout-style.css";
 import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import EmployeeSidebar from "../../components/navbar/EmployeeSidebar";
+
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase-functionality/firebase";
-import "./layout-style.css";
 
+// navigation components
+import EmployeeSidebar from "../../components/sidebar/EmployeeSidebar";
 import EmployeeNavbar from "../../components/navbar/EmployeeNavbar";
 
 const EmployeeDashLayout = () => {

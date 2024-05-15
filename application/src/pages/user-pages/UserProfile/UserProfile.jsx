@@ -7,12 +7,11 @@ import { db, storage } from "../../../firebase-functionality/firebase";
 import { addBio } from "../../../firebase-functionality/bio";
 
 // styles
-import "./profile.css";
+import "./profile.scss";
 import { Grid, Container } from "@mui/material";
 import TextField from "@mui/material/TextField";
 
 // components
-import ProfileWidget from "../../../components/widgets/ProfileWidget";
 import MessagesWidget from "../../../components/widgets/MessagesWidget";
 import CalendarWidget from "../../../components/widgets/CalendarWidget";
 import ViewResumeWidget from "../../../components/widgets/ViewResumeWidget";
@@ -193,14 +192,10 @@ function UserProfile() {
     <div>
       <Container maxWidth="xl">
         <div className="page-title">
-          <h1>Hi, welcome back!</h1>
+          <h1>Hi, welcome back {name }!</h1>
         </div>
 
-        <Grid container spacing={6}>
-          <Grid className="grid-item" item xs={12} sm={8} md={8} lg={8} xl={8}>
-            <ProfileWidget title={name} />
-          </Grid>
-        </Grid>
+        
         <Grid container spacing={6}>
           <Grid className="grid-item" item xs={6} md={4} lg={4}>
             <ViewResumeWidget
@@ -228,21 +223,6 @@ function UserProfile() {
             <EditBioWidget
               title="Edit Bio"
               onClick={() => setEditBioPopup(true)}
-            />
-          </Grid>
-        </Grid>
-        <Grid container spacing={6}>
-          <Grid className="grid-item" item xs={6} md={4} lg={4}>
-            <CalendarWidget
-              title="Calendar"
-              onClick={() => navigate("/UserDash/BookAppointment")}
-            />
-          </Grid>
-
-          <Grid className="grid-item" item xs={6} md={4} lg={4}>
-            <MessagesWidget
-              title="Messages"
-              onClick={() => navigate("/UserDash/Messages")}
             />
           </Grid>
         </Grid>

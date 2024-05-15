@@ -16,7 +16,7 @@ export default function CalendarWidget({ title }) {
           transform: "scale(1.1)",
           cursor: "pointer",
           bgcolor: "purple",
-          border: "1px solid #222",
+          border: "2px solid #222",
         },
       }}
     >

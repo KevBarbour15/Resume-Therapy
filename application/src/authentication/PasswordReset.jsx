@@ -29,7 +29,6 @@ const PasswordReset = () => {
     );
   });
 
-
   const enter = (event) => {
     if (event.key === "Enter") {
       reset();
@@ -45,7 +44,7 @@ const PasswordReset = () => {
       <Navbar />
       <div className="login">
         <div className="login-container">
-          <h1>Reset Your Password</h1>
+          <h1>Reset Password</h1>
           <input
             type="email"
             className="login-textbox"
@@ -54,10 +53,10 @@ const PasswordReset = () => {
             placeholder="E-mail Address"
             onKeyDown={enter}
           />
-          <button className="login__btn" onClick={reset}>
-            Reset Password
+          <button className="button" onClick={reset}>
+            <div className="button-text">Reset</div>
           </button>
-          <div>
+          <div className="register-text">
             Don't have an account? <Link to="/Register">Register</Link> now.
           </div>
         </div>

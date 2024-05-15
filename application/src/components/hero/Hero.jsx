@@ -23,34 +23,36 @@ export const HeroImg = () => {
   }, [user]);
 
   useGSAP(() => {
-    gsap.from(".left-content", {
-      opacity: 0,
-      delay: 0.35,
-      duration: 0.5,
-      ease: "back.inOut",
-    });
-
     let tl = gsap.timeline();
-
     tl.from(
-      ".right-content img",
+      ".left-content",
       {
         opacity: 0,
         delay: 0.35,
-        duration: 0.15,
-        y: -50,
+        duration: 0.5,
+        ease: "power4.in",
       },
       0
-    ).to(
-      ".right-content img",
-      {
-        border: "2px solid white",
-        boxShadow: "10px 10px 5px black",
-        duration: 0.25,
-        rotationY: 0,
-      },
-      0.75
-    );
+    )
+      .from(
+        ".right-content",
+        {
+          opacity: 0,
+          duration: 0.65,
+          rotationY: 90,
+        },
+        0
+      )
+      .to(
+        ".right-content img",
+        {
+          border: "2px solid white",
+          boxShadow: "10px 10px 5px black",
+          duration: 0.25,
+          rotationY: 0,
+        },
+        0.75
+      );
 
     const titleST = new SplitText(".hero-title", {
       type: "words",
@@ -96,7 +98,7 @@ export const HeroImg = () => {
     });
   }, []);
   */
-  
+
   return (
     <div className="hero">
       <div className="content">
@@ -117,12 +119,13 @@ export const HeroImg = () => {
             success. Start your journey with us today, and make your dream job a
             reality!
           </p>
-          <div className="btn-style">
-            <Link to="/Register" className="btn">
-              Sign up
+          <div className="button-style">
+            <Link to="/Register" className="button">
+              <div className="button-text">Sign up</div>
             </Link>
-            <Link to="/SignIn" className="btn-light">
-              Log in
+
+            <Link to="/SignIn" className="button-light">
+              <div className="button-text">Sign in</div>
             </Link>
           </div>
         </div>

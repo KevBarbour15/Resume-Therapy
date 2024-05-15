@@ -12,11 +12,12 @@ export default function EditBioWidget({ title }) {
   return (
     <CustomCard
       sx={{
+        height: "175px",
         "&:hover": {
           transform: "scale(1.1)",
           cursor: "pointer",
           bgcolor: "purple",
-          border: "1px solid #222",
+          border: "2px solid #222",
         },
       }}
     >

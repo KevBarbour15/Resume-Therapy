@@ -35,7 +35,7 @@
 /* -------------------------------- */
 /* Small Screens */
 /* -------------------------------- */
-@media screen and (min-width: 721px) and (max-width: 1080px) {
+@media screen and (min-width: 722px) and (max-width: 1080px) {
   .dash-layout {
     padding-left: 0px;
     padding-top: 0px;
@@ -48,7 +48,5 @@
 /* Desktop Screens */
 /* -------------------------------- */
 
-@media screen and (min-width: 1081px) and (max-width: 1200px) {
+@media screen and (min-width: 1082px) and (max-width: 1200px) {
 }
-
-

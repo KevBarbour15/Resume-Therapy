@@ -29,11 +29,15 @@ const SignIn = () => {
 
   useGSAP(() => {
     let tl = gsap.timeline();
-    tl.from(".login-container", {
-      opacity: 0,
-      duration: 0.65,
-      rotationY: 90,
-    }).to(
+    tl.from(
+      ".login-container",
+      {
+        opacity: 0,
+        duration: 0.5,
+        rotationY: 90,
+      },
+      0
+    ).to(
       ".login-container",
       {
         border: "2px solid white",
@@ -112,13 +116,13 @@ const SignIn = () => {
             onKeyDown={enter}
           />
           <div className="error-text">{errorText && <p>{errorText}</p>}</div>
-          <button className="login__btn" onClick={showAlert}>
-            Login
+          <button className="button" onClick={showAlert}>
+            <div className="button-text">Login</div>
           </button>
-          <div>
+          <div className="forgot-text">
             <Link to="/PasswordReset">Forgot Password?</Link>
           </div>
-          <div>
+          <div className="login-text">
             Don't have an account? <Link to="/Register"> Register</Link> now.
           </div>
         </div>
