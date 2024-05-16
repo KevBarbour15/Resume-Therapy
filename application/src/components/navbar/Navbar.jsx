@@ -42,9 +42,9 @@ export const Navbar = () => {
         </li>
 
         <li>
-          <Link to="/SignIn">
+          <Link to="/Login">
             <a className="nav-link">
-              <span>Sign In</span>
+              <span>Login</span>
             </a>
           </Link>
         </li>

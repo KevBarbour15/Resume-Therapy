@@ -1,17 +1,18 @@
 import "./index.scss";
 import Home from "./pages/home/Home";
 import { Routes, Route } from "react-router-dom";
-import Register from "./authentication/Register";
-import EmployeeHome from "./pages/employee-pages/EmployeeHome";
-import EmployeeRegister from "./authentication/EmployeeRegister";
-import EmployeeSignIn from "./authentication/EmployeeSignIn";
+
+// Authentication Imports
+import Login from "./authentication/Login";
+import SignUp from "./authentication/SignUp";
+import EmployeeSignUp from "./authentication/EmployeeSignUp";
+import EmployeeLogin from "./authentication/EmployeeLogin";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // Users Imports
 import PasswordReset from "./authentication/PasswordReset";
-import SignIn from "./authentication/SignIn";
 import UserMessages from "./pages/user-pages/Messages/UserMessages";
 import MeetReviewers from "./pages/user-pages/MeetReviewers/MeetReviewers";
 import VirtualCall from "./pages/user-pages/VirtualCall/VirtualCall";
@@ -21,6 +22,7 @@ import ChatGPTGuidance from "./pages/user-pages/ChatGPTGuidance/ChatGPTGuidance"
 import DashLayout from "./pages/user-pages/DashLayout";
 
 // Employee Imports
+import EmployeeHome from "./pages/employee-pages/EmployeeHome";
 import UserConnections from "./pages/user-pages/Connections/UserConnections";
 import EmployeeProfile from "./pages/employee-pages/EmployeeProfile/EmployeeProfile";
 import EmployeeAvailability from "./pages/employee-pages/EmployeeAvailability/EmployeeAvailability";
@@ -44,10 +46,10 @@ function App() {
       <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/SignIn" element={<SignIn />} />
-        <Route path="/Register" element={<Register />} />
-        <Route path="/EmployeeRegister" element={<EmployeeRegister />} />
-        <Route path="/EmployeeSignIn" element={<EmployeeSignIn />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/EmployeeSignUp" element={<EmployeeSignUp />} />
+        <Route path="/EmployeeLogin" element={<EmployeeLogin />} />
         <Route path="/PasswordReset" element={<PasswordReset />} />
         <Route path="/EmployeeHome" element={<EmployeeHome />} />
       </Routes>

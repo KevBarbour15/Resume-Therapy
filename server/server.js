@@ -13,8 +13,10 @@ app.get('/', (req, res) => {
 });
 
 const openaiRouter = require('./routes/openai');
+const authRouter = require('./routes/auth');
 
 app.use('/api', openaiRouter);
+app.use('/auth', authRouter);
 
 
 app.listen(PORT, () => {

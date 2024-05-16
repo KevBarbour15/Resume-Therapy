@@ -1,8 +1,6 @@
 import { initializeApp } from "firebase/app";
 import {
-  GoogleAuthProvider,
   getAuth,
-  signInWithPopup,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
@@ -34,30 +32,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
-const googleProvider = new GoogleAuthProvider();
-
-const signInWithGoogle = async () => {
-  try {
-    const res = await signInWithPopup(auth, googleProvider);
-    const user = res.user;
-    const q = query(collection(db, "users"), where("uid", "==", user.uid));
-    const docs = await getDocs(q);
-    if (docs.docs.length === 0) {
-      await addDoc(collection(db, "users"), {
-        uid: user.uid,
-        name: user.displayName,
-        authProvider: "google",
-        email: user.email,
-        employee: false,
-        bio: null,
-      });
-    }
-    return null;
-  } catch (err) {
-    console.error(err);
-    return err.message;
-  }
-};
 
 const logInWithEmailAndPassword = async (email, password) => {
   if (!email || !password) {
@@ -105,7 +79,7 @@ const logInWithEmailAndPasswordEmployee = async (email, password) => {
   }
 };
 
-const registerWithEmailAndPassword = async (name, email, password) => {
+const signUpWithEmailAndPassword = async (name, email, password) => {
   if (!name || !email || !password) {
     return "Fields cannot be empty.";
   }
@@ -133,7 +107,7 @@ const registerWithEmailAndPassword = async (name, email, password) => {
   }
 };
 
-const registerWithEmailAndPasswordEmployee = async (name, email, password) => {
+const signUpWithEmailAndPasswordEmployee = async (name, email, password) => {
   if (!name || !email || !password) {
     return "Fields cannot be empty.";
   }
@@ -189,12 +163,10 @@ export {
   auth,
   db,
   storage,
-  signInWithGoogle,
-  signInWithEmailAndPassword,
   logInWithEmailAndPassword,
   logInWithEmailAndPasswordEmployee,
-  registerWithEmailAndPassword,
-  registerWithEmailAndPasswordEmployee,
+  signUpWithEmailAndPassword,
+  signUpWithEmailAndPasswordEmployee,
   sendPasswordReset,
   logout,
   checkUserType,

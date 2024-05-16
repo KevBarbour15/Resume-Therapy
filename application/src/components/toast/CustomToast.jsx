@@ -7,7 +7,7 @@ const CustomToast = ({ closeToast }) => (
       be back up soon, and better than ever. We are refactoring the codebase and
       adding new features to improve your experience.
     </p>
-    <button className="btn" onClick={closeToast}>
+    <button className="button" onClick={closeToast}>
       Close
     </button>
   </div>

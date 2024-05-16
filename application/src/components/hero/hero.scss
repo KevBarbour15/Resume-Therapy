@@ -41,6 +41,7 @@
   padding: 0.1rem 0 1.5rem;
   width: 100%;
 }
+
 .button-style {
   display: flex;
   flex-direction: row;
@@ -100,6 +101,11 @@
 
   .right-content {
     display: none;
+  }
+
+  .button-style {
+    align-items: center;
+    justify-content: center;
   }
 }
 

@@ -1,5 +1,4 @@
-.login,
-.register {
+.auth {
   height: 100vh;
   width: 100%;
   display: flex;
@@ -17,8 +16,7 @@
   }
 }
 
-.login-container,
-.register-container {
+.auth-container {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -41,8 +39,8 @@
   }
 }
 
-.login-textbox,
-.register-textbox {
+.auth-textbox,
+.auth-textbox {
   padding: 10px;
   font-size: 20px;
   margin-bottom: 10px;
@@ -50,17 +48,14 @@
 
 .error-text p,
 .forgot-text,
-.register-text,
-.login-text {
+.auth-text {
   color: white;
   font-size: 16px;
   margin-top: 10px;
   width: 100%;
 }
 
-.login-text,
-.register-text {
-  color: white;
+.auth-text {
   a {
     color: rgb(248, 217, 15);
     text-decoration: none;
@@ -73,8 +68,7 @@
 }
 
 @media (max-width: 768px) {
-  .login,
-  .register {
+  .auth {
     p {
       width: 75%;
     }

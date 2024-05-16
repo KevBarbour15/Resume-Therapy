@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { logInWithEmailAndPasswordEmployee } from "../firebase-functionality/firebase";
+import { logInWithEmailAndPassword } from "../firebase-functionality/firebase";
 
-// context
-import { useUser } from "./../context/useUser";
+//context
+import { useUser } from "../context/useUser";
 
-// styles
-import "./login.scss";
+//styles
+import "./auth.scss";
 
 // components
 import { Navbar } from "../components/navbar/Navbar";
@@ -17,7 +17,7 @@ import CustomToast from "../components/toast/CustomToast";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-const EmployeeSignIn = () => {
+const Login = () => {
   const { user, loading, error } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,12 +26,16 @@ const EmployeeSignIn = () => {
 
   useGSAP(() => {
     let tl = gsap.timeline();
-    tl.from(".login-container", {
-      opacity: 0,
-      duration: 0.65,
-      rotationY: 90,
-    }).to(
-      ".login-container",
+    tl.from(
+      ".auth-container",
+      {
+        opacity: 0,
+        duration: 0.5,
+        rotationY: 90,
+      },
+      0
+    ).to(
+      ".auth-container",
       {
         border: "2px solid white",
         boxShadow: "10px 10px 5px black",
@@ -43,9 +47,16 @@ const EmployeeSignIn = () => {
   });
 
   useEffect(() => {
-    //if (user) navigate("/ReviewerDash/Profile");
-    //if (error) alert(error.message);
-  }, [user, loading, navigate, error]);
+    if (user) {
+      navigate("/UserDash/Profile");
+    } else if (!user && !loading) {
+      navigate("/Login");
+    }
+  }, [user, loading, navigate]);
+
+  useEffect(() => {
+    if (error) alert(error.message);
+  }, [error]);
 
   const enter = (event) => {
     if (event.key === "Enter") {
@@ -54,10 +65,8 @@ const EmployeeSignIn = () => {
   };
 
   const login = async () => {
-    /*
-    const errMessage = await logInWithEmailAndPasswordEmployee(email, password);
-    console.log(err);
-    setErrorText(errMessage);*/
+    const errMessage = await logInWithEmailAndPassword(email, password);
+    setErrorText(errMessage);
   };
 
   const showAlert = () => {
@@ -84,12 +93,12 @@ const EmployeeSignIn = () => {
   return (
     <>
       <Navbar />
-      <div className="login">
-        <div className="login-container">
-          <h1>Therapist Login</h1>
+      <div className="auth">
+        <div className="auth-container">
+          <h1> Login</h1>
           <input
             type="email"
-            className="login-textbox"
+            className="auth-textbox"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="E-mail Address"
@@ -97,29 +106,21 @@ const EmployeeSignIn = () => {
           />
           <input
             type="password"
-            className="login-textbox"
+            className="auth-textbox"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
             onKeyDown={enter}
           />
           <div className="error-text">{errorText && <p>{errorText}</p>}</div>
-          <button
-            className="button"
-            //onClick={() => logInWithEmailAndPasswordEmployee(email, password)}
-            onClick={() => {
-              showAlert;
-            }}
-          >
+          <button className="button" onClick={showAlert}>
             <div className="button-text">Login</div>
           </button>
           <div className="forgot-text">
             <Link to="/PasswordReset">Forgot Password?</Link>
           </div>
-          <div className="login-text">
-            Don't have an account?
-            <Link to="/EmployeeRegister"> Register </Link>
-            now.
+          <div className="auth-text">
+            Don't have an account? <Link to="/SignUp"> Sign Up</Link> now.
           </div>
         </div>
       </div>
@@ -127,4 +128,4 @@ const EmployeeSignIn = () => {
   );
 };
 
-export default EmployeeSignIn;
+export default Login;

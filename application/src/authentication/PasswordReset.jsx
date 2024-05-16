@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { sendPasswordReset } from "../firebase-functionality/firebase";
-import "./login.scss";
+
+import "./auth.scss";
+
 import { Navbar } from "../components/navbar/Navbar";
 
 // GSAP animations
@@ -13,12 +15,12 @@ const PasswordReset = () => {
 
   useGSAP(() => {
     let tl = gsap.timeline();
-    tl.from(".login-container", {
+    tl.from(".auth-container", {
       opacity: 0,
       duration: 0.65,
       rotationY: 90,
     }).to(
-      ".login-container",
+      ".auth-container",
       {
         border: "2px solid white",
         boxShadow: "10px 10px 5px black",
@@ -42,12 +44,12 @@ const PasswordReset = () => {
   return (
     <>
       <Navbar />
-      <div className="login">
-        <div className="login-container">
+      <div className="auth">
+        <div className="auth-container">
           <h1>Reset Password</h1>
           <input
             type="email"
-            className="login-textbox"
+            className="auth-textbox"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="E-mail Address"
@@ -56,7 +58,7 @@ const PasswordReset = () => {
           <button className="button" onClick={reset}>
             <div className="button-text">Reset</div>
           </button>
-          <div className="register-text">
+          <div className="auth-text">
             Don't have an account? <Link to="/Register">Register</Link> now.
           </div>
         </div>

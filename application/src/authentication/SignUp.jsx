@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
-import Navbar from "../components/navbar/Navbar";
-
+import { Navbar } from "../components/navbar/Navbar";
 import {
   auth,
-  registerWithEmailAndPasswordEmployee,
+  signUpWithEmailAndPassword,
 } from "../firebase-functionality/firebase";
-import "./login.scss";
+
+import "./auth.scss";
 
 // Toast notifications
 import { toast } from "react-toastify";
@@ -17,7 +17,7 @@ import CustomToast from "../components/toast/CustomToast";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-const EmployeeRegister = () => {
+const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -29,17 +29,17 @@ const EmployeeRegister = () => {
 
   useGSAP(() => {
     let tl = gsap.timeline();
-    tl.from(".register-container", {
+    tl.from(".auth-container", {
       opacity: 0,
       duration: 0.65,
       rotationY: 90,
     }).to(
-      ".register-container",
+      ".auth-container",
       {
         border: "2px solid white",
         boxShadow: "10px 10px 5px black",
         duration: 0.25,
-        rotationX: 0,
+        rotationY: 0,
       },
       0.75
     );
@@ -50,15 +50,18 @@ const EmployeeRegister = () => {
       setErrorText("Passwords do not match");
       return;
     }
+
     /*
-    try {
-      console.log("Attempting to register user");
-      await registerWithEmailAndPasswordEmployee(name, email, password, false);
-      console.log("Registration successful");
+    const errMessage = await signUpWithEmailAndPassword(
+      name,
+      email,
+      password
+    );
+    setErrorText(errMessage);
+
+    if (error === "") {
       setRegistrationStatus("success");
-    } catch (error) {
-      console.error("Registration error:", error);
-      setErrorText(error.message);
+    } else {
       setRegistrationStatus("failure");
     }
     */
@@ -72,9 +75,21 @@ const EmployeeRegister = () => {
 
   useEffect(() => {
     if (registrationStatus === "success") {
-      navigate("/ReviewerDash/Profile");
+      navigate("/UserDash/Profile");
     }
-  }, [navigate, registrationStatus]);
+  }, [registrationStatus]);
+
+  const handleLogin = async () => {
+    if (user) {
+      const q = query(collection(db, "users"), where("uid", "==", user.uid));
+
+      const doc = await getDocs(q);
+      const data = doc.docs[0]?.data();
+      if (data && data.employee) {
+        await logout(); // Log the user out if they are an employee
+      }
+    }
+  };
 
   useEffect(() => {
     if (loading) return;
@@ -104,13 +119,13 @@ const EmployeeRegister = () => {
   return (
     <>
       <Navbar />
-      <div className="register">
-        <div className="register-container">
-          <h1>Register as a Therapist</h1>
+      <div className="auth">
+        <div className="auth-container">
+          <h1>New Account</h1>
 
           <input
             type="text"
-            className="register-textbox"
+            className="auth-textbox"
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Full Name"
@@ -118,7 +133,7 @@ const EmployeeRegister = () => {
           />
           <input
             type="text"
-            className="register-textbox"
+            className="auth-textbox"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="E-mail Address"
@@ -126,7 +141,7 @@ const EmployeeRegister = () => {
           />
           <input
             type="password"
-            className="register-textbox"
+            className="auth-textbox"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
@@ -134,7 +149,7 @@ const EmployeeRegister = () => {
           />
           <input
             type="password"
-            className="register-textbox"
+            className="auth-textbox"
             value={password}
             onChange={(e) => setConfirmPassword(e.target.value)}
             placeholder="Confirm Password"
@@ -147,17 +162,15 @@ const EmployeeRegister = () => {
               showAlert;
             }}
           >
-            <div className="button-text">Register</div>
+            <div className="button-text">Sign up</div>
           </button>
 
-          <div className="register-text">
-            Already have an account? <Link to="/EmployeeSignIn"> Log in </Link>{" "}
-            now.
+          <div className="auth-text">
+            Already have an account?<Link to="/Login"> Log in</Link> now.
           </div>
         </div>
       </div>
     </>
   );
 };
-
-export default EmployeeRegister;
+export default Register;

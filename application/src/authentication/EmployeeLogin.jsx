@@ -1,15 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  logInWithEmailAndPassword,
-  signInWithGoogle,
-} from "../firebase-functionality/firebase";
+import { logInWithEmailAndPasswordEmployee } from "../firebase-functionality/firebase";
 
-//context
-import { useUser } from "./../context/useUser";
+// context
+import { useUser } from "../context/useUser";
 
-//styles
-import "./login.scss";
+// styles
+import "./auth.scss";
 
 // components
 import { Navbar } from "../components/navbar/Navbar";
@@ -20,7 +17,7 @@ import CustomToast from "../components/toast/CustomToast";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-const SignIn = () => {
+const EmployeeLogin = () => {
   const { user, loading, error } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,16 +26,12 @@ const SignIn = () => {
 
   useGSAP(() => {
     let tl = gsap.timeline();
-    tl.from(
-      ".login-container",
-      {
-        opacity: 0,
-        duration: 0.5,
-        rotationY: 90,
-      },
-      0
-    ).to(
-      ".login-container",
+    tl.from(".auth-container", {
+      opacity: 0,
+      duration: 0.65,
+      rotationY: 90,
+    }).to(
+      ".auth-container",
       {
         border: "2px solid white",
         boxShadow: "10px 10px 5px black",
@@ -50,16 +43,9 @@ const SignIn = () => {
   });
 
   useEffect(() => {
-    if (user) {
-      navigate("/UserDash/Profile");
-    } else if (!user && !loading) {
-      navigate("/SignIn");
-    }
-  }, [user, loading, navigate]);
-
-  useEffect(() => {
-    if (error) alert(error.message);
-  }, [error]);
+    //if (user) navigate("/ReviewerDash/Profile");
+    //if (error) alert(error.message);
+  }, [user, loading, navigate, error]);
 
   const enter = (event) => {
     if (event.key === "Enter") {
@@ -68,8 +54,10 @@ const SignIn = () => {
   };
 
   const login = async () => {
-    const errMessage = await logInWithEmailAndPassword(email, password);
-    setErrorText(errMessage);
+    /*
+    const errMessage = await logInWithEmailAndPasswordEmployee(email, password);
+    console.log(err);
+    setErrorText(errMessage);*/
   };
 
   const showAlert = () => {
@@ -96,12 +84,12 @@ const SignIn = () => {
   return (
     <>
       <Navbar />
-      <div className="login">
-        <div className="login-container">
-          <h1> Login</h1>
+      <div className="auth">
+        <div className="auth-container">
+          <h1>Therapist Login</h1>
           <input
             type="email"
-            className="login-textbox"
+            className="auth-textbox"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="E-mail Address"
@@ -109,21 +97,29 @@ const SignIn = () => {
           />
           <input
             type="password"
-            className="login-textbox"
+            className="auth-textbox"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
             onKeyDown={enter}
           />
           <div className="error-text">{errorText && <p>{errorText}</p>}</div>
-          <button className="button" onClick={showAlert}>
+          <button
+            className="button"
+            //onClick={() => logInWithEmailAndPasswordEmployee(email, password)}
+            onClick={() => {
+              showAlert;
+            }}
+          >
             <div className="button-text">Login</div>
           </button>
           <div className="forgot-text">
             <Link to="/PasswordReset">Forgot Password?</Link>
           </div>
-          <div className="login-text">
-            Don't have an account? <Link to="/Register"> Register</Link> now.
+          <div className="auth-text">
+            Want to become a therapist?
+            <Link to="/EmployeeSignUp"> Sign up </Link>
+            now.
           </div>
         </div>
       </div>
@@ -131,4 +127,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default EmployeeLogin;

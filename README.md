@@ -1,5 +1,7 @@
 **_ Website URL: https://resume-therapy.onrender.com/ _**
 
+*** NOTE: RESUME THERAPY IS CURRENTLY UNDER CONSTRUCTION TO ENHANCE SECURITY
+
 **_ Overview _**
 
 Resume Therapy is an innovative platform designed to merge the concepts of mental wellness and professional development. This site offers a unique blend of Telehealth mental wellness support and expert assistance in resume writing, catering to individuals undergoing significant career changes, recent graduates, and anyone in need of professional guidance.
@@ -16,7 +18,7 @@ Resume Therapy is an innovative platform designed to merge the concepts of menta
 **_ Technology Stack _**
 
 - Frontend: Developed using React, styled using SCSS and animations are made using GSAP. 
-- Database: Utilizes Firebase for robust and secure data management.
+- Backend: Utilizes Firebase for robust and secure data management.
 - Video Chat Service: Integrates Daily.co for seamless video communication.
 
 **_ To get started with Resume Therapy, follow these steps: _**

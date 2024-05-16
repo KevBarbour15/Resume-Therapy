@@ -100,11 +100,11 @@ export const EmployeeHero = () => {
           </p>
 
           <div className="button-style">
-            <Link to="/EmployeeRegister" className="button">
-            <div className="button-text">Sign up</div>
+            <Link to="/EmployeeSignUp" className="button">
+              <div className="button-text">Sign up</div>
             </Link>
-            <Link to="/EmployeeSignIn" className="button-light">
-            <div className="button-text">Sign in</div>
+            <Link to="/EmployeeLogin" className="button-light">
+              <div className="button-text">Login</div>
             </Link>
           </div>
         </div>

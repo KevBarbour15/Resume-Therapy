@@ -120,12 +120,12 @@ export const HeroImg = () => {
             reality!
           </p>
           <div className="button-style">
-            <Link to="/Register" className="button">
-              <div className="button-text">Sign up</div>
+            <Link to="/SignUp" className="button">
+              <div className="button-text">Sign Up</div>
             </Link>
 
-            <Link to="/SignIn" className="button-light">
-              <div className="button-text">Sign in</div>
+            <Link to="/Login" className="button-light">
+              <div className="button-text">Login</div>
             </Link>
           </div>
         </div>

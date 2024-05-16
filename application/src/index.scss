@@ -13,6 +13,13 @@ body {
   background: #eee9e9;
 }
 
+input,
+select {
+  border-radius: 0px;
+  -webkit-appearance: none;
+  appearance: none;   
+}
+
 h1,
 h4,
 p,
