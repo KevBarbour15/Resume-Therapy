@@ -12,8 +12,6 @@ import { Grid, Container } from "@mui/material";
 import TextField from "@mui/material/TextField";
 
 // components
-import MessagesWidget from "../../../components/widgets/MessagesWidget";
-import CalendarWidget from "../../../components/widgets/CalendarWidget";
 import ViewResumeWidget from "../../../components/widgets/ViewResumeWidget";
 import ViewBioWidget from "../../../components/widgets/ViewBioWidget";
 import CustomButton from "../../../components/custom-mui/CustomButton";

@@ -37,8 +37,9 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import TextPlugin from "gsap/TextPlugin";
 import SplitText from "gsap/SplitText";
+import ScrambleTextPlugin from "gsap/ScrambleTextPlugin";
 
-gsap.registerPlugin(ScrollTrigger, TextPlugin, SplitText);
+gsap.registerPlugin(ScrollTrigger, TextPlugin, SplitText, ScrambleTextPlugin);
 
 function App() {
   return (

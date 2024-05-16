@@ -61,8 +61,8 @@ export const HeroImg = () => {
 
     let titleTl = gsap.timeline({
       ease: "power2",
-      duration: 2,
-      delay: 0.35,
+      duration: 2.25,
+      delay: 0.5,
     });
 
     titleTl.from(
@@ -70,13 +70,12 @@ export const HeroImg = () => {
       {
         opacity: 0,
         y: -120,
-        stagger: 0.05,
+        stagger: 0.1,
       },
       0
     );
   });
 
-  /*
   useEffect(() => {
     toast(<CustomToast />, {
       position: "top-center",
@@ -97,7 +96,6 @@ export const HeroImg = () => {
       },
     });
   }, []);
-  */
 
   return (
     <div className="hero">

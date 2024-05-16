@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "react-chat-elements/dist/main.css";
 import { auth } from "../../../firebase-functionality/firebase";
