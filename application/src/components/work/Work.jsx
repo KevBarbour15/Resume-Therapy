@@ -14,12 +14,12 @@ export const Work = () => {
     gsap.to(".card", {
       scrollTrigger: {
         trigger: ".card",
-        start: "top 70%",
+        start: "top 80%",
         once: true,
       },
       rotateY: 0,
       duration: 0.75,
-      delay: 0.25,
+      delay: 0.15,
       opacity: 1,
       boxShadow: "10px 10px 5px black",
       border: "2px solid white",
