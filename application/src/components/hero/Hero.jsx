@@ -25,10 +25,10 @@ export const HeroImg = () => {
   useGSAP(() => {
     let tl = gsap.timeline();
     tl.from(
-      ".left-content ",
+      ".left-content",
       {
         opacity: 0,
-        delay: 0.75,
+        delay: 1,
         duration: 0.5,
         ease: "power2",
       },
@@ -37,9 +37,11 @@ export const HeroImg = () => {
       .from(
         ".right-content",
         {
-          delay: 0.5,
+          delay: 0.75,
           opacity: 0,
           duration: 0.65,
+          x: 250,
+          y: 250,
           rotationY: 90,
         },
         0
@@ -49,7 +51,7 @@ export const HeroImg = () => {
         {
           border: "2px solid white",
           boxShadow: "10px 10px 5px black",
-          duration: 0.25,
+          duration: 0.5,
           rotationY: 0,
         },
         0.75
